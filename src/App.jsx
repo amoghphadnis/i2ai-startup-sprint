@@ -17,7 +17,8 @@ function App() {
           className="navbar-logo" />
         <span className="navbar-title">i2u.ai | Ideas to Unicorns through AI!</span>
       </div>
-    </header><div className="main-container">
+    </header>
+    <div className="main-container">
         {/* Hero Section */}
         <section className="hero-section">
           <div className="lottie-wrapper">
@@ -97,6 +98,45 @@ function App() {
             </button>    
           </a>
         </div>
+        <section className="unicorn-preview">
+          <h2 className="unicorn-title">🌍 Know the Giants You're Sprinting With</h2>
+          <p className="unicorn-subtext">
+            Discover how these startups scaled to billions.
+          </p>
+
+          <div className="unicorn-card">
+            <div className="company-highlight">
+              <span className="company-rank">#1</span>
+              <span className="company-name">SpaceX</span>
+              <div>
+                <span className="company-valuation">$350B</span>
+              </div>
+            </div>
+            <div className="company-highlight">
+              <span className="company-rank">#2</span>
+              <span className="company-name">ByteDance</span>
+              <div>
+                <span className="company-valuation">$300B</span>
+              </div>
+            </div>
+            <div className="company-highlight">
+              <span className="company-rank">#3</span>
+              <span className="company-name">OpenAI</span>
+              <div>
+                <span className="company-valuation">$300B</span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="https://i2u.ai/unicorn_club.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="view-full-leaderboard"
+          >
+            View Full Leaderboard →
+          </a>
+        </section>
       </div>
       </>
   );
