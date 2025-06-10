@@ -56,9 +56,9 @@ function App() {
           </ul>
 
           {/* Live Count */}
-          <div className="live-count">
+          {/* <div className="live-count">
             🔥 <CountUp end={87} duration={15} />/100 Early Bird Slots Taken — Don’t Miss Your Shot!
-          </div>
+          </div> */}
 
 
           {/* Pricing Section */}
@@ -66,12 +66,13 @@ function App() {
             <span>💰 Pricing That Works For Everyone:🪄</span>
             <div className="price-tier india">
               <span>🇮🇳 Indian Founders</span>
-              <span className="bold">₹999 <sup> (Early Bird)</sup></span>
+              <span className="bold">₹4999 <sup> (Early Bird)</sup>
+              </span>
             </div>
-            <div className="price-tier global">
+            {/* <div className="price-tier global">
               <span>🌍 Global Founders</span>
               <span className="bold">$99 <sup>(Annual)</sup></span>
-            </div>
+            </div> */}
           </div>
 
           {/* CTA */}
