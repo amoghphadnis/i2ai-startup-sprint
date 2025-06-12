@@ -24,11 +24,42 @@
   color: #fff;
 }
 
+/* hide the default arrow & give your own */
 .filters select {
-  background: rgba(255, 255, 255, 0.1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, #fff 50%),
+    linear-gradient(135deg, #fff 50%, transparent 50%),
+    rgba(255,255,255,0.1);
+  background-position:
+    calc(100% - 1rem) calc(1em + 2px),
+    calc(100% - .75rem) calc(1em + 2px),
+    center;
+  background-size:
+    .5em .5em,
+    .5em .5em,
+    100% 100%;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+  border: none;
+  border-radius: .5rem;
   color: #fff;
-  min-width: 150px;
 }
+
+/* style the options list where possible */
+.filters select option {
+  background-color: #1a1a2e;
+  color: #e5e7eb;
+}
+
+/* focus outline */
+.filters select:focus {
+  box-shadow: 0 0 0 2px #21d4fd;
+  outline: none;
+}
+
 
 .sort-group {
   display: flex;
