@@ -1,0 +1,41 @@
+/* Navbar Styles */
+  .navbar {
+    width: 100%;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  .navbar-logo {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+  }
+  
+  .navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #facc15;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-title {
+      font-size: .75rem;
+    }
+  }
