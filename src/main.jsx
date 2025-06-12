@@ -6,7 +6,7 @@ import { HashRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HashRouter basename="/i2ai-startup-sprint/">
+    <HashRouter>
       <App />
     </HashRouter>
   </StrictMode>
