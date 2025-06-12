@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Lottie from "lottie-react";
 import rocketAnimation from "../../assets/rocket.json";
@@ -9,7 +9,7 @@ import { FiZap, FiUsers } from "react-icons/fi";
 function Home() {
   return (
     <>
-    <div className="main-container">
+      <div className="main-container">
         {/* Hero Section */}
         <section className="hero-section">
           <div className="lottie-wrapper">
@@ -39,7 +39,8 @@ function Home() {
               resources.
             </li>
             <li>
-              <FiZap className="icon" /> Competing against thousands of startups.
+              <FiZap className="icon" /> Competing against thousands of
+              startups.
             </li>
             <li>
               <FiZap className="icon" /> You need visibility and opportunities.
@@ -51,13 +52,13 @@ function Home() {
             🔥 <CountUp end={87} duration={15} />/100 Early Bird Slots Taken — Don’t Miss Your Shot!
           </div> */}
 
-
           {/* Pricing Section */}
           <div className="pricing">
             <span>💰 Pricing That Works For Everyone:🪄</span>
             <div className="price-tier india">
               <span>🇮🇳 Indian Founders</span>
-              <span className="bold">₹4999 <sup> (Early Bird)</sup>
+              <span className="bold">
+                ₹4999 <sup> (Early Bird)</sup>
               </span>
             </div>
             {/* <div className="price-tier global">
@@ -68,12 +69,15 @@ function Home() {
 
           {/* CTA */}
           {/* <button className="cta-button">Register Now for ₹999 Only</button> */}
-          <a href="https://payments.cashfree.com/forms/i2uAI"
+          <a
+            href="https://payments.cashfree.com/forms/i2uAI"
             target="_blank"
             rel="noopener noreferrer"
-            className="cashfree-button">
+            className="cashfree-button"
+          >
             <button className="cssbuttons-io-button">
-              {" "}Register Now for ₹999 Only
+              {" "}
+              Register Now for ₹999 Only
               <div className="icon">
                 <svg
                   height="24"
@@ -84,14 +88,17 @@ function Home() {
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path
                     d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                    fill="currentColor" />
+                    fill="currentColor"
+                  />
                 </svg>
               </div>
-            </button>    
+            </button>
           </a>
         </div>
         <section className="unicorn-preview">
-          <h2 className="unicorn-title">🌍 Know the Giants You're Sprinting With</h2>
+          <h2 className="unicorn-title">
+            🌍 Know the Giants You're Sprinting With
+          </h2>
           <p className="unicorn-subtext">
             Discover how these startups scaled to billions.
           </p>
@@ -121,7 +128,7 @@ function Home() {
           </div>
 
           <Link
-            to="/unicorns"  
+            to="/unicorns"
             target="_blank"
             rel="noopener noreferrer"
             className="view-full-leaderboard"
@@ -130,7 +137,7 @@ function Home() {
           </Link>
         </section>
       </div>
-      </>
+    </>
   );
 }
 

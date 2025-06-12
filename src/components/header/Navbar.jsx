@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
-import React from 'react';
+import React from "react";
 import logo from "../../assets/logo.png";
-import './Navbar.css';
+import "./Navbar.css";
 
 export default function Navbar() {
   return (
