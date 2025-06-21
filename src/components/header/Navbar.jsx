@@ -8,15 +8,20 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-content">
-        <img src={logo} alt="i2u.ai Logo" className="navbar-logo" />
-        <span className="navbar-title">
-          i2u.ai | Ideas to Unicorns through AI!
-        </span>
+        <Link to="/">
+          <img src={logo} alt="i2u.ai Logo" className="navbar-logo" />
+          <br />
+          <span className="navbar-title">
+            Ideas to Unicorns through AI!
+          </span>
+        </Link>
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/how-it-works">How It Works</Link>
-          <Link to="/startup-in-action">Startup in Action</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/How-It-Works">How It Works</Link>
+          <Link to="/Startup-In-Action">Startup in Action</Link>
+          <Link to="/Register">Register</Link>
+          <Link to="/Pricing">Pricing</Link>
+          <Link to="/Resources">Resources</Link>
+          <Link to="/Faq">FAQ</Link>
         </nav>
       </div>
     </header>

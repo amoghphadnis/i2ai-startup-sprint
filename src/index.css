@@ -1,17 +1,7 @@
-:root {
-  --color-primary: #2E90FA;
-  --color-primary-hover: #2178C8;
-  --gradient-accent: linear-gradient(135deg, #FF7E5F 0%, #FEB47B 100%);
-  --color-bg: #F8F9FA;
-  --color-surface: #FFFFFF;
-  --color-text: #343A40;
-  --color-muted: #6C757D;
-}
-
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
@@ -21,7 +11,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }

@@ -3,7 +3,14 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/header/Navbar";
 import Home from "./components/HomePage/Home";
-import UnicornClub from "./pages/UnicornClub";
+import UnicornClub from "./pages/Unicornclub/UnicornClub";
+import HowItWorks from './pages/How-It-Works/HowItWorks';
+import StartupInAction from './pages/Startup-In-Action/StartupInAction';
+import Pricing from './pages/Pricing/Pricing';
+import Resources from './pages/Resources/Resources';
+import FAQ from './pages/FAQ/Faq';
+import Register from './pages/Register/Register';
+import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
 
 function App() {
   return (
@@ -11,7 +18,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/unicorns" element={<UnicornClub />} />
+        <Route path="/Unicorns" element={<UnicornClub />} />
+        <Route path="/How-It-Works" element={<HowItWorks />} />
+        <Route path="/Startup-In-Action" element={<StartupInAction />} />
+        <Route path="/Pricing" element={<Pricing />} />
+        <Route path="/Resources" element={<Resources />} />
+        <Route path="/Faq" element={<FAQ />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/ValueCalculator" element={<ValueCalculator />} />
       </Routes>
     </>
   );

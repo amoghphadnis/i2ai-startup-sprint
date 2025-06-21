@@ -1,7 +1,7 @@
 // src/pages/UnicornClub.jsx
 import React, { useState, useMemo } from "react";
 import "./UnicornClub.css";
-import unicorns from "../data/unicorn_club.json";
+import unicorns from "../../data/unicorn_club.json";
 
 export default function UnicornClub() {
   // filter & sort state
