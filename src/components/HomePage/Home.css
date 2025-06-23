@@ -215,6 +215,42 @@
   }
 }
 
+/*Value-Cards section*/
+
+.value-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.value-card {
+  background: var(--gradient-accent);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.value-card.total {
+  background: var(--gradient-accent);
+  color: white;
+}
+.value-card h4 {
+  color: var(--color-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.value-card .traditional {
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+}
+.value-card .our {
+  color: yellow;
+  font-weight: bold;
+}
+
 
 /* How It Works Teaser */
 .teaserSection {
