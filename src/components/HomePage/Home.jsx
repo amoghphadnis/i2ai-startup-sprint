@@ -16,11 +16,11 @@ const carouselSettings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 1,
+  slidesToShow: 2,
   slidesToScroll: 1,
-  arrows: true,
+  arrows: false,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 4000,
   responsive: [
     {
       breakpoint: 600,

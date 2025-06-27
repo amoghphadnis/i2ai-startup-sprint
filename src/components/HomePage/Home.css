@@ -368,11 +368,11 @@
 /* How It Works Teaser */
 .teaserSection { 
   scale: 0.95;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   padding: 2.5rem 0 2rem 0;
   /* background: var(--color-bg); */
-  backdrop-filter: blur(10px);
-  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
+  /* backdrop-filter: blur(10px);
+  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31); */
   border-radius: var(--border-radius);
 }
 .teaserTitle {
@@ -393,7 +393,7 @@
 .teaserCard {
   background: #fff;
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
   padding: 1.5rem 1rem;
   text-align: center;
 }
@@ -419,13 +419,13 @@
 /* Features Showcase */
 .featuresSection { 
   scale: 0.95;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   /* background: #f4f8ff; */
   padding: 2.5rem 0 2rem 0;
   backdrop-filter: blur(10px);
-  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
+  /* box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31); */
   border-radius: var(--border-radius);
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .featuresGrid {
@@ -439,7 +439,7 @@
 .featureCard {
   background: #fff;
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
   padding: 1.5rem 1rem;
   text-align: center;
 }
@@ -482,9 +482,9 @@
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  background: #f4f8ff;
+  /* background: #f4f8ff; */
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
   padding: 1.5rem 1rem;
   min-height: 320px;
   justify-content: center;
@@ -524,6 +524,7 @@
 
 /* Bottom CTA Banner */
 .bottomCta { 
+  border-radius: var(--border-radius);
   scale: 0.95;
   background: var(--gradient-bottom-footer);
   color: #fff;
