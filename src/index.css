@@ -1,4 +1,5 @@
 
+
 a {
   font-weight: 500;
   color: #ffffff;
@@ -14,6 +15,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-dark);
 }
 
 h1 {

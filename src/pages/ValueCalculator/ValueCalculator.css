@@ -1,7 +1,8 @@
 /* src/components/ValueCalculator/ValueCalculator.css */
 /* src/components/ValueCalculator/ValueCalculator.css */
 
-.value-page.container {
+.value-page.container { 
+  scale: 0.95;
   background: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
@@ -18,6 +19,7 @@
 }
 
 .header h1 {
+  color: #ffffff !important;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
@@ -115,7 +117,7 @@
 }
 
 .advanced-toggle:hover {
-  background: var(--color-primary-hover);
+  background: var(--gradient-accent);
 }
 
 .advanced-settings {
@@ -126,7 +128,7 @@
 }
 
 .calculate-btn {
-  background: var(--color-success);
+  background: var(--viridian);
   color: white;
   border: none;
   padding: 1rem;
@@ -172,18 +174,18 @@
 }
 
 .results-table th {
-  background: var(--color-primary-hover);
-  color: var(--color-primary);
+  background: var(--thistle);
+  color: var(--black);
   font-weight: 600;
 }
 
 .cost-traditional {
-  color: #e74c3c;
+  color: #b32617;
   font-weight: 600;
 }
 
 .cost-ours {
-  color: #27ae60;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -199,8 +201,8 @@
 }
 
 .summary-card {
-  background: var(--gradient-accent);
-  color: white;
+  background: var(--thistle);
+  color: var(--black);
   padding: 1rem;
   border-radius: 0.75rem;
   text-align: center;

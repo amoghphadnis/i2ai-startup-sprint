@@ -24,6 +24,13 @@ const baseCosts = {
   education:  { min: 5000,  max: 15000 }
 };
 
+function formatCurrency(amount, region) {
+  if (region === 'india') {
+    return `₹${Math.round(amount).toLocaleString('en-IN')}`;
+  }
+  return `$${Math.round(amount).toLocaleString()}`;
+}
+
 export default function ValueCalculator() {
   // form state
   const [companyStage, setCompanyStage] = useState('seed');
@@ -33,7 +40,7 @@ export default function ValueCalculator() {
   const [networkLevel, setNetworkLevel] = useState(2);
   const [consultingRate, setConsultingRate] = useState(200);
   const [projectDuration, setProjectDuration] = useState(6);
-  const [additionalServices, setAdditionalServices] = useState(1.5);
+  const [additionalServices, setAdditionalServices] = useState(1);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   // result state
@@ -82,7 +89,7 @@ export default function ValueCalculator() {
       // { title: 'Our Platform Price',    value: ourPrice },
       // { title: 'Total Savings',         value: totalSavings },
       { title: 'Savings Percentage',    value: `${savingsPct}%` },
-      { title: 'Value Multiplier',      value: `${multiplier}×` }
+      { title: 'Value Multiplier',      value: `x${multiplier}` }
     ]);
   }
 
@@ -216,7 +223,7 @@ export default function ValueCalculator() {
             </thead>
             <tbody>
               {tableRows.map((row,i) => (
-                <tr key={i} style={row.isTotal ? { background: '#f39c12', color: 'white', fontWeight: 'bold' } : {}}
+                <tr key={i} style={row.isTotal ? { background: 'var(--gradient-accent)', color: 'white', fontWeight: '800' } : {}}
                 >
                   <td>{row.label}</td>
                   <td className="cost-traditional">${row.cost.toLocaleString()}</td>
@@ -230,7 +237,7 @@ export default function ValueCalculator() {
             {summaryCards.map((card,i) => (
               <div key={i} className="summary-card">
                 <h3>{card.title}</h3>
-                <div className="value">${typeof card.value === 'number' ? card.value.toLocaleString() : card.value}</div>
+                <div className="value">{typeof card.value === 'number' ? card.value.toLocaleString() : card.value}</div>
               </div>
             ))}
           </div>

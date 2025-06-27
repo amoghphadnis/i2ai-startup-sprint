@@ -1,11 +1,11 @@
 /* Navbar Styles */
 .navbar {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: .5rem 1rem;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #2c425c;
+  background-color: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
   z-index: 1000;
   display: flex;
@@ -16,21 +16,23 @@
 .navbar-content {
   width: 100%;
   max-width: 1200px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .navbar-logo {
-  height: 40px;
-  width: 40px;
+  float: left;
+  height: 100px;
+  width: 100px;
   object-fit: contain;
 }
 
 .navbar-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 500;
   color: #facc15;
 }
 

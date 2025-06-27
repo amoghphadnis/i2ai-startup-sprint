@@ -1,0 +1,54 @@
+.payment-options {
+  /* you can center it or add margins here if needed */
+    display: flex;
+    justify-content: center;
+}
+
+.payment-options .button-container {
+  background: #1c1a60;
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  padding: 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+.payment-options .button-container:hover {
+  background: #2c2a80;
+}
+
+.payment-options .logo-container {
+  width: 40px;
+  height: 40px;
+}
+
+.payment-options .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  justify-content: center;
+}
+
+.payment-options .text-container .primary-text {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.payment-options .text-container .secondary-text {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  font-size: 10px;
+}
+
+.payment-options .secondary-text img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.payment-options a {
+  text-decoration: none;
+}

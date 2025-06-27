@@ -1,3 +1,4 @@
+
 :root {
   --color-primary: #1e90ff;
   --color-secondary: #fff;
@@ -8,21 +9,71 @@
   --gradient-bottom: linear-gradient(90deg, #6f6cff 0%, #1e90ff 100%);
   --border-radius: 1.2rem;
   --shadow: 0 4px 24px 0 rgba(30, 144, 255, 0.08);
+
+  /* CSS HEX */
+--princeton-orange: #fb9824ff;
+--indigo-dye: #2c425cff;
+--platinum: #e3e3e3ff;
+--white: #ffffffff;
+--black: #000000ff;
+--thistle: #f9cfffff;
+--viridian: #5b8266ff;
+
+/* CSS HSL */
+--princeton-orange: hsla(32, 96%, 56%, 1);
+--indigo-dye: hsla(213, 35%, 27%, 1);
+--platinum: hsla(0, 0%, 89%, 1);
+--white: hsla(0, 0%, 100%, 1);
+--black: hsla(0, 0%, 0%, 1);
+--thistle: hsla(293, 100%, 91%, 1);
+--viridian: hsla(137, 18%, 43%, 1);
+
+/* SCSS HEX */
+--princeton-orange: #fb9824ff;
+--indigo-dye: #2c425cff;
+--platinum: #e3e3e3ff;
+--white: #ffffffff;
+--black: #000000ff;
+--thistle: #f9cfffff;
+--viridian: #5b8266ff;
+
+/* SCSS HSL */
+--princeton-orange: hsla(32, 96%, 56%, 1);
+--indigo-dye: hsla(213, 35%, 27%, 1);
+--platinum: hsla(0, 0%, 89%, 1);
+--white: hsla(0, 0%, 100%, 1);
+--black: hsla(0, 0%, 0%, 1);
+--thistle: hsla(293, 100%, 91%, 1);
+--viridian: hsla(137, 18%, 43%, 1);
+
+/* SCSS RGB */
+--princeton-orange: rgba(251, 152, 36, 1);
+--indigo-dye: rgba(44, 66, 92, 1);
+--platinum: rgba(227, 227, 227, 1);
+--white: rgba(255, 255, 255, 1);
+--black: rgba(0, 0, 0, 1);
+--thistle: rgba(249, 207, 255, 1);
+--viridian: rgba(91, 130, 102, 1);
+
+/* SCSS Gradient */
+--gradient-bottom-footer: linear-gradient(-135deg, #fb9824ff, #2c425cff);
 }
 
 .homepage {
   padding-top: 3rem;
-  background: var(--color-bg);
+  background-color: var(--color-dark);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--color-dark);
 }
 
 /* Hero Section */
 .heroSection { 
-  margin-top: 4rem;
-  background: var(--gradient-accent);
+  scale: 0.95;
+  /* margin-top: 1rem; */
+  width: 100%;
+  /* background: var(--gradient-top); */
   color: var(--color-secondary);
-  padding: 4rem 0 2rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .heroContent {
@@ -57,7 +108,7 @@
 }
 
 .rewardBanner {
-  background: #FB9824;
+  background: var(--princeton-orange);
   border-radius: var(--border-radius);
   padding: 0.7rem 1.2rem;
   font-size: 1.1rem;
@@ -124,8 +175,9 @@
 }
 
 /* Metrics Grid */
-.metricsSection {
-  background: #fff;
+.metricsSection { 
+  scale: 0.95;
+  /* background: #fff; */
   padding: 2.5rem 0 2rem 0;
 }
 .metricsGrid {
@@ -158,10 +210,10 @@
   font-weight: 500;
 }
 
-/*Value Table*/
+/* Value Table*/
 .value-page {
   max-width: 800px;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
   text-align: center;
 }
@@ -171,9 +223,9 @@
 }
 .value-page p {
   margin-bottom: 2rem;
-  color: var(--color-text);
+  color: var(--color-secondary);
 }
-.value-table {
+/* .value-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 3rem;
@@ -213,49 +265,115 @@
     font-weight: bold;
     content: attr(data-label);
   }
-}
+} */
 
 /*Value-Cards section*/
 
 .value-cards {
+  scale: 0.9;
+  width: 100%;
+  /* background-color: var(--color-dark); */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  gap: 4rem;
+  margin: 2rem -1rem;
   grid-template-rows: repeat(3, auto);
-  gap: 1rem;
-  margin: 2rem 0;
 }
 
+/* 1. Container gets the perspective */
 .value-card {
-  background: var(--gradient-accent);
-  color: white;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-align: center;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 200px; /* or auto */
+  perspective: 2000px;
+  margin: 0 auto;
 }
-.value-card.total {
-  background: var(--gradient-accent);
-  color: white;
+
+/* 2. Common face styles */
+.value-card-front,
+.value-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
+
+/* 3. Style the back face */
+.value-card-back {
+  background: var(--princeton-orange);
+  color: var(--color-secondary);
+  transform: rotateY(0deg); /* sits flat behind */
+}
+.value-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+/* 4. Style the cover face */
+.value-card-front.cover {
+  z-index: 1; /* ensure it sits above back */
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  transform-origin: left center;    /* hinge on left edge */
+  transition: transform 0.5s ease;  /* match Uiverse timing */
+}
+
+/* 5. On hover, swing the cover open like a book */
+.value-card:hover .value-card-front.cover {
+  transform: rotateY(-82deg);
+}
+
+/* 6. Optional: ensure total card shows correct colors */
+.value-card.total .value-card-front.cover {
+  background: var(--color-secondary);
+  color: var(--color-dark);
+}
+
 .value-card h4 {
   color: var(--color-dark);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 .value-card .traditional {
-  color: var(--color-secondary);
+  color: var(--color-dark);
   margin-bottom: 0.25rem;
 }
 .value-card .our {
-  color: yellow;
+  color: var(--viridian);
   font-weight: bold;
+}
+
+.ctaGroup2 {
+  max-width: fit-content;
+  scale: 1.2;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 
 /* How It Works Teaser */
-.teaserSection {
+.teaserSection { 
+  scale: 0.95;
+  margin-top: 4rem;
   padding: 2.5rem 0 2rem 0;
-  background: var(--color-bg);
+  /* background: var(--color-bg); */
+  backdrop-filter: blur(10px);
+  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
+  border-radius: var(--border-radius);
 }
 .teaserTitle {
   text-align: center;
@@ -279,21 +397,37 @@
   padding: 1.5rem 1rem;
   text-align: center;
 }
+
+.teaserCard:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
+  background: var(--gradient-accent);
+  color: var(--color-secondary);
+}
+
 .teaserCard h3 {
   font-size: 1.25rem;
-  color: var(--color-primary);
+  /* color: var(--color-primary); */
   margin-bottom: 0.5rem;
 }
 .teaserCard p {
-  color: var(--color-muted);
+  /* color: var(--color-muted); */
   font-size: 1.05rem;
 }
 
 /* Features Showcase */
-.featuresSection {
-  background: #f4f8ff;
+.featuresSection { 
+  scale: 0.95;
+  margin-top: 2rem;
+  /* background: #f4f8ff; */
   padding: 2.5rem 0 2rem 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
 }
+
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -309,19 +443,26 @@
   padding: 1.5rem 1rem;
   text-align: center;
 }
+.featureCard:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
+  background: var(--gradient-accent);
+  color: var(--color-secondary);
+}
 .featureCard h4 {
   font-size: 1.18rem;
-  color: var(--color-primary);
+  /* color: var(--color-primary); */
   margin-bottom: 0.5rem;
 }
 .featureCard p {
-  color: var(--color-muted);
+  /* color: var(--color-muted); */
   font-size: 1.02rem;
 }
 
 /* Startup in Action Preview */
 .newsSection {
-  background: #fff;
+  /* background: #fff; */
   padding: 2.5rem 0 2rem 0;
 }
 .newsTitle {
@@ -382,8 +523,9 @@
 }
 
 /* Bottom CTA Banner */
-.bottomCta {
-  background: var(--gradient-bottom);
+.bottomCta { 
+  scale: 0.95;
+  background: var(--gradient-bottom-footer);
   color: #fff;
   padding: 2.5rem 0 2.5rem 0;
   margin-top: 2rem;

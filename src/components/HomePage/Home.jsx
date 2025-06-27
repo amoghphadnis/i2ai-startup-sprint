@@ -6,6 +6,7 @@ import rocketAnimation from "../../assets/rocket.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
+import PaymentButton from '../../components/PaymentButton/PaymentButton';
 import "./Home.css";
 import Story1 from "../../assets/Images/Story1.png";
 import Story2 from "../../assets/Images/Story2.jpg";
@@ -30,7 +31,8 @@ const carouselSettings = {
   ],
 };
 
-const rows = [
+{
+  /*const rows = [
   {
     service: "Professional Assessment",
     traditional: "$15,000 – $30,000",
@@ -56,7 +58,10 @@ const rows = [
     traditional: "$5,000 – $15,000",
     our: "✅ Included",
   },
-];
+];*/
+}
+// The above rows are commented out as we are using valueRows instead
+// to keep the code cleaner and more organized.
 
 const valueRows = [
   {
@@ -103,8 +108,8 @@ export default function HomePage() {
               90% of startups fail—but most failures are preventable.
             </p>
             <div className="rewardBanner">
-              <strong>$250,000</strong> worth of benefits for just{" "}
-              <strong>₹999/- only</strong> (or <strong>$15 only</strong>)!
+              <strong>$225,000</strong> worth of benefits for just{" "}
+              <strong>₹999</strong> (<strong> ~ $15</strong>)
             </div>
             <div className="ctaGroup">
               <a
@@ -113,7 +118,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="btnPrimary"
               >
-                Register Now (₹999/$15)
+                Register Now &#x2192;
               </a>
               <Link to="/how-it-works" className="btnSecondary">
                 Learn How It Works
@@ -142,7 +147,7 @@ export default function HomePage() {
             <div className="metricLabel">Point multi-layered evaluation</div>
           </div>
           <div className="metricCard">
-            <div className="metricNum">$250K+</div>
+            <div className="metricNum">Upto $225K</div>
             <div className="metricLabel">Worth of benefits</div>
           </div>
         </div>
@@ -187,21 +192,56 @@ export default function HomePage() {
       </div>
 
       {/* Value Cards Section */}
-
       <div className="value-cards">
         {valueRows.map(({ service, traditional, our }, i) => (
           <div key={i} className="value-card">
-            <h4>{service}</h4>
-            <p className="traditional">{traditional}</p>
-            <p className="our">✅ {our}</p>
+            {/* Front = the “cover” */}
+            <div className="value-card-front cover">
+              <h4>{service}</h4>
+              <p className="traditional">{traditional}</p>
+              <p className="our">✅ {our}</p>
+            </div>
+            {/* Back = the content underneath */}
+            <div className="value-card-back">
+              <h4>Why this matters</h4>
+              <ul>
+                <li>
+                  <strong>{service}</strong> normally costs <br />
+                  {traditional}.
+                </li>
+                <li>
+                  With us, it’s <strong>{our}</strong>—no extra fee.
+                </li>
+                <li>Instant setup & ongoing support included.</li>
+              </ul>
+            </div>
           </div>
         ))}
-        {/* Optionally the TOTAL card */}
+
+        {/* TOTAL card */}
         <div className="value-card total">
-          <h4>TOTAL VALUE</h4>
-          <p className="traditional">$120,000 – $225,000</p>
-          <p className="our">$99</p>
+          <div className="value-card-front cover">
+            <h4>TOTAL VALUE</h4>
+            <p className="traditional">{totalTraditional}</p>
+            <p className="our">{totalOur}</p>
+          </div>
+          <div className="value-card-back">
+            <h4>Unbeatable Offer</h4>
+            <p>
+              All services worth {totalTraditional} for only {totalOur}!
+            </p>
+          </div>
         </div>
+      </div>
+      <div className="ctaGroup2">
+        <a
+          href="https://payments.cashfree.com/forms/i2uAI"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btnPrimary"
+        >
+          Register Now ₹999 only &#x2192;
+        </a>
       </div>
 
       {/* How It Works Teaser */}
@@ -223,10 +263,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <  ValueCalculator />
+      <ValueCalculator />
+      <PaymentButton />
 
       {/* Features Showcase */}
       <section className="featuresSection">
+        <h2 className="teaserTitle">What you get?</h2>
         <div className="featuresGrid">
           <div className="featureCard">
             <h4>Ideas → Unicorns</h4>
@@ -273,7 +315,7 @@ export default function HomePage() {
             </div>
           ))}
         </Carousel>
-        <Link to="/startup-in-action" className="btnLink">
+        <Link to="#" className="btnLink">
           See All News &rarr;
         </Link>
       </section>

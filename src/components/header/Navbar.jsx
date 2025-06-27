@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/i2u-logo.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -11,17 +11,17 @@ export default function Navbar() {
         <Link to="/">
           <img src={logo} alt="i2u.ai Logo" className="navbar-logo" />
           <br />
-          <span className="navbar-title">
+          {/* <span className="navbar-title">
             Ideas to Unicorns through AI!
-          </span>
+          </span> */}
         </Link>
         <nav className="nav-links">
-          <Link to="/How-It-Works">How It Works</Link>
+          {/* <Link to="/How-It-Works">How It Works</Link>
           <Link to="/Startup-In-Action">Startup in Action</Link>
           <Link to="/Register">Register</Link>
           <Link to="/Pricing">Pricing</Link>
           <Link to="/Resources">Resources</Link>
-          <Link to="/Faq">FAQ</Link>
+          <Link to="/Faq">FAQ</Link> */}
         </nav>
       </div>
     </header>
