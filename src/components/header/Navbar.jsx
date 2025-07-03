@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/i2u-logo.png";
+import logo from "../../assets/i2u_new.png";
 import "./Navbar.css";
 
 export default function Navbar() {
