@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "lottie-react": "^2.4.1",
     "react": "^19.1.0",
     "react-countup": "^6.5.3",

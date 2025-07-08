@@ -6,11 +6,39 @@ import rocketAnimation from "../../assets/rocket.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
-import PaymentButton from '../../components/PaymentButton/PaymentButton';
+import PaymentButton from "../../components/PaymentButton/PaymentButton";
 import "./Home.css";
 import Story1 from "../../assets/Images/Story1.png";
 import Story2 from "../../assets/Images/Story2.jpg";
 import Story3 from "../../assets/Images/Story3.jpg";
+import Banner from "../../assets/Banner/Banner.webm";
+import Banner_image from "../../assets/Banner/Banner.webp";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
+AOS.init();
+
+import { FiUsers, FiTarget, FiAward } from "react-icons/fi";
+
+const trustHighlights = [
+  {
+    icon: FiUsers,
+    text: 'We know what startups need.',
+    stat: '1.2M+',
+    label: 'Global Members'
+  },
+  {
+    icon: FiTarget,
+    text: 'We know what startups want.',
+    stat: '100K+',
+    label: 'Active Startups'
+  },
+  {
+    icon: FiAward,
+    text: 'We know which startups can win.',
+    stat: '50K+',
+    label: 'Mentor Sessions'
+  },
+];
 
 const carouselSettings = {
   dots: true,
@@ -99,16 +127,35 @@ export default function HomePage() {
     <div className="homepage">
       {/* Hero Section */}
       <section className="heroSection">
-        <div className="heroContent">
+        {/* Video Background */}
+        <video
+          className="heroBgVideo"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={Banner}
+          aria-hidden="true"
+          preload="auto"
+          aria-label="i2u.ai Banner Video"
+          src={Banner}
+        />
+        <div
+          data-aos="fade-right"
+          data-aos-delay="150"
+          data-aos-duration="1500"
+          // data-aos-easing="ease-in-out"
+          className="heroContent"
+        >
           <div className="heroText">
             <h1 className="heroHeadline">
-              Transform Your Startup’s Future <br />@ HyperSpeed
+              Transform Your Startup’s Future @ HyperSpeed
             </h1>
             <p className="heroSub">
               90% of startups fail—but most failures are preventable.
             </p>
             <div className="rewardBanner">
-              <strong>$225,000</strong> worth of benefits for just{" "}
+              <strong>Upto $225,000</strong> worth of benefits for just{" "}
               <strong>₹999</strong> (<strong> ~ $15</strong>)
             </div>
             <div className="ctaGroup">
@@ -120,19 +167,19 @@ export default function HomePage() {
               >
                 Register Now &#x2192;
               </a>
-              <Link to="/how-it-works" className="btnSecondary">
+              {/* <Link to="/how-it-works" className="btnSecondary">
                 Learn How It Works
-              </Link>
+              </Link> */}
             </div>
           </div>
-          <div className="heroLottie">
+          {/* <div className="heroLottie">
             <Lottie animationData={rocketAnimation} loop />
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Metrics Grid */}
-      <section className="metricsSection">
+      <section data-aos="fade-up" className="metricsSection">
         <div className="metricsGrid">
           <div className="metricCard">
             <div className="metricNum">35%+</div>
@@ -150,6 +197,55 @@ export default function HomePage() {
             <div className="metricNum">Upto $225K</div>
             <div className="metricLabel">Worth of benefits</div>
           </div>
+        </div>
+      </section>
+
+      {/* … somewhere below your hero/banner … */}
+
+      <section className="trustSection">
+        <div className="trustContent">
+          <h2>Why Trust Us?</h2>
+          <p className="trustSubtitle">
+            We run the largest community of startups globally with over 1.2
+            Million members— founders, investors, mentors, coaches, hustlers,
+            and aspiring entrepreneurs.
+          </p>
+
+          {/* NEW unified highlight cards */}
+          <div className="trustHighlightGrid">
+            {trustHighlights.map(({ icon: Icon, text, stat, label }, i) => (
+              <div key={i} className="highlightCard">
+                <Icon className="highlightIcon" />
+                <p className="highlightText">{text}</p>
+                <p className="highlightStat">{stat}</p>
+                <p className="highlightLabel">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="ctaGroup2">
+            <a
+              href="https://payments.cashfree.com/forms/i2uAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnPrimary"
+            >
+              Register Now &#x2192;
+            </a>
+          </div>
+
+          <p className="trustFooter">
+            This is made possible by the active participation of <br />{" "}
+            irrepressible &amp; indomitable Global Startup Cheer Leader&nbsp;
+            <a
+              href="https://www.linkedin.com/in/ravikikan/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mr. Ravi Kikan
+            </a>
+            !
+          </p>
         </div>
       </section>
 
@@ -240,7 +336,7 @@ export default function HomePage() {
           rel="noopener noreferrer"
           className="btnPrimary"
         >
-          Register Now ₹999 only &#x2192;
+          Register Now @ ₹999 only &#x2192;
         </a>
       </div>
 
