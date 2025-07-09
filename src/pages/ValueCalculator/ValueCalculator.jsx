@@ -75,11 +75,11 @@ export default function ValueCalculator() {
 
     // populate table rows
     setTableRows([
-      { label: 'Professional Assessment', cost: assessmentCost, our: '✅ Included', savings: assessmentCost },
-      { label: 'Multi-Method Valuation',  cost: valuationCost,  our: '✅ Included', savings: valuationCost },
-      { label: 'Global Network Access',   cost: networkCost,    our: '✅ Included', savings: networkCost },
-      { label: 'Recognition & Credibility',cost: recognitionCost,our: '✅ Included', savings: recognitionCost },
-      { label: 'Educational Resources',    cost: educationCost,  our: '✅ Included', savings: educationCost },
+      { label: 'Professional Assessment', cost: assessmentCost, our: '✅', savings: assessmentCost },
+      { label: 'Multi-Method Valuation',  cost: valuationCost,  our: '✅', savings: valuationCost },
+      { label: 'Global Network Access',   cost: networkCost,    our: '✅', savings: networkCost },
+      { label: 'Recognition & Credibility',cost: recognitionCost,our: '✅', savings: recognitionCost },
+      { label: 'Educational Resources',    cost: educationCost,  our: '✅', savings: educationCost },
       { label: 'TOTAL',                    cost: totalTraditional, our: `$${ourPrice}`, savings: totalSavings, isTotal: true  }
     ]);
 
@@ -89,7 +89,7 @@ export default function ValueCalculator() {
       // { title: 'Our Platform Price',    value: ourPrice },
       // { title: 'Total Savings',         value: totalSavings },
       { title: 'Savings Percentage',    value: `${savingsPct}%` },
-      { title: 'Value Multiplier',      value: `x${multiplier}` }
+      { title: 'Value Multiplier',      value: `${multiplier} X` }
     ]);
   }
 
@@ -108,7 +108,7 @@ export default function ValueCalculator() {
   return (
     <div className="value-page container">
       <div className="header">
-        <h1>🚀 World Startup Sprint Value Calculator</h1>
+        <h3>🚀 World Startup Sprint Value Calculator</h3>
         <p>Compare traditional consulting costs with our comprehensive platform</p>
       </div>
       <div className="main-content">
@@ -236,7 +236,7 @@ export default function ValueCalculator() {
           <div className="summary-cards">
             {summaryCards.map((card,i) => (
               <div key={i} className="summary-card">
-                <h3>{card.title}</h3>
+                <h6>{card.title}</h6>
                 <div className="value">{typeof card.value === 'number' ? card.value.toLocaleString() : card.value}</div>
               </div>
             ))}

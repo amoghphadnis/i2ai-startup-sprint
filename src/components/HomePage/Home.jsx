@@ -1,21 +1,24 @@
 // src/components/HomePage/Home.jsx
 import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import Carousel from "react-slick";
 import rocketAnimation from "../../assets/rocket.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
+// import ValueCalculator2 from "../../pages/ValueCalculator/ValueCalculator2";
 import PaymentButton from "../../components/PaymentButton/PaymentButton";
 import "./Home.css";
+import Footer from "../Footer/footer";
 import Story1 from "../../assets/Images/Story1.png";
 import Story2 from "../../assets/Images/Story2.jpg";
 import Story3 from "../../assets/Images/Story3.jpg";
 import Banner from "../../assets/Banner/Banner.webm";
 import Banner_image from "../../assets/Banner/Banner.webp";
+import Bg from "../../assets/Banner/Bg.svg";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
-AOS.init();
 
 import { FiUsers, FiTarget, FiAward } from "react-icons/fi";
 
@@ -55,7 +58,13 @@ const carouselSettings = {
       settings: {
         arrows: false,
       },
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
     },
+  }
   ],
 };
 
@@ -123,6 +132,23 @@ const totalTraditional = "$120,000 – $225,000";
 const totalOur = "$99";
 
 export default function HomePage() {
+  // On mount, initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,    // animation duration in ms
+      once: true,       // whether animation should happen only once
+    })
+  }, [])
+
+  const animations = [
+    'fade-up',
+    'fade-right',
+    'fade-left',
+    'zoom-in',
+    'flip-up',
+    'flip-left',
+  ]
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -179,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* Metrics Grid */}
-      <section data-aos="fade-up" className="metricsSection">
+      <section className="metricsSection">
         <div className="metricsGrid">
           <div className="metricCard">
             <div className="metricNum">35%+</div>
@@ -187,7 +213,9 @@ export default function HomePage() {
           </div>
           <div className="metricCard">
             <div className="metricNum">60%+</div>
-            <div className="metricLabel">Higher funding success</div>
+            <div className="metricLabel">
+              Higher funding               success
+            </div>
           </div>
           <div className="metricCard">
             <div className="metricNum">98</div>
@@ -195,7 +223,9 @@ export default function HomePage() {
           </div>
           <div className="metricCard">
             <div className="metricNum">Upto $225K</div>
-            <div className="metricLabel">Worth of benefits</div>
+            <div className="metricLabel">
+              Worth of benefits
+            </div>
           </div>
         </div>
       </section>
@@ -212,7 +242,12 @@ export default function HomePage() {
           </p>
 
           {/* NEW unified highlight cards */}
-          <div className="trustHighlightGrid">
+          <div
+            data-aos="zoom-in-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            className="trustHighlightGrid"
+          >
             {trustHighlights.map(({ icon: Icon, text, stat, label }, i) => (
               <div key={i} className="highlightCard">
                 <Icon className="highlightIcon" />
@@ -251,46 +286,22 @@ export default function HomePage() {
 
       {/* Value That we Provide */}
       <div className="value-page">
-        <h1>Comprehensive Value Justification</h1>
+        <h3>Comprehensive Value Justification</h3>
         <p>
           We’ve bundled five premium services—normally totaling{" "}
           {totalTraditional}—all for just {totalOur}.
         </p>
-        {/* <table className="value-table">
-          <thead>
-            <tr>
-              <th>Service</th>
-              <th>Traditional Cost</th>
-              <th>Our Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r, i) => (
-              <tr key={i}>
-                <td>{r.service}</td>
-                <td>{r.traditional}</td>
-                <td>{r.our}</td>
-              </tr>
-            ))}
-            <tr className="total-row">
-              <td>
-                <strong>TOTAL VALUE</strong>
-              </td>
-              <td>
-                <strong>{totalTraditional}</strong>
-              </td>
-              <td>
-                <strong>{totalOur}</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table> */}
       </div>
 
       {/* Value Cards Section */}
       <div className="value-cards">
         {valueRows.map(({ service, traditional, our }, i) => (
-          <div key={i} className="value-card">
+          <div
+            key={i}
+            className="value-card"
+            data-aos={animations[i % animations.length]}
+            data-aos-delay={i * 100} // stagger each card by 100ms
+          >
             {/* Front = the “cover” */}
             <div className="value-card-front cover">
               <h4>{service}</h4>
@@ -308,14 +319,16 @@ export default function HomePage() {
                 <li>
                   With us, it’s <strong>{our}</strong>—no extra fee.
                 </li>
-                <li>Instant setup & ongoing support included.</li>
               </ul>
             </div>
           </div>
         ))}
 
         {/* TOTAL card */}
-        <div className="value-card total">
+        <div className="value-card total"
+        data-aos="flip-up"
+        data-aos-delay={valueRows.length * 100}
+        >
           <div className="value-card-front cover">
             <h4>TOTAL VALUE</h4>
             <p className="traditional">{totalTraditional}</p>
@@ -324,7 +337,8 @@ export default function HomePage() {
           <div className="value-card-back">
             <h4>Unbeatable Offer</h4>
             <p>
-              All services worth {totalTraditional} for only {totalOur}!
+              All services worth <br /> {totalTraditional} <br />
+              for only {totalOur}!
             </p>
           </div>
         </div>
@@ -341,7 +355,11 @@ export default function HomePage() {
       </div>
 
       {/* How It Works Teaser */}
-      <section className="teaserSection">
+      <section
+        data-aos="fade-up"
+        data-aos-duration="2500"
+        className="teaserSection"
+      >
         <h2 className="teaserTitle">How It Works</h2>
         <div className="teaserGrid">
           <div className="teaserCard">
@@ -425,6 +443,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+    <Footer />
     </div>
   );
 }

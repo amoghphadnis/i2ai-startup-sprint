@@ -11,6 +11,7 @@ import Resources from './pages/Resources/Resources';
 import FAQ from './pages/FAQ/Faq';
 import Register from './pages/Register/Register';
 import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
+// import ValueCalculator2 from "./pages/ValueCalculator/ValueCalculator2";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Faq" element={<FAQ />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/ValueCalculator" element={<ValueCalculator />} />
+        {/* <Route path="/ValueCalculator2" element={<ValueCalculator2 />} /> */}
       </Routes>
     </>
   );
