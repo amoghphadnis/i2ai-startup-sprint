@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css';
-// import logo from '../../assets/i2u_new.png';               // your i2u.ai logo
+import logo from '../../assets/i2u_new(White).png';               // your i2u.ai logo
 import { FaFacebookF, FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
@@ -9,8 +9,8 @@ export default function Footer() {
       <div className="footer-container">
         {/* Brand Section */}
         <div className="footer-brand">
-          {/* <img src={logo} alt="i2u.ai Logo" className="footer-logo" /> */}
-          <span className="footer-title">i2u.ai™</span>
+          <img src={logo} alt="i2u.ai Logo" className="footer-logo" />
+          <span className="footer-title"></span>
         </div>
 
         {/* Links Columns */}

@@ -21,8 +21,8 @@
   gap: 0.5rem;
 }
 .footer-logo {
-  width: 40px;
-  height: 40px;
+  width: 150px;
+  height: 150px;
 }
 .footer-title {
   font-size: 1.25rem;
@@ -97,5 +97,9 @@
   }
   .footer-social {
     justify-content: center;
+  }
+  .footer-brand{
+    justify-content: center;
+    padding: 1rem 5rem;
   }
 }
