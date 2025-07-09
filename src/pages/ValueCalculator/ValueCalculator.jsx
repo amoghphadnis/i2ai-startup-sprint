@@ -75,11 +75,11 @@ export default function ValueCalculator() {
 
     // populate table rows
     setTableRows([
-      { label: 'Professional Assessment', cost: assessmentCost, our: '✅', savings: assessmentCost },
-      { label: 'Multi-Method Valuation',  cost: valuationCost,  our: '✅', savings: valuationCost },
-      { label: 'Global Network Access',   cost: networkCost,    our: '✅', savings: networkCost },
-      { label: 'Recognition & Credibility',cost: recognitionCost,our: '✅', savings: recognitionCost },
-      { label: 'Educational Resources',    cost: educationCost,  our: '✅', savings: educationCost },
+      { label: 'Professional Assessment', cost: assessmentCost, our: '✓', savings: assessmentCost },
+      { label: 'Multi-Method Valuation',  cost: valuationCost,  our: '✓', savings: valuationCost },
+      { label: 'Global Network Access',   cost: networkCost,    our: '✓', savings: networkCost },
+      { label: 'Recognition & Credibility',cost: recognitionCost,our: '✓', savings: recognitionCost },
+      { label: 'Educational Resources',    cost: educationCost,  our: '✓', savings: educationCost },
       { label: 'TOTAL',                    cost: totalTraditional, our: `$${ourPrice}`, savings: totalSavings, isTotal: true  }
     ]);
 
@@ -105,18 +105,31 @@ export default function ValueCalculator() {
     setShowAdvanced(false);
   }
 
+  const methodLabel = valuationMethods === 1
+    ? '1 Method'
+    : `${valuationMethods} Methods`;
+
+  const methodHint = valuationMethods > 1
+    ? `Includes the previous ${valuationMethods - 1} method${valuationMethods - 1 > 1 ? 's' : ''} + this one.`
+    : 'Runs a single valuation method.';
+
   return (
     <div className="value-page container">
       <div className="header">
         <h3>🚀 World Startup Sprint Value Calculator</h3>
-        <p>Compare traditional consulting costs with our comprehensive platform</p>
+        <p>
+          Compare traditional consulting costs with our comprehensive platform
+        </p>
       </div>
       <div className="main-content">
         <div className="calculator-section">
           <h2 className="section-title">📊 Cost Comparison Calculator</h2>
           <div className="input-group">
             <label>Company Stage</label>
-            <select value={companyStage} onChange={e => setCompanyStage(e.target.value)}>
+            <select
+              value={companyStage}
+              onChange={(e) => setCompanyStage(e.target.value)}
+            >
               <option value="pre-seed">Pre-Seed</option>
               <option value="seed">Seed</option>
               <option value="series-a">Series A</option>
@@ -126,7 +139,7 @@ export default function ValueCalculator() {
           </div>
           <div className="input-group">
             <label>Geographic Region</label>
-            <select value={region} onChange={e => setRegion(e.target.value)}>
+            <select value={region} onChange={(e) => setRegion(e.target.value)}>
               <option value="north-america">North America</option>
               <option value="europe">Europe</option>
               <option value="asia-pacific">Asia-Pacific</option>
@@ -142,9 +155,18 @@ export default function ValueCalculator() {
               min="1"
               max="3"
               value={assessmentComplexity}
-              onChange={e => setAssessmentComplexity(+e.target.value)}
+              onChange={(e) => setAssessmentComplexity(+e.target.value)}
+              style={{
+                background: `linear-gradient(
+                to right,
+                var(--princeton-orange) ${((assessmentComplexity - 1) / 2) * 100}%,
+                var(--color-secondary) ${((assessmentComplexity - 1) / 2) * 100}%
+              )`,
+              }}
             />
-            <div className="value-display">{assessmentLabels[assessmentComplexity-1]}</div>
+            <div className="value-display">
+              {assessmentLabels[assessmentComplexity - 1]}
+            </div>
           </div>
           <div className="input-group">
             <label>Valuation Methods Required</label>
@@ -154,9 +176,17 @@ export default function ValueCalculator() {
               min="1"
               max="5"
               value={valuationMethods}
-              onChange={e => setValuationMethods(+e.target.value)}
+              onChange={(e) => setValuationMethods(+e.target.value)}
+              style={{
+                background: `linear-gradient(
+                to right,
+                var(--princeton-orange) ${((valuationMethods - 1) / 4) * 100}%,
+                var(--color-secondary) ${((valuationMethods - 1) / 4) * 100}%
+              )`,
+              }}
             />
-            <div className="value-display">{valuationMethods} Methods</div>
+            <div className="value-display">{methodLabel}</div>
+            <div className="slider-hint">{methodHint}</div>
           </div>
           <div className="input-group">
             <label>Network Access Level</label>
@@ -166,11 +196,23 @@ export default function ValueCalculator() {
               min="1"
               max="3"
               value={networkLevel}
-              onChange={e => setNetworkLevel(+e.target.value)}
+              onChange={(e) => setNetworkLevel(+e.target.value)}
+              style={{
+                background: `linear-gradient(
+                to right,
+                var(--princeton-orange) ${((networkLevel - 1) / 2) * 100}%,
+                var(--color-secondary) ${((networkLevel - 1) / 2) * 100}%
+              )`,
+              }}
             />
-            <div className="value-display">{networkLabels[networkLevel-1]}</div>
+            <div className="value-display">
+              {networkLabels[networkLevel - 1]}
+            </div>
           </div>
-          <button className="advanced-toggle" onClick={() => setShowAdvanced(!showAdvanced)}>
+          <button
+            className="advanced-toggle"
+            onClick={() => setShowAdvanced(!showAdvanced)}
+          >
             Advanced Settings
           </button>
           {showAdvanced && (
@@ -180,7 +222,7 @@ export default function ValueCalculator() {
                 <input
                   type="number"
                   value={consultingRate}
-                  onChange={e => setConsultingRate(+e.target.value)}
+                  onChange={(e) => setConsultingRate(+e.target.value)}
                 />
               </div>
               <div className="input-group">
@@ -188,7 +230,7 @@ export default function ValueCalculator() {
                 <input
                   type="number"
                   value={projectDuration}
-                  onChange={e => setProjectDuration(+e.target.value)}
+                  onChange={(e) => setProjectDuration(+e.target.value)}
                 />
               </div>
               <div className="input-group">
@@ -200,14 +242,18 @@ export default function ValueCalculator() {
                   max="3"
                   step="0.1"
                   value={additionalServices}
-                  onChange={e => setAdditionalServices(+e.target.value)}
+                  onChange={(e) => setAdditionalServices(+e.target.value)}
                 />
                 <div className="value-display">{additionalServices}×</div>
               </div>
             </div>
           )}
-          <button className="calculate-btn" onClick={calculateCosts}>Calculate Savings</button>
-          <button className="reset-btn" onClick={resetCalculator}>Reset</button>
+          <button className="calculate-btn" onClick={calculateCosts}>
+            Calculate Savings
+          </button>
+          <button className="reset-btn" onClick={resetCalculator}>
+            Reset
+          </button>
         </div>
 
         <div className="results-section">
@@ -222,11 +268,23 @@ export default function ValueCalculator() {
               </tr>
             </thead>
             <tbody>
-              {tableRows.map((row,i) => (
-                <tr key={i} style={row.isTotal ? { background: 'var(--gradient-accent)', color: 'white', fontWeight: '800' } : {}}
+              {tableRows.map((row, i) => (
+                <tr
+                  key={i}
+                  style={
+                    row.isTotal
+                      ? {
+                          background: "var(--gradient-accent)",
+                          color: "white",
+                          fontWeight: "800",
+                        }
+                      : {}
+                  }
                 >
                   <td>{row.label}</td>
-                  <td className="cost-traditional">${row.cost.toLocaleString()}</td>
+                  <td className="cost-traditional">
+                    ${row.cost.toLocaleString()}
+                  </td>
                   <td className="cost-ours">{row.our}</td>
                   <td className="savings">${row.savings.toLocaleString()}</td>
                 </tr>
@@ -234,10 +292,14 @@ export default function ValueCalculator() {
             </tbody>
           </table>
           <div className="summary-cards">
-            {summaryCards.map((card,i) => (
+            {summaryCards.map((card, i) => (
               <div key={i} className="summary-card">
                 <h6>{card.title}</h6>
-                <div className="value">{typeof card.value === 'number' ? card.value.toLocaleString() : card.value}</div>
+                <div className="value">
+                  {typeof card.value === "number"
+                    ? card.value.toLocaleString()
+                    : card.value}
+                </div>
               </div>
             ))}
           </div>

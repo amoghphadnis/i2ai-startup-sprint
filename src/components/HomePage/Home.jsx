@@ -208,24 +208,20 @@ export default function HomePage() {
       <section className="metricsSection">
         <div className="metricsGrid">
           <div className="metricCard">
-            <div className="metricNum">35%+</div>
-            <div className="metricLabel">Improvement in assessments</div>
-          </div>
-          <div className="metricCard">
-            <div className="metricNum">60%+</div>
-            <div className="metricLabel">
-              Higher funding               success
-            </div>
+            <div className="metricNum">Upto $225K</div>
+            <div className="metricLabel">Worth of benefits</div>
           </div>
           <div className="metricCard">
             <div className="metricNum">98</div>
             <div className="metricLabel">Point multi-layered evaluation</div>
           </div>
           <div className="metricCard">
-            <div className="metricNum">Upto $225K</div>
-            <div className="metricLabel">
-              Worth of benefits
-            </div>
+            <div className="metricNum">35%+</div>
+            <div className="metricLabel">Improvement in assessments</div>
+          </div>
+          <div className="metricCard">
+            <div className="metricNum">60%+</div>
+            <div className="metricLabel">Higher funding success</div>
           </div>
         </div>
       </section>
@@ -236,9 +232,16 @@ export default function HomePage() {
         <div className="trustContent">
           <h2>Why Trust Us?</h2>
           <p className="trustSubtitle">
-            We run the largest community of startups globally with over 1.2
-            Million members— founders, investors, mentors, coaches, hustlers,
-            and aspiring entrepreneurs.
+            We, in collaboration with our board advisor <a
+              href="https://www.linkedin.com/in/ravikikan/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mr. Ravi Kikan
+            </a>, Run the
+            largest community of startups globally, with over 1.2 Million
+            members— founders, investors, mentors, coaches, hustlers, and
+            aspiring entrepreneurs.
           </p>
 
           {/* NEW unified highlight cards */}
@@ -268,19 +271,6 @@ export default function HomePage() {
               Register Now &#x2192;
             </a>
           </div>
-
-          <p className="trustFooter">
-            This is made possible by the active participation of <br />{" "}
-            irrepressible &amp; indomitable Global Startup Cheer Leader&nbsp;
-            <a
-              href="https://www.linkedin.com/in/ravikikan/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mr. Ravi Kikan
-            </a>
-            !
-          </p>
         </div>
       </section>
 
@@ -325,9 +315,10 @@ export default function HomePage() {
         ))}
 
         {/* TOTAL card */}
-        <div className="value-card total"
-        data-aos="flip-up"
-        data-aos-delay={valueRows.length * 100}
+        <div
+          className="value-card total"
+          data-aos="flip-up"
+          data-aos-delay={valueRows.length * 100}
         >
           <div className="value-card-front cover">
             <h4>TOTAL VALUE</h4>
@@ -438,12 +429,15 @@ export default function HomePage() {
       <section className="bottomCta">
         <div className="bottomCtaContent">
           <h3>Ready to see your startup take off?</h3>
-          <Link to="/register" className="btnBanner">
+          <Link
+            to="https://payments.cashfree.com/forms/i2uAI"
+            className="btnBanner"
+          >
             Get Started Today
           </Link>
         </div>
       </section>
-    <Footer />
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './PaymentButton.css';
+import logo from '../../assets/i2u_new(White).png'; // your i2u.ai logo
 
 const PaymentButton = () => {
   return (

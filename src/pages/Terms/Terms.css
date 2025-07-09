@@ -1,0 +1,27 @@
+/* src/pages/Terms/Terms.css */
+.terms-page {
+  padding: 4rem 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.terms-page h1 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+.terms-content h2,
+.terms-content h3,
+.terms-content p,
+.terms-content li {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.terms-content ol {
+  list-style: decimal inside;
+  margin-left: 1rem;
+}
+.terms-content ul {
+  list-style: disc inside;
+  margin-left: 1.5rem;
+}
+/* ...more theme overrides as needed... */
