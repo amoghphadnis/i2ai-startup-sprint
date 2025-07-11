@@ -13,6 +13,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/*Write the css code below to reduce the opacity of the navbar when scrolled down*/
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: background-color 0.3s ease;
+}
 .navbar-content {
   width: 100%;
   max-width: 1200px;

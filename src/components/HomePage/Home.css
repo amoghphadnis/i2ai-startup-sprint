@@ -242,6 +242,61 @@
   font-weight: 600;
 }
 
+/* Unicorn Section */
+.UnicornSection {
+  padding: 1rem 1rem;
+}
+
+.UnicornContent {
+  color: var(--platinum);
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.UnicornTitle{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+.unicorn-table-card {
+  width: 65rem;
+  backdrop-filter: blur(12px);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.unicorn-table-header,
+.unicorn-table-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 2fr 2fr;
+  padding: 0.75rem 1rem;
+  align-items: center;
+}
+
+.unicorn-table-header {
+  background: var(--viridian);
+  font-weight: bold;
+}
+
+.unicorn-table-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+.unicornMore a {
+  text-decoration: none;
+  width: fit-content;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  border-radius: var(--border-radius);
+  color: var(--princeton-orange);
+}
+
+
 /* Trust Section */
 .trustSection {
   /* background: var(--color-bg); */
@@ -259,7 +314,7 @@
   color: var(--princeton-orange);
 }
 
-.trustContent h2 {
+.trustContent h3 {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;

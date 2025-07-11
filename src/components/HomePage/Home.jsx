@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
 // import ValueCalculator2 from "../../pages/ValueCalculator/ValueCalculator2";
 import PaymentButton from "../../components/PaymentButton/PaymentButton";
+import Button from "../Button";
 import "./Home.css";
 import Footer from "../Footer/footer";
 import Story1 from "../../assets/Images/Story1.png";
@@ -68,35 +69,43 @@ const carouselSettings = {
   ],
 };
 
-{
-  /*const rows = [
+  const Unicornrows = [
   {
-    service: "Professional Assessment",
-    traditional: "$15,000 – $30,000",
-    our: "✅ Included",
+    Rank: "1",
+    Company: "SpaceX",
+    Valuation: "350",
+    Country: "United States",
+    Industry: "Indusrials",
   },
   {
-    service: "Multi‐Method Valuation",
-    traditional: "$50,000 – $90,000",
-    our: "✅ Included",
+    Rank: "2",
+    Company: "ByteDance",
+    Valuation: "300",
+    Country: "China",
+    Industry: "Media & Entertainment",
   },
   {
-    service: "Global Network Access",
-    traditional: "$30,000 – $60,000",
-    our: "✅ Included",
+    Rank: "3",
+    Company: "OpenAI",
+    Valuation: "300",
+    Country: "United States",
+    Industry: "Enterprise Tech",
   },
   {
-    service: "Recognition & Credibility",
-    traditional: "$20,000 – $30,000",
-    our: "✅ Included",
+    Rank: "4",
+    Company: "Stripe",
+    Valuation: "70",
+    Country: "United States",
+    Industry: "Financial Services",
   },
   {
-    service: "Educational Resources",
-    traditional: "$5,000 – $15,000",
-    our: "✅ Included",
+    Rank: "5",
+    Company: "SHEIN",
+    Valuation: "66",
+    Country: "Singapore",
+    Industry: "Consumer and Retail",
   },
-];*/
-}
+]
 // The above rows are commented out as we are using valueRows instead
 // to keep the code cleaner and more organized.
 
@@ -228,9 +237,45 @@ export default function HomePage() {
 
       {/* … somewhere below your hero/banner … */}
 
+      {/* Unicorn Club List */}
+      <section className="UnicornSection">
+        <div className="UnicornContent">
+          <h2 className="UnicornTitle"> 
+          Top Unicorns of 2023 <br />
+          <span className="UnicornSubtitle">
+            {/* This is a placeholder subtitle, you can change it as needed */}
+            Discover the world’s most valuable startups
+          </span>
+          </h2>
+          <div className="unicorn-table-card">
+            <div className="unicorn-table-header">
+              <span>Rank</span>
+              <span>Company</span>
+              <span>Valuation ($B)</span>
+              <span>Country</span>
+              <span>Industry</span>
+            </div>
+              {Unicornrows.map((Unicorn, index) => (
+                <div key={index} className="unicorn-table-row">
+                  <span>{Unicorn.Rank}</span>
+                  <span>{Unicorn.Company}</span>
+                  <span>{Unicorn.Valuation}</span>
+                  <span>{Unicorn.Country}</span>
+                  <span>{Unicorn.Industry}</span>
+                </div>
+              ))}
+          </div>
+          <span className="unicornMore">
+            <Link to="/Unicorns" className="btnLink">
+              <Button />
+            </Link>
+          </span>
+        </div>
+      </section>
+
       <section className="trustSection">
         <div className="trustContent">
-          <h2>Why Trust Us?</h2>
+          <h3>Why Trust Us?</h3>
           <p className="trustSubtitle">
             We, in collaboration with our board advisor <a
               href="https://www.linkedin.com/in/ravikikan/"

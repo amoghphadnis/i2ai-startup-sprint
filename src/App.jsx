@@ -11,7 +11,7 @@ import Resources from './pages/Resources/Resources';
 import FAQ from './pages/FAQ/Faq';
 import Register from './pages/Register/Register';
 import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
-import Terms from "./pages/Terms/Terms"
+import Terms from "./pages/Terms/Terms";
 
 function App() {
   return (

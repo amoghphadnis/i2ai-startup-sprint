@@ -1,4 +1,6 @@
-
+html {
+  scroll-behavior: smooth;
+}
 
 a {
   font-weight: 500;
