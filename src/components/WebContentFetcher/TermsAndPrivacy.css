@@ -1,0 +1,105 @@
+/* TermsAndPrivacy.css */
+.terms-and-privacy-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  margin-top: 80px;
+}
+
+.tab-navigation {
+  display: flex;
+  background-color: var(--white);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 1.25rem 2rem;
+  border: none;
+  background-color: var(--platinum);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button:first-child {
+  border-right: 1px solid var(--color-bg);
+}
+
+.tab-button:hover {
+  background-color: var(--color-bg);
+  color: var(--indigo-dye);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: var(--gradient-accent);
+  color: var(--white);
+  border-bottom-color: var(--princeton-orange);
+  transform: translateY(0);
+}
+
+.tab-button.active:hover {
+  background: var(--gradient-bottom);
+  transform: translateY(0);
+}
+
+.tab-content {
+  /* background-color: var(--white); */
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  box-shadow: var(--shadow);
+  min-height: 500px;
+}
+
+/* Animation for tab content */
+.tab-content > div {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terms-and-privacy-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+  
+  .tab-navigation {
+    flex-direction: column;
+  }
+  
+  .tab-button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .tab-button:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--color-bg);
+  }
+}
+
+/* Override WebContentFetcher styles when used within tabs */
+.tab-content .web-content-fetcher {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  box-shadow: none;
+  margin: 0;
+}
+

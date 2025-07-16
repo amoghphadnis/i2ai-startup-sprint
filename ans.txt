@@ -1,0 +1,194 @@
+1. Ans: startup-sprint
+│  ├─ vite
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ vite.svg
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ assets
+│  ├─ components
+│  │  ├─ Button.jsx
+│  │  ├─ Footer
+│  │  │  ├─ footer.css
+│  │  │  └─ footer.jsx
+│  │  ├─ header
+│  │  │  ├─ Navbar.css
+│  │  │  └─ Navbar.jsx
+│  │  ├─ HomePage
+│  │  │  ├─ Home.css
+│  │  │  └─ Home.jsx
+│  │  └─ PaymentButton
+│  │     ├─ PaymentButton.css
+│  │     └─ PaymentButton.jsx
+│  ├─ data
+│  │  └─ unicorn_club.json
+│  ├─ index.css
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ FAQ
+│  │  │  └─ Faq.jsx
+│  │  ├─ How-It-Works
+│  │  │  └─ HowItWorks.jsx
+│  │  ├─ Pricing
+│  │  │  └─ Pricing.jsx
+│  │  ├─ Register
+│  │  │  └─ Register.jsx
+│  │  ├─ Resources
+│  │  │  └─ Resources.jsx
+│  │  ├─ Startup-In-Action
+│  │  │  └─ StartUpInAction.jsx
+│  │  ├─ Terms
+│  │  │  ├─ Terms.css
+│  │  │  └─ Terms.jsx
+│  │  ├─ Unicornclub
+│  │  │  ├─ UnicornClub.css
+│  │  │  └─ UnicornClub.jsx
+│  │  └─ ValueCalculator
+│  │     ├─ ValueCalculator.css
+│  │     └─ ValueCalculator.jsx
+│  └─ theme.jsx
+└─ vite.config.js
+
+2. Ans: {
+  "name": "startup-sprint",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://amoghphadnis.github.io/i2ai-startup-sprint",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "postbuild": "cp dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist",
+    "postinstall": "flowbite-react patch"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
+    "aos": "^3.0.0-beta.6",
+    "flowbite-react": "^0.11.8",
+    "html-react-parser": "^5.2.5",
+    "lottie-react": "^2.4.1",
+    "react": "^19.1.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.2",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5"
+  }
+}
+
+3. Ans: App.jsx: import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/header/Navbar";
+import Home from "./components/HomePage/Home";
+import UnicornClub from "./pages/Unicornclub/UnicornClub";
+import HowItWorks from './pages/How-It-Works/HowItWorks';
+import StartupInAction from './pages/Startup-In-Action/StartupInAction';
+import Pricing from './pages/Pricing/Pricing';
+import Resources from './pages/Resources/Resources';
+import FAQ from './pages/FAQ/Faq';
+import Register from './pages/Register/Register';
+import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
+import Terms from "./pages/Terms/Terms";
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Unicorns" element={<UnicornClub />} />
+        <Route path="/How-It-Works" element={<HowItWorks />} />
+        <Route path="/Startup-In-Action" element={<StartupInAction />} />
+        <Route path="/Pricing" element={<Pricing />} />
+        <Route path="/Resources" element={<Resources />} />
+        <Route path="/Faq" element={<FAQ />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/ValueCalculator" element={<ValueCalculator />} />
+        <Route path="/Terms" element={<Terms />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
+
+4. Ans: Src/components/HomePage/Home.css: :root {
+  --color-primary: #1e90ff;
+  --color-secondary: #fff;
+  --color-muted: #6c7a89;
+  --color-bg: #f8fafc;
+  --color-dark: #001220;
+  --gradient-accent: linear-gradient(90deg, #1e90ff 0%, #6f6cff 100%);
+  --gradient-bottom: linear-gradient(90deg, #6f6cff 0%, #1e90ff 100%);
+  --border-radius: 1.2rem;
+  --shadow: 0 4px 24px 0 rgba(30, 144, 255, 0.08);
+
+  /* CSS HEX */
+  --princeton-orange: #fb9824ff;
+  --indigo-dye: #2c425cff;
+  --platinum: #e3e3e3ff;
+  --white: #ffffffff;
+  --black: #000000ff;
+  --thistle: #f9cfffff;
+  --viridian: #5b8266ff;
+
+  /* CSS HSL */
+  --princeton-orange: hsla(32, 96%, 56%, 1);
+  --indigo-dye: hsla(213, 35%, 27%, 1);
+  --platinum: hsla(0, 0%, 89%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+  --thistle: hsla(293, 100%, 91%, 1);
+  --viridian: hsla(137, 18%, 43%, 1);
+
+  /* SCSS HEX */
+  --princeton-orange: #fb9824ff;
+  --indigo-dye: #2c425cff;
+  --platinum: #e3e3e3ff;
+  --white: #ffffffff;
+  --black: #000000ff;
+  --thistle: #f9cfffff;
+  --viridian: #5b8266ff;
+
+  /* SCSS HSL */
+  --princeton-orange: hsla(32, 96%, 56%, 1);
+  --indigo-dye: hsla(213, 35%, 27%, 1);
+  --platinum: hsla(0, 0%, 89%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+  --thistle: hsla(293, 100%, 91%, 1);
+  --viridian: hsla(137, 18%, 43%, 1);
+
+  /* SCSS RGB */
+  --princeton-orange: rgba(251, 152, 36, 1);
+  --indigo-dye: rgba(44, 66, 92, 1);
+  --platinum: rgba(227, 227, 227, 1);
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(0, 0, 0, 1);
+  --thistle: rgba(249, 207, 255, 1);
+  --viridian: rgba(91, 130, 102, 1);
+
+  /* SCSS Gradient */
+  --gradient-bottom-footer: linear-gradient(-135deg, #fb9824ff, #2c425cff);
+}

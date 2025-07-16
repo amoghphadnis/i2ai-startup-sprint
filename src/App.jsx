@@ -12,6 +12,7 @@ import FAQ from './pages/FAQ/Faq';
 import Register from './pages/Register/Register';
 import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
 import Terms from "./pages/Terms/Terms";
+import TermsAndPrivacy from "./components/WebContentFetcher/TermsAndPrivacy";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/ValueCalculator" element={<ValueCalculator />} />
         <Route path="/Terms" element={<Terms />} />
+        <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
       </Routes>
     </>
   );

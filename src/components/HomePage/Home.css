@@ -237,7 +237,7 @@
 }
 
 .metricLabel {
-  color: var(--color-muted);
+  color: var(--indigo-dye);
   font-size: 1.08rem;
   font-weight: 600;
 }

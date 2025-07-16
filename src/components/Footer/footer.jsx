@@ -38,6 +38,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Legal</h4>
             <ul>
+              <li><Link to="/terms-and-privacy">Terms & Privacy</Link></li>
               <li><a href="https://i2u.ai/PrivacyPolicy/" target='_blank' className="footer-link footer-link-privacy">Privacy Policy</a></li>
               <li><a href="https://i2u.ai/TermsNConditions/" target='_blank' className="footer-link footer-link-terms">Terms &amp; Conditions</a></li>
             </ul>

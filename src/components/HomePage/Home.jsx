@@ -241,7 +241,7 @@ export default function HomePage() {
       <section className="UnicornSection">
         <div className="UnicornContent">
           <h2 className="UnicornTitle"> 
-          Top Unicorns of 2023 <br />
+          Top Unicorns of 2025 <br />
           <span className="UnicornSubtitle">
             {/* This is a placeholder subtitle, you can change it as needed */}
             Discover the world’s most valuable startups

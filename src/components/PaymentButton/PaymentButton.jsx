@@ -12,7 +12,7 @@ const PaymentButton = () => {
       >
         <div className="button-container">
           <img
-            src="https://cashfree-checkoutcartimages-prod.cashfree.com/i2u18May251028%20(1)o8lilubgjcm0_prod.png"
+            src={logo}
             alt="Cashfree Logo"
             className="logo-container"
           />

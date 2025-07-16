@@ -1,0 +1,72 @@
+startup-sprint
+│  ├─ vite
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ vite.svg
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ assets
+│  │  ├─ Banner
+│  │  │  ├─ Banner.png
+│  │  │  ├─ Banner.webm
+│  │  │  ├─ Banner.webp
+│  │  │  ├─ Bg-2.svg
+│  │  │  ├─ Bg.svg
+│  │  │  └─ Bg3.svg
+│  │  ├─ i2u_new(White).ico
+│  │  ├─ i2u_new(White).png
+│  │  ├─ i2u_new.png
+│  │  ├─ i2u_new_White.svg
+│  │  ├─ Images
+│  │  │  ├─ Story1.png
+│  │  │  ├─ Story2.jpg
+│  │  │  ├─ Story2.png
+│  │  │  └─ Story3.jpg
+│  │  ├─ logo.png
+│  │  ├─ react.svg
+│  │  └─ rocket.json
+│  ├─ components
+│  │  ├─ Button.jsx
+│  │  ├─ Footer
+│  │  │  ├─ footer.css
+│  │  │  └─ footer.jsx
+│  │  ├─ header
+│  │  │  ├─ Navbar.css
+│  │  │  └─ Navbar.jsx
+│  │  ├─ HomePage
+│  │  │  ├─ Home.css
+│  │  │  └─ Home.jsx
+│  │  └─ PaymentButton
+│  │     ├─ PaymentButton.css
+│  │     └─ PaymentButton.jsx
+│  ├─ data
+│  │  └─ unicorn_club.json
+│  ├─ index.css
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ FAQ
+│  │  │  └─ Faq.jsx
+│  │  ├─ How-It-Works
+│  │  │  └─ HowItWorks.jsx
+│  │  ├─ Pricing
+│  │  │  └─ Pricing.jsx
+│  │  ├─ Register
+│  │  │  └─ Register.jsx
+│  │  ├─ Resources
+│  │  │  └─ Resources.jsx
+│  │  ├─ Startup-In-Action
+│  │  │  └─ StartUpInAction.jsx
+│  │  ├─ Terms
+│  │  │  ├─ Terms.css
+│  │  │  └─ Terms.jsx
+│  │  ├─ Unicornclub
+│  │  │  ├─ UnicornClub.css
+│  │  │  └─ UnicornClub.jsx
+│  │  └─ ValueCalculator
+│  │     ├─ ValueCalculator.css
+│  │     └─ ValueCalculator.jsx
+│  └─ theme.jsx
+└─ vite.config.js

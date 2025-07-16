@@ -127,6 +127,7 @@ export default function ValueCalculator() {
           <div className="input-group">
             <label>Company Stage</label>
             <select
+            label="Company Stage"
               value={companyStage}
               onChange={(e) => setCompanyStage(e.target.value)}
             >
@@ -139,7 +140,7 @@ export default function ValueCalculator() {
           </div>
           <div className="input-group">
             <label>Geographic Region</label>
-            <select value={region} onChange={(e) => setRegion(e.target.value)}>
+            <select label="Geographic Region" value={region} onChange={(e) => setRegion(e.target.value)}>
               <option value="north-america">North America</option>
               <option value="europe">Europe</option>
               <option value="asia-pacific">Asia-Pacific</option>
