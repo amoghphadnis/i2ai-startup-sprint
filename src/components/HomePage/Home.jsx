@@ -266,7 +266,7 @@ export default function HomePage() {
               ))}
           </div>
           <span className="unicornMore">
-            <Link to="/Unicorns" className="btnLink">
+            <Link to="/leaderboard" className="btnLink">
               <Button />
             </Link>
           </span>

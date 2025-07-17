@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/header/Navbar";
 import Home from "./components/HomePage/Home";
 import UnicornClub from "./pages/Unicornclub/UnicornClub";
+import Leaderboard from './pages/Unicornclub/Leaderboard';
 import HowItWorks from './pages/How-It-Works/HowItWorks';
 import StartupInAction from './pages/Startup-In-Action/StartupInAction';
 import Pricing from './pages/Pricing/Pricing';
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Unicorns" element={<UnicornClub />} />
+        <Route path="/Leaderboard" element={<Leaderboard />} />
         <Route path="/How-It-Works" element={<HowItWorks />} />
         <Route path="/Startup-In-Action" element={<StartupInAction />} />
         <Route path="/Pricing" element={<Pricing />} />
