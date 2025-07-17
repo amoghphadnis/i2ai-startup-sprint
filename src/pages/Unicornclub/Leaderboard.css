@@ -259,8 +259,8 @@
 
 /* Main Content */
 .main-content {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   background: rgba(44, 66, 92, 0.6);
   border-radius: 1.2rem;
   padding: 1.5rem;

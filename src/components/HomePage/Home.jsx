@@ -283,7 +283,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
             >
               Mr. Ravi Kikan
-            </a>, Run the
+            </a>, run the
             largest community of startups globally, with over 1.2 Million
             members— founders, investors, mentors, coaches, hustlers, and
             aspiring entrepreneurs.
