@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import styled from 'styled-components';
 
 const Button = () => {
@@ -11,7 +11,7 @@ const Button = () => {
 
 const StyledWrapper = styled.div`
   button {
-    width: 150px;
+    width: 180px;
     height: 60px;
     border: 3px solid var(--princeton-orange);
     border-radius: 45px;
