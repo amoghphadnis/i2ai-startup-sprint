@@ -5,19 +5,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.644);
   z-index: 1000;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/*Write the css code below to reduce the opacity of the navbar when scrolled down*/
+/* Navbar opacity reduces and adds subtle shadow when scrolled */
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.4);
-  transition: background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
 }
+
 .navbar-content {
   width: 100%;
   max-width: 1200px;
@@ -30,8 +31,8 @@
 
 .navbar-logo {
   float: left;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   object-fit: contain;
 }
 

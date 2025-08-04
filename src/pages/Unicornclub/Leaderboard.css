@@ -142,7 +142,8 @@
 /* Gaming-style leaderboard styles */
 .gaming-leaderboard {
   margin-top: 5rem;
-  background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #1a2332 100%);
+  max-width: max-content;
+  /* background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #1a2332 100%); */
   min-height: 100vh;
   color: white;
 }
@@ -150,6 +151,7 @@
 .leaderboard-header {
   background: linear-gradient(135deg, rgba(30, 144, 255, 0.8) 0%, rgba(111, 108, 255, 0.8) 100%);
   padding: 2rem;
+  width: 180vh;
   margin: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px rgba(30, 144, 255, 0.3);
@@ -187,8 +189,8 @@
 }
 
 .leaderboard-content {
-  display: grid;
-  grid-template-columns: 300px 1fr 280px;
+  display: flex;
+  place-content: center;
   gap: 1.5rem;
   padding: 0 1.5rem;
   max-width: 1400px;
@@ -258,18 +260,21 @@
 }
 
 /* Main Content */
-.main-content {
-  /* display: flex;
-  flex-wrap: wrap; */
-  background: rgba(44, 66, 92, 0.6);
+.leaderboard-main-content {
+  display: flex;
+  place-content: center;
+  flex-wrap: wrap;
+  width: 150vh;
+  /* background: rgba(44, 66, 92, 0.6); */
   border-radius: 1.2rem;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(44, 66, 92, 0.6);
 }
 
 .search-section {
   margin-bottom: 1rem;
+  width: 200px;
 }
 
 .search-container {
@@ -327,6 +332,15 @@
   gap: 1rem;
 }
 
+.entry-middle {
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 1rem;
+  place-items: center;
+}
+
 .rank-badge {
   width: 40px;
   height: 40px;
@@ -381,6 +395,12 @@
 
 .company-avatar {
   position: relative;
+}
+.company-valuation, .company-funding, and .company-investors {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.25rem;
+
 }
 
 .avatar-circle {
@@ -485,6 +505,220 @@
 @media (max-width: 1200px) {
   .leaderboard-content {
     grid-template-columns: 250px 1fr 250px;
+  }
+}
+
+/* Grid Layout Styles */
+.grid-labels {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(30, 144, 255, 0.15);
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+.grid-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leaderboard-grid {
+  display: grid;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.grid-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  background: rgba(30, 144, 255, 0.1);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-entry:hover {
+  background: rgba(30, 144, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 144, 255, 0.3);
+}
+
+.grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 60px; */
+}
+
+.rank-cell {
+  justify-content: center;
+}
+
+.company-cell {
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.country-cell {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.valuation-cell,
+.funding-cell {
+  justify-content: center;
+  text-align: center;
+}
+
+.investors-cell {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.company-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: white;
+  line-height: 1.2;
+}
+
+.company-type-badge {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.country-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.country-flag {
+  font-size: 1.2rem;
+}
+
+.country-name {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+}
+
+.metric-value {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.investors-list {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1400px) {
+  .grid-labels,
+  .grid-entry {
+    grid-template-columns: 70px 1.5fr 1fr 1fr 1fr 1.5fr;
+    gap: 0.75rem;
+  }
+  
+  .grid-label,
+  .company-name {
+    font-size: 0.8rem;
+  }
+  
+  .metric-value,
+  .investors-list {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid-labels,
+  .grid-entry {
+    grid-template-columns: 60px 1.2fr 0.8fr 0.8fr 0.8fr 1.2fr;
+    gap: 0.5rem;
+  }
+  
+  .grid-cell {
+    min-height: 50px;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .leaderboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-labels,
+  .grid-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .grid-cell {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .company-cell,
+  .country-cell,
+  .investors-cell {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-label {
+    display: none;
+  }
+  
+  .grid-entry::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
   }
 }
 

@@ -16,6 +16,7 @@ const Leaderboard = () => {
   const [periodFilter, setPeriodFilter] = useState('all');
   const [levelFilter, setLevelFilter] = useState('all');
   const [capturedFilter, setCapturedFilter] = useState('all');
+  const [entriesToShow, setEntriesToShow] = useState(25);
 
   // Categories based on valuation ranges (similar to the gaming tiers in reference)
   const categories = [
@@ -87,7 +88,7 @@ const Leaderboard = () => {
     });
     
     setCompanies(allCompanies);
-    setFilteredCompanies(allCompanies.slice(0, 20)); // Show top 20 initially
+    setFilteredCompanies(allCompanies.slice(0, 25)); // Show top 25 initially
   }, []);
 
   // Filter and search logic
@@ -112,8 +113,8 @@ const Leaderboard = () => {
       );
     }
     
-    setFilteredCompanies(filtered.slice(0, 20)); // Limit to top 20 for performance
-  }, [companies, activeCategory, activeFilter, searchTerm]);
+    setFilteredCompanies(filtered.slice(0, entriesToShow)); // Use EntriesToShow
+  }, [companies, activeCategory, activeFilter, searchTerm, entriesToShow]);
 
   const getRankBadgeClass = (rank) => {
     if (rank === 1) return 'rank-badge gold';
@@ -171,6 +172,8 @@ const Leaderboard = () => {
     return companies.filter(c => c.category === categoryId).length;
   };
 
+  const date = new Date();
+
   return (
     <div className="gaming-leaderboard">
       {/* Header */}
@@ -181,8 +184,7 @@ const Leaderboard = () => {
           </div>
           <div className="header-right">
             <div className="update-info">
-              <div className="last-update">LAST UPDATE: JULY 17, 2025</div>
-              <div className="next-update">TIME UNTIL NEXT UPDATE: 12:04</div>
+              <div className="last-update">Last Updated on: {date.toLocaleDateString()}</div>
             </div>
           </div>
         </div>
@@ -190,7 +192,7 @@ const Leaderboard = () => {
 
       <div className="leaderboard-content">
         {/* Left Sidebar - Categories */}
-        <div className="categories-sidebar">
+        {/* <div className="categories-sidebar">
           {categories.map((category) => {
             const Icon = category.icon;
             const count = getCategoryStats(category.id);
@@ -212,51 +214,103 @@ const Leaderboard = () => {
               </div>
             );
           })}
-        </div>
+        </div> */}
 
         {/* Main Content */}
-        <div className="main-content">
+        <div className="leaderboard-main-content">
           {/* Search */}
           <div className="search-section">
             <div className="search-container">
               <Search className="search-icon" size={20} />
               <Input
-                placeholder="Search companies or countries..."
+                placeholder="Search anything here..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
               />
             </div>
           </div>
-          
+
           {/* Leaderboard Entries */}
           <div className="leaderboard-entries">
-            {filteredCompanies.map((company, index) => (
-              <div key={`${company.Company}-${index}`} className="leaderboard-entry">
-                <div className="entry-left">
-                  <div className={getRankBadgeClass(company.rank)}>
-                    {company.rank}
+            {/* Labels Row */}
+            <div className="grid-labels">
+              <div className="grid-label">Rank</div>
+              <div className="grid-label">Company</div>
+              <div className="grid-label">Country</div>
+              <div className="grid-label">Post Money Value</div>
+              <div className="grid-label">Total Equity Funding</div>
+              <div className="grid-label">Lead Investors</div>
+            </div>
+            
+            {/* Grid Entries */}
+            <div className="leaderboard-grid">
+              {filteredCompanies.map((company, index) => (
+                <div
+                  key={`${company.Company}-${index}`}
+                  className="grid-entry"
+                >
+                  <div className="grid-cell rank-cell">
+                    <div className={getRankBadgeClass(company.rank)}>
+                      {company.rank}
+                    </div>
                   </div>
-                  <div className="company-info">
-                    <div className="company-name">{company.Company}</div>
-                    <div className="company-location">{company.Continent}</div>
+                  
+                  <div className="grid-cell company-cell">
+                    <div className="company-info">
+                      <div className="company-name">{company.Company}</div>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="entry-right">
-                  <div className="company-avatar">
-                    <div className="avatar-circle">
-                      {company.logo}
+                  
+                  <div className="grid-cell country-cell">
+                    <div className="country-info">
+                      <span className="country-name">{company.Country}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="grid-cell valuation-cell">
+                    <div className="metric-value">
+                      {company["Post Money Value"] || "N/A"}
+                    </div>
+                  </div>
+                  
+                  <div className="grid-cell funding-cell">
+                    <div className="metric-value">
+                      {company['Total Equity Funding'] || 'N/A'}
+                    </div>
+                  </div>
+                  
+                  <div className="grid-cell investors-cell">
+                    <div className="investors-list">
+                      {company['Lead Investors Include'] || 'N/A'}
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+            
+            {/* Load More Button */}
+            {filteredCompanies.length < companies.filter(company => {
+              // Apply the same filters as above
+              if (activeCategory !== 'all' && company.category !== activeCategory) return false;
+              if (activeFilter !== 'all' && company.type !== activeFilter) return false;
+              if (searchTerm && !(
+                company.Company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                company.Country.toLowerCase().includes(searchTerm.toLowerCase())
+              )) return false;
+              return true;
+            }).length && (
+              <div className="load-more-container">
+                <Button onClick={() => setEntriesToShow(entriesToShow + 36)}>
+                  Load More
+                </Button>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
         {/* Right Sidebar - Filters */}
-        <div className="filters-sidebar">
+        {/* <div className="filters-sidebar">
           <h3 className="filters-title">CHOOSE YOUR FILTERS</h3>
           
           <div className="filter-group">
@@ -351,7 +405,7 @@ const Leaderboard = () => {
               <div>HEADS</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

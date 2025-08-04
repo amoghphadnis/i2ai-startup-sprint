@@ -1,16 +1,17 @@
   import React from 'react';
 import styled from 'styled-components';
 
-const Button = () => {
+const Button = (props) => {
   return (
     <StyledWrapper>
-      <button>View More &rarr;</button>
+      <button>{props.text}</button>
     </StyledWrapper>
   );
 }
 
 const StyledWrapper = styled.div`
   button {
+    padding: 0.2em 0.5em;
     width: 180px;
     height: 60px;
     border: 3px solid var(--princeton-orange);

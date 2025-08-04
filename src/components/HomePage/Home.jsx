@@ -12,9 +12,9 @@ import PaymentButton from "../../components/PaymentButton/PaymentButton";
 import Button from "../Button";
 import "./Home.css";
 import Footer from "../Footer/footer";
-import Story1 from "../../assets/Images/Story1.png";
-import Story2 from "../../assets/Images/Story2.jpg";
-import Story3 from "../../assets/Images/Story3.jpg";
+import Story1 from "../../assets/Images/MultV1.png";
+import Story2 from "../../assets/Images/byondknown.jpg";
+import Story3 from "../../assets/Images/unnamed.png";
 import Banner from "../../assets/Banner/Banner.webm";
 import Banner_image from "../../assets/Banner/Banner.webp";
 import Bg from "../../assets/Banner/Bg.svg";
@@ -26,21 +26,21 @@ import { FiUsers, FiTarget, FiAward } from "react-icons/fi";
 const trustHighlights = [
   {
     icon: FiUsers,
-    text: 'We know what startups need.',
-    stat: '1.2M+',
-    label: 'Global Members'
+    text: "We know what startups need.",
+    // stat: '1.2M+',
+    // label: 'Global Members'
   },
   {
     icon: FiTarget,
-    text: 'We know what startups want.',
-    stat: '100K+',
-    label: 'Active Startups'
+    text: "We know what startups want.",
+    // stat: '100K+',
+    // label: 'Active Startups'
   },
   {
     icon: FiAward,
-    text: 'We know which startups can win.',
-    stat: '50K+',
-    label: 'Mentor Sessions'
+    text: "We know which startups can win.",
+    // stat: '50K+',
+    // label: 'Mentor Sessions'
   },
 ];
 
@@ -48,7 +48,7 @@ const carouselSettings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  slidesToShow: 3,
   slidesToScroll: 1,
   arrows: false,
   autoplay: true,
@@ -64,48 +64,53 @@ const carouselSettings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
+      },
     },
-  }
   ],
 };
 
-  const Unicornrows = [
+const Unicornrows = [
   {
     Rank: "1",
     Company: "SpaceX",
-    Valuation: "350",
     Country: "United States",
     Industry: "Indusrials",
+    Valuation: "350",
+    Revenue: "30 (demo value)",
   },
   {
     Rank: "2",
     Company: "ByteDance",
-    Valuation: "300",
     Country: "China",
     Industry: "Media & Entertainment",
+    Valuation: "300",
+    Revenue: "30 (demo value)",
   },
   {
     Rank: "3",
     Company: "OpenAI",
-    Valuation: "300",
     Country: "United States",
     Industry: "Enterprise Tech",
+    Valuation: "300",
+    Revenue: "30 (demo value)",
   },
   {
     Rank: "4",
     Company: "Stripe",
-    Valuation: "70",
     Country: "United States",
     Industry: "Financial Services",
+    Valuation: "70",
+    Revenue: "30 (demo value)",
   },
   {
     Rank: "5",
     Company: "SHEIN",
-    Valuation: "66",
     Country: "Singapore",
     Industry: "Consumer and Retail",
+    Valuation: "66",
+    Revenue: "30 (demo value)",
   },
-]
+];
 // The above rows are commented out as we are using valueRows instead
 // to keep the code cleaner and more organized.
 
@@ -144,19 +149,19 @@ export default function HomePage() {
   // On mount, initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 1500,    // animation duration in ms
-      once: true,       // whether animation should happen only once
-    })
-  }, [])
+      duration: 1500, // animation duration in ms
+      once: true, // whether animation should happen only once
+    });
+  }, []);
 
   const animations = [
-    'fade-up',
-    'fade-right',
-    'fade-left',
-    'zoom-in',
-    'flip-up',
-    'flip-left',
-  ]
+    "fade-up",
+    "fade-right",
+    "fade-left",
+    "zoom-in",
+    "flip-up",
+    "flip-left",
+  ];
 
   return (
     <div className="homepage">
@@ -191,17 +196,12 @@ export default function HomePage() {
             </p>
             <div className="rewardBanner">
               <strong>Upto $225,000</strong> worth of benefits for just{" "}
-              <strong>₹999</strong> (<strong> ~ $15</strong>)
+              <strong>₹999</strong> (<strong> ~ $12</strong>)
             </div>
             <div className="ctaGroup">
-              <a
-                href="https://payments.cashfree.com/forms/i2uAI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btnPrimary"
-              >
-                Register Now &#x2192;
-              </a>
+              <Link to="/Register" className="btnLink">
+                <Button text="Get Started Now &#x2192;" />
+              </Link>
               {/* <Link to="/how-it-works" className="btnSecondary">
                 Learn How It Works
               </Link> */}
@@ -240,34 +240,36 @@ export default function HomePage() {
       {/* Unicorn Club List */}
       <section className="UnicornSection">
         <div className="UnicornContent">
-          <h2 className="UnicornTitle"> 
-          Top Unicorns of 2025 <br />
-          <span className="UnicornSubtitle">
-            {/* This is a placeholder subtitle, you can change it as needed */}
-            Discover the world’s most valuable startups
-          </span>
+          <h2 className="UnicornTitle">
+            Top Unicorns of 2025 <br />
+            <span className="UnicornSubtitle">
+              {/* This is a placeholder subtitle, you can change it as needed */}
+              Discover the world’s most valuable startups
+            </span>
           </h2>
           <div className="unicorn-table-card">
             <div className="unicorn-table-header">
               <span>Rank</span>
               <span>Company</span>
-              <span>Valuation ($B)</span>
               <span>Country</span>
               <span>Industry</span>
+              <span>Valuation ($B)</span>
+              {/* <span>Revenue</span> */}
             </div>
-              {Unicornrows.map((Unicorn, index) => (
-                <div key={index} className="unicorn-table-row">
-                  <span>{Unicorn.Rank}</span>
-                  <span>{Unicorn.Company}</span>
-                  <span>{Unicorn.Valuation}</span>
-                  <span>{Unicorn.Country}</span>
-                  <span>{Unicorn.Industry}</span>
-                </div>
-              ))}
+            {Unicornrows.map((Unicorn, index) => (
+              <div key={index} className="unicorn-table-row">
+                <span>{Unicorn.Rank}</span>
+                <span>{Unicorn.Company}</span>
+                <span>{Unicorn.Country}</span>
+                <span>{Unicorn.Industry}</span>
+                <span>{Unicorn.Valuation}</span>
+                {/* <span>{Unicorn.Revenue}</span> */}
+              </div>
+            ))}
           </div>
           <span className="unicornMore">
             <Link to="/leaderboard" className="btnLink">
-              <Button />
+              <Button text="See Leaderboard &#x21e2;" />
             </Link>
           </span>
         </div>
@@ -276,18 +278,18 @@ export default function HomePage() {
       <section className="trustSection">
         <div className="trustContent">
           <h3>Why Trust Us?</h3>
-          <p className="trustSubtitle">
-            We, in collaboration with our board advisor <a
-              href="https://www.linkedin.com/in/ravikikan/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mr. Ravi Kikan
-            </a>, run the
-            largest community of startups globally, with over 1.2 Million
-            members— founders, investors, mentors, coaches, hustlers, and
-            aspiring entrepreneurs.
-          </p>
+          {/* <p className="trustSubtitle">
+                  We, in collaboration with our board advisor <a
+                    href="https://www.linkedin.com/in/ravikikan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mr. Ravi Kikan
+                  </a>, run the
+                  largest community of startups globally, with over 1.2 Million
+                  members— founders, investors, mentors, coaches, hustlers, and
+                  aspiring entrepreneurs.
+                </p> */}
 
           {/* NEW unified highlight cards */}
           <div
@@ -305,19 +307,18 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
-          <div className="ctaGroup2">
-            <a
-              href="https://payments.cashfree.com/forms/i2uAI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btnPrimary"
-            >
-              Register Now &#x2192;
-            </a>
-          </div>
         </div>
       </section>
+      <div className="ctaGroup2">
+        <Link
+          to="https://payments.cashfree.com/forms/i2uAI"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btnLink"
+        >
+          <Button text="Register Now &#x2192;" />
+        </Link>
+      </div>
 
       {/* Value That we Provide */}
       <div className="value-page">
@@ -380,14 +381,14 @@ export default function HomePage() {
         </div>
       </div>
       <div className="ctaGroup2">
-        <a
-          href="https://payments.cashfree.com/forms/i2uAI"
+        <Link
+          to="https://payments.cashfree.com/forms/i2uAI"
           target="_blank"
           rel="noopener noreferrer"
-          className="btnPrimary"
+          className="btnLink"
         >
-          Register Now @ ₹999 only &#x2192;
-        </a>
+          <Button text="Register Now @ ₹999 only &#x2192;" />
+        </Link>
       </div>
 
       {/* How It Works Teaser */}
@@ -442,30 +443,32 @@ export default function HomePage() {
           {[
             {
               img: Story1,
-              title: "GreenEnergy Innovations raises Series A",
-              excerpt: "After 300% pipeline growth...",
+              title: "The AI Era: Humanity's Multiverse Bang",
+              excerpt: "The Great Oxidation Event: A Precedent for Profound Change",
             },
             {
               img: Story2,
-              title: "TechFlow Solutions secures new funding",
-              excerpt: "60% valuation boost...",
+              title: "TBeyond the Known: Humanity’s Quest for Holistic Intelligence",
+              excerpt: " The Evolution of Knowledge Capture: A Historical Lens",
             },
             {
               img: Story3,
-              title: "HealthTech Dynamics expands into new markets",
-              excerpt: "200% engagement improvement...",
+              title: "Perplexity, the AI Era David?",
+              excerpt: "The Inevitable March of Democratization",
             },
           ].map((s, i) => (
             <div key={i} className="slide">
               <img src={s.img} alt={s.title} className="slideImg" />
               <div className="slideText">
-                <h3>{s.title}</h3>
-                <p>{s.excerpt}</p>
+                <Link to="http://adventuresinbmterrain.blogspot.com/2025/08/the-ai-era-humanitys-multiverse-bang.html" target="_blank" rel="noopener noreferrer" className="btnLink">
+                  <h3>{s.title}</h3>
+                  <p>{s.excerpt}</p>
+                  </Link>
               </div>
             </div>
           ))}
         </Carousel>
-        <Link to="#" className="btnLink">
+        <Link to="http://adventuresinbmterrain.blogspot.com/" className="btnLink">
           See All News &rarr;
         </Link>
       </section>
