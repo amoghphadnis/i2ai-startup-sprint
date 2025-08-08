@@ -28,6 +28,20 @@ const ExternalPageModal = ({ url, title, children, className = "" }) => {
     setIframeLoaded(true);
   };
 
+  // Add timeout to handle cases where iframe never loads
+  useEffect(() => {
+    if (isOpen && !iframeLoaded) {
+      const timeout = setTimeout(() => {
+        if (!iframeLoaded) {
+          setIframeError(true);
+          setIframeLoaded(true);
+        }
+      }, 15000); // 15 second timeout
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isOpen, iframeLoaded]);
+
   const closeModal = () => {
     setIsOpen(false);
     setIframeLoaded(false);
@@ -93,7 +107,14 @@ const ExternalPageModal = ({ url, title, children, className = "" }) => {
                 <div className="text-center p-6">
                   <div className="text-4xl mb-2">🌐</div>
                   <h3 className="text-lg font-semibold text-gray-700 mb-2">Unable to Load Content</h3>
-                  <p className="text-gray-600 mb-4">The external page couldn't be loaded in the modal.</p>
+                  <p className="text-gray-600 mb-4">
+                    The external page couldn't be loaded in the modal. This might be due to:
+                  </p>
+                  <ul className="text-sm text-gray-500 mb-4 text-left max-w-md mx-auto">
+                    <li>• The website doesn't allow iframe embedding</li>
+                    <li>• Mixed content (HTTP/HTTPS) restrictions</li>
+                    <li>• CORS policy restrictions</li>
+                  </ul>
                   <a 
                     href={url} 
                     target="_blank" 

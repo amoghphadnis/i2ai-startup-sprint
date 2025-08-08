@@ -230,7 +230,7 @@
 }
 
 /* Highlights Carousel */
-.highlights-carousel-section {
+.about-highlights-carousel-section {
   margin-bottom: 6rem;
 }
 
@@ -242,7 +242,7 @@
   color: var(--color-primary);
 }
 
-.highlights-carousel {
+.about-highlights-carousel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
@@ -250,7 +250,7 @@
   max-width: 1200px;
 }
 
-.highlight-card {
+.about-highlight-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
@@ -261,7 +261,7 @@
   overflow: hidden;
 }
 
-.highlight-card::before {
+.about-highlight-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -271,7 +271,7 @@
   background: var(--accent-color, var(--color-primary));
 }
 
-.highlight-card:hover {
+.about-highlight-card:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
@@ -306,14 +306,14 @@
 }
 
 /* Prospect Grid */
-.prospect-grid {
+.about-prospect-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
-.prospect-card {
+.about-prospect-card {
   background: rgba(30, 144, 255, 0.05);
   border: 1px solid rgba(30, 144, 255, 0.2);
   border-radius: 1.5rem;
@@ -323,7 +323,7 @@
   overflow: hidden;
 }
 
-.prospect-card::before {
+.about-prospect-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -333,13 +333,13 @@
   background: linear-gradient(90deg, var(--color-primary), #6f6cff);
 }
 
-.prospect-card:hover {
+.about-prospect-card:hover {
   transform: translateY(-8px);
   background: rgba(30, 144, 255, 0.1);
   box-shadow: 0 20px 40px rgba(30, 144, 255, 0.2);
 }
 
-.prospect-icon {
+.about-prospect-icon {
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, var(--color-primary), #6f6cff);
@@ -352,21 +352,21 @@
   font-size: 1.5rem;
 }
 
-.prospect-title {
+.about-prospect-title {
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: white;
 }
 
-.prospect-description {
+.about-prospect-description {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.prospect-benefit {
+.about-prospect-benefit {
   font-size: 0.9rem;
   color: var(--color-primary);
   background: rgba(30, 144, 255, 0.1);
@@ -622,10 +622,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: linear-gradient(135deg, 
-    rgba(30, 144, 255, 0.05) 0%, 
-    rgba(139, 92, 246, 0.05) 50%, 
-    rgba(16, 185, 129, 0.05) 100%); */
 }
 
 .cta-pattern {
@@ -634,9 +630,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-image: 
-    radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.1) 0%, transparent 50%),
-    linear-gradient(-45deg, transparent 30%, rgba(139, 92, 246, 0.05) 50%, transparent 70%); */
   opacity: 0.4;
 }
 
@@ -759,170 +752,677 @@
   border: 1px solid rgba(30, 144, 255, 0.2);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 1024px) {
-  .about-hero-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .hero-stats {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .highlights-carousel {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-  
-  .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-  
-  .prospect-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
+/* Responsive Design - Mobile First Approach */
 
-@media (max-width: 768px) {
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
   .about-hero {
     padding: 1rem;
     min-height: 80vh;
   }
-  
-  .about-hero-title {
-    font-size: 2.5rem;
+
+  .about-hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
   }
-  
+
+  .about-hero-title {
+    font-size: 2rem;
+  }
+
+  .about-hero-description {
+    font-size: 1rem;
+  }
+
   .hero-cta-group {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .hero-cta-primary,
   .hero-cta-secondary {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     justify-content: center;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
-  
+
+  .hero-visual-section {
+    margin-top: 2rem;
+  }
+
   .hero-stats {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 2rem 1.5rem;
   }
-  
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+
   .about-main {
     padding: 2rem 1rem;
   }
-  
+
   .about-section {
     padding: 2rem 1.5rem;
     margin-bottom: 3rem;
   }
-  
+
   .about-section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  
-  .highlights-carousel {
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-highlights-carousel {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
-  .highlight-card {
+
+  .about-highlight-card {
     padding: 2rem 1.5rem;
   }
-  
-  .prospect-grid {
-    grid-template-columns: 1fr;
+
+  .highlight-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
   }
-  
+
+  .highlight-title {
+    font-size: 1.2rem;
+  }
+
+  .highlight-description {
+    font-size: 0.9rem;
+  }
+
+  .about-prospect-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-prospect-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-prospect-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .about-prospect-title {
+    font-size: 1.1rem;
+  }
+
+  .about-prospect-description {
+    font-size: 0.9rem;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
+
+  .team-card {
+    margin-bottom: 1rem;
+  }
+
+  .team-card-image {
+    height: 250px;
+  }
+
+  .team-card-content {
+    padding: 1.5rem;
+  }
+
   .team-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
+  .team-name {
+    font-size: 1.2rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .team-description {
+    font-size: 0.9rem;
+  }
+
+  .team-stat {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+
   .testimonials-carousel {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .carousel-btn {
     position: static;
     width: 40px;
     height: 40px;
   }
-  
+
   .testimonials-container {
     height: auto;
     min-height: 300px;
   }
-  
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
+
+  .testimonial-content {
+    padding: 2rem 1.5rem;
   }
-  
-  .cta-primary,
-  .cta-secondary {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
+
+  .testimonial-avatar {
+    width: 60px;
+    height: 60px;
   }
-  
+
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+
+  .testimonial-author h4 {
+    font-size: 1rem;
+  }
+
+  .testimonial-author p {
+    font-size: 0.8rem;
+  }
+
   .join-cta {
     padding: 3rem 1.5rem;
     margin: 4rem 0 2rem;
   }
-}
 
-@media (max-width: 480px) {
-  .about-hero-title {
-    font-size: 2rem;
+  .join-section-title {
+    font-size: 1.8rem;
   }
-  
-  .about-hero-description {
+
+  .join-content {
     font-size: 1rem;
   }
-  
-  .about-section-title {
-    font-size: 1.8rem;
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .section-title {
-    font-size: 1.8rem;
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
-  
-  .highlight-card,
-  .prospect-card,
-  .team-card {
-    padding: 1.5rem;
+
+  .references-list {
+    gap: 0.8rem;
   }
-  
-  .testimonial-content {
-    padding: 2rem 1.5rem;
+
+  .reference-item {
+    font-size: 0.8rem;
+    padding: 0.8rem;
   }
-  
-  .testimonial-quote {
+
+  .copyright-notice {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .about-hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .about-hero-title {
+    font-size: 3rem;
+  }
+
+  .about-hero-description {
+    font-size: 1.2rem;
+  }
+
+  .hero-stats {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-highlights-carousel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .about-highlight-card {
+    padding: 2rem;
+  }
+
+  .about-prospect-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .about-prospect-card {
+    padding: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .team-card-image {
+    height: 300px;
+  }
+
+  .testimonials-carousel {
+    max-width: 600px;
+  }
+
+  .join-cta {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .join-section-title {
+    font-size: 2.2rem;
+  }
+
+  .join-content {
     font-size: 1.1rem;
   }
+}
+
+/* Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .about-hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .about-hero-title {
+    font-size: 4rem;
+  }
+
+  .about-hero-description {
+    font-size: 1.3rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .about-highlights-carousel {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .about-highlight-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .highlight-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .highlight-title {
+    font-size: 1.4rem;
+  }
+
+  .highlight-description {
+    font-size: 1rem;
+  }
+
+  .about-prospect-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .about-prospect-card {
+    padding: 2.5rem;
+  }
+
+  .about-prospect-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .about-prospect-title {
+    font-size: 1.3rem;
+  }
+
+  .about-prospect-description {
+    font-size: 1rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team-card-image {
+    height: 350px;
+  }
+
+  .team-name {
+    font-size: 1.4rem;
+  }
+
+  .team-role {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .team-description {
+    font-size: 1rem;
+  }
+
+  .team-stat {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .testimonials-carousel {
+    max-width: 800px;
+  }
+
+  .testimonial-content {
+    padding: 2.5rem;
+  }
+
+  .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .testimonial-quote {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-author h4 {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-author p {
+    font-size: 0.9rem;
+  }
+
+  .join-cta {
+    padding: 4rem 3rem;
+  }
+
+  .join-section-title {
+    font-size: 2.5rem;
+  }
+
+  .join-content {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    gap: 1.5rem;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Extra small mobile devices (480px and below) */
+@media (max-width: 480px) {
+  * {
+    /* border: 1px solid white; */
+  }
   
+  .about-page {
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+  
+  
+  .about-hero {
+    width: 100dvw !important;
+    padding: 0.5rem;
+    min-height: 70vh;
+  }
+
+  .hero-background {
+    width: 100dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .hero-pattern {
+    width: 90dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+    background: url('../../assets/Banner/Bg3.svg') repeat-y;
+    background-size: contain;
+  }
+
+  .about-hero-content {
+    width: 90dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .about-main {
+    width: 100dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .about-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .about-hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    max-width: 250px;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
   .hero-stats {
     padding: 1.5rem 1rem;
   }
-  
+
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  
+
   .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .about-main {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .about-section {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .about-highlights-carousel-section {
+    width: 100dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .about-highlights-carousel {
+    width: 90dvw;
+    margin: 0 auto;
+    padding: 1rem -1rem;
+  }
+
+  .about-highlight-card {
+    width: 100dvw;
+    padding: 2rem 0.5rem;
+    margin: 0 auto;
+  }
+  .about-prospect-card {
+    width: 70dvw;
+    padding: 2rem 1rem;
+  }
+
+  .about-prospect-grid {
+    width: 100dvw;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .highlight-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .highlight-title {
+    font-size: 1.1rem;
+  }
+
+  .highlight-description {
+    font-size: 0.8rem;
+  }
+
+  .about-prospect-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .about-prospect-title {
+    font-size: 1rem;
+  }
+
+  .about-prospect-description {
+    font-size: 0.8rem;
+  }
+
+  .team-card-image {
+    height: 200px;
+  }
+
+  .team-card-content {
+    padding: 1rem;
+  }
+
+  .team-name {
+    font-size: 1.1rem;
+  }
+
+  .team-role {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .team-description {
+    font-size: 0.8rem;
+  }
+
+  .team-stat {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .testimonial-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .testimonial-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .testimonial-quote {
     font-size: 0.9rem;
+  }
+
+  .testimonial-author h4 {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-author p {
+    font-size: 0.7rem;
+  }
+
+  .join-cta {
+    padding: 2rem 1rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .join-section-title {
+    font-size: 1.6rem;
+  }
+
+  .join-content {
+    font-size: 0.9rem;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    max-width: 250px;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .references-list {
+    gap: 0.6rem;
+  }
+
+  .reference-item {
+    font-size: 0.7rem;
+    padding: 0.6rem;
+  }
+
+  .copyright-notice {
+    padding: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -936,17 +1436,10 @@
     min-height: 48px;
     font-size: 1rem;
   }
-  
+
   .indicator {
     width: 16px;
     height: 16px;
-  }
-  
-  .highlight-icon,
-  .prospect-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
   }
 }
 
@@ -956,16 +1449,16 @@
   will-change: transform;
 }
 
-.highlight-card,
-.prospect-card,
+.about-highlight-card,
+.about-prospect-card,
 .team-card {
   will-change: transform;
 }
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
-  .highlight-card,
-  .prospect-card,
+  .about-highlight-card,
+  .about-prospect-card,
   .team-card,
   .testimonial-card,
   .carousel-btn,
@@ -975,7 +1468,7 @@
   .cta-secondary {
     transition: none;
   }
-  
+
   .testimonial-card {
     transition: opacity 0.3s ease;
   }

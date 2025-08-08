@@ -232,13 +232,13 @@ const About = () => {
           </div>
 
           {/* Interactive Highlights Carousel */}
-          <div className="highlights-carousel-section">
+          <div className="About-highlights-carousel-section">
             <h2 className="section-title">Our Approach: The i2u.ai Advantage</h2>
-            <div className="highlights-carousel">
+            <div className="about-highlights-carousel">
               {highlights.map((highlight, index) => {
                 const Icon = highlight.icon;
                 return (
-                  <div key={index} className="highlight-card" style={{ '--accent-color': highlight.color }}>
+                  <div key={index} className="about-highlight-card" style={{ '--accent-color': highlight.color }}>
                     <div className="highlight-icon">
                       <Icon size={32} />
                     </div>
@@ -262,17 +262,17 @@ const About = () => {
               </p>
             </div>
             
-            <div className="prospect-grid">
+            <div className="about-prospect-grid">
               {prospectBase.map((prospect, index) => {
                 const Icon = prospect.icon;
                 return (
-                  <div key={index} className="prospect-card">
-                    <div className="prospect-icon">
+                  <div key={index} className="about-prospect-card">
+                    <div className="about-prospect-icon">
                       <Icon size={24} />
                     </div>
-                    <h3 className="prospect-title">{prospect.title}</h3>
-                    <p className="prospect-description">{prospect.description}</p>
-                    <div className="prospect-benefit">
+                    <h3 className="about-prospect-title">{prospect.title}</h3>
+                    <p className="about-prospect-description">{prospect.description}</p>
+                    <div className="about-prospect-benefit">
                       <strong>Key Benefit:</strong> {prospect.benefit}
                     </div>
                   </div>

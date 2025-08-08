@@ -26,12 +26,20 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 1rem;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .navbar-logo {
-  float: left;
   height: 50px;
   width: 50px;
   object-fit: contain;
@@ -41,14 +49,14 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: #facc15;
+  display: block;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 3rem;
-  margin: 0 auto;
 }
 
 .nav-links a {
@@ -84,6 +92,7 @@
   position: relative;
   display: inline-block;
 }
+
 .dropdown-button {
   background: none;
   border: none;
@@ -92,6 +101,7 @@
   color: inherit;
   padding: 0;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -103,6 +113,7 @@
   border-radius: 0.5rem;
   overflow: hidden;
 }
+
 .dropdown-link {
   color: #222;
   padding: 0.75rem 1.25rem;
@@ -110,9 +121,11 @@
   text-decoration: none;
   transition: background 0.2s;
 }
+
 .dropdown-link:hover {
   color: var(--princeton-orange);
 }
+
 .dropdown.nav-dropdown:hover .dropdown-content,
 .dropdown.nav-dropdown:focus-within .dropdown-content {
   display: block;
@@ -141,7 +154,6 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-left: auto;
 }
 
 .login-button:hover {
@@ -150,7 +162,8 @@
 }
 
 .register-button:hover {
-  color: #facc15;position: relative;
+  color: #facc15;
+  position: relative;
   &::after {
     content: "Register now to get early bird access";
     position: absolute;
@@ -166,8 +179,262 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: rgba(44, 66, 92, 0.95);
+  backdrop-filter: blur(25px);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 1rem;
+}
+
+.mobile-nav-link {
+  background: none;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: #facc15;
+}
+
+.mobile-dropdown {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-dropdown-button span {
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-button span {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-content {
+  background: var(--princeton-orange);
+  border-radius: 0.5rem;
+  display: none;
+  padding-left: 1rem;
+}
+
+.mobile-dropdown.active .mobile-dropdown-content {
+  display: block;
+}
+
+.mobile-dropdown-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.mobile-dropdown-link:hover {
+  color: #facc15;
+}
+
+.mobile-dropdown-divider {
+  border: .7px solid var(--indigo-dye);
+  margin-right: 1rem;
+}
+
+.mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.mobile-login-button,
+.mobile-register-button {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-login-button:hover,
+.mobile-register-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #facc15;
+}
+
+/* Responsive Design */
+/* Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .navbar-content {
+    max-width: 1200px;
+  }
+  
+  .nav-links {
+    gap: 3rem;
+  }
+}
+
+/* Tablet (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .navbar-content {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+  
+  .nav-links {
+    gap: 2rem;
+  }
+  
   .navbar-title {
-    font-size: .75rem;
+    font-size: 1rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  
+  .navbar-content {
+    height: 50px;
+    padding: 0 1rem;
+  }
+  
+  .navbar-logo {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .navbar-title {
+    font-size: 0.9rem;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .desktop-nav,
+  .desktop-auth {
+    display: none;
+  }
+  
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Show mobile menu when active */
+  .mobile-menu {
+    display: block;
+  }
+  
+  /* Adjust mobile menu height for smaller screens */
+  .mobile-menu {
+    height: calc(100vh - 50px);
+    top: 50px;
+  }
+}
+
+/* Extra small mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .navbar-content {
+    padding: 0 0.5rem;
+  }
+  
+  .navbar-logo {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .navbar-title {
+    font-size: 0.8rem;
+  }
+  
+  .mobile-nav-links {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .mobile-auth-buttons {
+    padding: 1rem 0.5rem;
   }
 }

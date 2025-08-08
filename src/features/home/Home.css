@@ -63,6 +63,7 @@
   background-color: var(--color-dark);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--color-dark);
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -72,11 +73,11 @@
   display: flex;
   align-items: center;
   height: 60vh;
-  width: 200vh;
   min-height: 400px;
   padding: 5rem 0;
   color: var(--color-secondary);
   border-radius: var(--border-radius);
+  width: 100%;
 }
 
 .heroBgVideo {
@@ -100,8 +101,8 @@
   display: flex;
   justify-content: center;
   padding: 0 1.5rem;
-  /* background: rgba(0, 0, 0, 0.4); */
-  /* optional overlay */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .heroText {
@@ -197,8 +198,6 @@
 
 /* Metrics Grid */
 .metricsSection {
-  scale: 0.95;
-  /* background: #fff; */
   padding: 2.5rem 0 2rem 0;
 }
 
@@ -255,14 +254,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* make it 2 column grid and fix the width and should be in the center of the page*/
   padding: 1em 1rem;
   margin: 0 auto;
 }
 
 /* VC Section */
-.Vc-Section {
+.VC-Section {
   padding: 1rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .VC-Content {
@@ -279,11 +280,21 @@
   color: var(--color-primary);
 }
 
+.VC-Subtitle {
+  font-size: 1.1rem;
+  color: var(--platinum);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  display: block;
+}
+
 .vc-table-card {
-  width: 65rem;
+  width: 100%;
+  max-width: 65rem;
   backdrop-filter: blur(12px);
   border-radius: var(--border-radius);
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .vc-table-header,
@@ -303,6 +314,13 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+.UnicornSection {
+  padding: 1rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .UnicornContent {
   color: var(--platinum);
   max-width: 1040px;
@@ -317,11 +335,21 @@
   color: var(--color-primary);
 }
 
+.UnicornSubtitle {
+  font-size: 1.1rem;
+  color: var(--platinum);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  display: block;
+}
+
 .unicorn-table-card {
-  width: 65rem;
+  width: 100%;
+  max-width: 65rem;
   backdrop-filter: blur(12px);
   border-radius: var(--border-radius);
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .unicorn-table-header,
@@ -340,6 +368,7 @@
 .unicorn-table-row:nth-child(even) {
   background: rgba(255, 255, 255, 0.05);
 }
+
 .unicornMore a {
   text-decoration: none;
   width: fit-content;
@@ -352,11 +381,12 @@
   color: var(--princeton-orange);
 }
 
-
 /* Trust Section */
 .trustSection {
-  /* background: var(--color-bg); */
   padding: 1rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .trustContent {
@@ -416,6 +446,7 @@
   max-width: 800px;
   margin: 0 auto 2rem;
 }
+
 .trustHighlightGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -426,7 +457,6 @@
 
 /* each card */
 .highlightCard {
-  /*Add a glass effect by using backdrop-filter*/
   background: rgba(0, 18, 32, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -453,7 +483,7 @@
   margin-bottom: 0.75rem;
 }
 
-/* the “We know…” sentence */
+/* the "We know…" sentence */
 .highlightText {
   font-size: 1rem;
   color: var(--platinum);
@@ -478,7 +508,6 @@
   margin-bottom: 0;
 }
 
-
 /* Value Table*/
 .value-page {
   max-width: 800px;
@@ -498,59 +527,15 @@
   color: var(--color-secondary);
 }
 
-/* .value-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 3rem;
-}
-.value-table th,
-.value-table td {
-  padding: 0.75rem 1rem;
-  border: 1px solid #E9ECEF;
-}
-.value-table th {
-  background: var(--color-primary);
-  color: #fff;
-}
-.total-row td {
-  background: var(--gradient-accent);
-  color: #fff;
-}
-@media (max-width: 600px) {
-  .value-table, .value-table thead, .value-table tbody, .value-table th, .value-table td, .value-table tr {
-    display: block;
-  }
-  .value-table th {
-    position: absolute;
-    top: -9999px; left: -9999px;
-  }
-  .value-table td {
-    border: none;
-    position: relative;
-    padding-left: 50%;
-    text-align: left;
-  }
-  .value-table td::before {
-    position: absolute;
-    left: 1rem;
-    top: 0.75rem;
-    white-space: nowrap;
-    font-weight: bold;
-    content: attr(data-label);
-  }
-} */
-
 /*Value-Cards section*/
-
 .value-cards {
-  scale: 0.9;
   width: 100%;
-  /* background-color: var(--color-dark); */
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 4rem;
-  margin: 2rem -1rem;
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
 
 /* 1. Container gets the perspective */
@@ -559,7 +544,6 @@
   position: relative;
   width: 100%;
   height: 200px;
-  /* or auto */
   perspective: 2000px;
   margin: 0 auto;
 }
@@ -588,7 +572,6 @@
   background: var(--princeton-orange);
   color: var(--color-secondary);
   transform: rotateY(0deg);
-  /* sits flat behind */
 }
 
 .value-card ul {
@@ -609,8 +592,6 @@
 }
 
 /* 5. On hover, animate each card differently based on its position */
-
-/* 1st column, 1st row (card 1) and 1st column, 2nd row (card 4): open like a book to the left */
 .value-cards .value-card:nth-child(1):hover .value-card-front.cover,
 .value-cards .value-card:nth-child(4):hover .value-card-front.cover {
   transform-origin: left center;
@@ -618,14 +599,12 @@
   box-shadow: 0 8px 32px 0 rgba(30, 144, 255, 0.18);
 }
 
-/* 2nd column, 1st row (card 2): open upwards */
 .value-cards .value-card:nth-child(2):hover .value-card-front.cover {
   transform-origin: top center;
   transform: rotateX(85deg) scale(1.04);
   box-shadow: 0 8px 32px 0 rgba(251, 152, 36, 0.18);
 }
 
-/* 3rd column, 1st row (card 3) and 3rd column, 2nd row (card 6): open to the right */
 .value-cards .value-card:nth-child(3):hover .value-card-front.cover,
 .value-cards .value-card:nth-child(6):hover .value-card-front.cover {
   transform-origin: right center;
@@ -633,16 +612,12 @@
   box-shadow: 0 8px 32px 0 rgba(44, 66, 92, 0.18);
 }
 
-/* 2nd column, 2nd row (card 5): open downwards */
 .value-cards .value-card:nth-child(5):hover .value-card-front.cover {
   transform-origin: bottom center;
   transform: rotateX(-85deg) scale(1.04);
   box-shadow: 0 8px 32px 0 rgba(91, 130, 102, 0.18);
 }
 
-/* Add more nth-child rules for more cards if needed */
-
-/* 6. Optional: ensure total card shows correct colors */
 .value-card.total .value-card-front.cover {
   background: var(--color-secondary);
   color: var(--color-dark);
@@ -666,23 +641,19 @@
 
 .ctaGroup2 {
   max-width: fit-content;
-  scale: 1.2;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
-
 /* How It Works Teaser */
 .teaserSection {
-  scale: 0.95;
-  /* margin-top: 4rem; */
   padding: 2.5rem 0 2rem 0;
-  /* background: var(--color-bg); */
-  /* backdrop-filter: blur(10px);
-  box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31); */
   border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .teaserTitle {
@@ -721,25 +692,21 @@
 
 .teaserCard h3 {
   font-size: 1.25rem;
-  /* color: var(--color-primary); */
   margin-bottom: 0.5rem;
 }
 
 .teaserCard p {
-  /* color: var(--color-muted); */
   font-size: 1.05rem;
 }
 
 /* Features Showcase */
 .featuresSection {
-  scale: 0.95;
-  /* margin-top: 2rem; */
-  /* background: #f4f8ff; */
   padding: 2.5rem 0 2rem 0;
   backdrop-filter: blur(10px);
-  /* box-shadow: 10px 4px 30px rgba(255, 255, 255, 0.31); */
   border-radius: var(--border-radius);
-  /* margin-bottom: 2rem; */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .featuresGrid {
@@ -769,19 +736,19 @@
 
 .featureCard h4 {
   font-size: 1.18rem;
-  /* color: var(--color-primary); */
   margin-bottom: 0.5rem;
 }
 
 .featureCard p {
-  /* color: var(--color-muted); */
   font-size: 1.02rem;
 }
 
 /* Startup in Action Preview */
 .newsSection {
-  /* background: #fff; */
   padding: 2.5rem 0 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .newsTitle {
@@ -803,9 +770,7 @@
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  /* background: #f4f8ff; */
   border-radius: var(--border-radius);
-  /* box-shadow: var(--shadow); */
   padding: 1.5rem 1rem;
   min-height: 320px;
   justify-content: center;
@@ -859,6 +824,7 @@
   padding: 3rem 0;
   margin-top: 2rem;
   overflow: hidden;
+  width: 100%;
 }
 
 .enhancedCta::before {
@@ -960,7 +926,6 @@
 /* Legacy styles for backward compatibility */
 .bottomCta {
   border-radius: var(--border-radius);
-  scale: 0.95;
   background: var(--gradient-bottom-footer);
   color: #fff;
   padding: 2.5rem 0 2.5rem 0;
@@ -999,69 +964,201 @@
   color: #0b5ed7;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
+/* Responsive Design - Mobile First Approach */
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .homepage {
+    padding: 2rem 0;
+    margin: 0 auto;
+    width: 100dvw;
+  }
+
+  .heroSection {
+    height: auto;
+    min-height: 300px;
+    padding: 2rem 0;
+    width: 100%;
+  }
+
   .heroContent {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    padding: 0 1rem;
+    text-align: center;
   }
 
-  .heroLottie {
-    align-self: center;
-    margin-top: 1.5rem;
-  }
-
-  .metricsGrid,
-  .teaserGrid,
-  .featuresGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 700px) {
-  .heroSection {
-    padding: 2rem 0 1.5rem 0;
+  .heroText {
+    flex: none;
+    min-width: auto;
+    width: 100%;
   }
 
   .heroHeadline {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .heroSub {
+    font-size: 1rem;
+  }
+
+  .rewardBanner {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .ctaGroup {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .VC-Section,
+  .UnicornSection {
+    width: 100dvw;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+
+  .leaderboard-list {
+    width: 100dvw;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+
+  /* Tables responsive */
+  .vc-table-card,
+  .unicorn-table-card {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .vc-table-header,
+  .vc-table-row,
+  .unicorn-table-header,
+  .unicorn-table-row {
+    grid-template-columns: repeat(6, 120px);
+    min-width: 720px;
+  }
+
+  .unicorn-table-header,
+  .unicorn-table-row {
+    grid-template-columns: repeat(5, 120px);
+    min-width: 600px;
+  }
+
+  /* Trust section */
+  .trustSection {
+    width: 90dvw;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+
+  .trustContent h3 {
+    font-size: 1.8rem;
+  }
+
+  .trustHighlightGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .highlightCard {
+    padding: 1rem;
+  }
+
+  .highlightIcon {
     font-size: 2rem;
   }
 
-  .metricsGrid,
+  .highlightText {
+    font-size: 0.9rem;
+  }
+
+  /* Value cards */
+  .value-page {
+    width: 90dvw;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+
+  .value-cards {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .value-card {
+    height: 180px;
+  }
+
+  .value-card:hover {
+    transform: none;
+  }
+
+  /* Teaser and Features */
+  .teaserSection, .featuresSection, .newsSection, .enhancedCta {
+    width: 90dvw;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+
   .teaserGrid,
   .featuresGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 0 1rem;
   }
 
+  .teaserCard,
+  .featureCard {
+    padding: 1rem;
+  }
+
+  .teaserCard h3,
+  .featureCard h4 {
+    font-size: 1.1rem;
+  }
+
+  .teaserCard p,
+  .featureCard p {
+    font-size: 0.9rem;
+  }
+
+  /* News section */
   .slide {
-    min-height: 220px;
-    padding: 1rem 0.5rem;
+    min-height: 250px;
+    padding: 1rem;
   }
 
-  .newsCarousel {
-    max-width: 98vw;
+  .slideImg {
+    max-width: 280px;
   }
 
-  .bottomCtaContent h3 {
-    font-size: 1.3rem;
-  }
-
-  .btnBanner {
+  .slideText h3 {
     font-size: 1rem;
-    padding: 0.8rem 1.5rem;
   }
 
-  /* Enhanced CTA Responsive */
+  .slideText p {
+    font-size: 0.9rem;
+  }
+
+  /* Enhanced CTA */
   .enhancedCtaContent {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+    padding: 0 1rem;
   }
 
   .ctaTextContent h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .ctaTextContent p {
@@ -1071,7 +1168,7 @@
   .ctaButtonGroup {
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
   }
 
@@ -1079,25 +1176,179 @@
   .btnSecondaryCta {
     width: 100%;
     text-align: center;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* Metrics */
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .metricCard {
+    padding: 1rem;
+  }
+
+  .metricNum {
+    font-size: 1.5rem;
+  }
+
+  .metricLabel {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 600px) {
-  .heroBgVideo {
-    display: none;
-  }
+/* Tablet (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
   .heroSection {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  .heroHeadline {
+    font-size: 2.2rem;
+  }
+
+  .heroSub {
+    font-size: 1.05rem;
+  }
+
+  /* Tables */
+  .vc-table-card,
+  .unicorn-table-card {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .vc-table-header,
+  .vc-table-row,
+  .unicorn-table-header,
+  .unicorn-table-row {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Trust section */
+  .trustHighlightGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Value cards */
+  .value-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Teaser and Features */
+  .teaserGrid,
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Enhanced CTA */
+  .enhancedCtaContent {
+    gap: 2rem;
+  }
+
+  .ctaTextContent h3 {
+    font-size: 2rem;
+  }
+
+  /* Metrics */
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
+/* Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .heroSection {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .heroHeadline {
+    font-size: 2.6rem;
+  }
+
+  .heroSub {
+    font-size: 1.15rem;
+  }
+
+  /* Tables */
+  .vc-table-card,
+  .unicorn-table-card {
+    width: 65rem;
+  }
+
+  /* Trust section */
+  .trustHighlightGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Value cards */
+  .value-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Teaser and Features */
+  .teaserGrid,
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Enhanced CTA */
+  .enhancedCtaContent {
+    gap: 3rem;
+  }
+
+  .ctaTextContent h3 {
+    font-size: 2.2rem;
+  }
+
+  /* Metrics */
+  .metricsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10rem;
+  }
+}
+
+/* Extra small mobile devices (480px and below) */
 @media (max-width: 480px) {
   .heroSection {
-    background: url(../../assets/Banner/Bg3.svg) no-repeat fixed;
-    background-size: contain;
-    max-width: fit-content;
-    width: 100%;
-    padding: 1rem 4rem;
+    background: url(../../assets/Banner/Bg-2.svg) no-repeat center center;
+    background-size: cover;
+    width: 100dvw;
+    padding: 2.5rem 2rem;
+    margin: 0 auto;
+    animation: fadeUpMobile 1.5s ease-out;
+  }
+
+  @keyframes fadeUpMobile {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .heroContent {
+    animation: fadeUpMobile 1.5s ease-out 0.3s both;
+  }
+
+  .heroText {
+    animation: fadeUpMobile 1.5s ease-out 0.6s both;
   }
 
   .heroHeadline {
@@ -1106,24 +1357,42 @@
 
   .heroSub,
   .rewardBanner {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
   }
 
   .btnPrimary,
   .btnSecondary {
-    font-size: 0.98rem;
-    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
   }
 
-  .metricsSection,
-  .teaserSection,
-  .featuresSection,
-  .newsSection,
-  .bottomCta,
-  .enhancedCta {
-    font-size: 0.8rem;
-    max-width: cover;
-    padding: 1rem 4rem;
+  .VC-Title,
+  .UnicornTitle,
+  .trustContent h3,
+  .teaserTitle,
+  .newsTitle {
+    font-size: 1.5rem;
+  }
+
+  .VC-Subtitle,
+  .UnicornSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .trustHighlightGrid {
+    padding: 0 0.5rem;
+  }
+
+  .highlightCard {
+    padding: 0.75rem;
+  }
+
+  .value-page {
+    padding: 0 0.5rem;
+  }
+
+  .value-page h3 {
+    font-size: 1.5rem;
   }
 
   .enhancedCtaContent {
@@ -1136,47 +1405,5 @@
 
   .ctaTextContent p {
     font-size: 0.9rem;
-  }
-  .trustSection {
-    max-width:fit-content;
-    padding: 1rem 5rem;
-  }
-
-  .trustStats {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .trustHighlightGrid {
-    grid-template-columns: 1fr;
-    padding: 1rem 3rem;
-  }
-
-  .highlightCard {
-    width: fit-content;
-    padding: 1rem 2rem;
-  }
-
-  .trustFooter {
-    padding: 1rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .value-page {
-    max-width: fit-content;
-    width: 100%;
-    padding: 1rem 1rem;
-  }
-  .value-cards {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 3rem;
-    padding: 0rem 0.5rem;
-  }
-  .value-card {
-    width: 300px;
-    height: 180px;
-  }
-  .value-card:hover {
-    transform: none;
   }
 }

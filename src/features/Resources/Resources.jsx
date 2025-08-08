@@ -8,7 +8,7 @@ export default function Resources() {
     return (
         <div className="resources">
             <div className="resources-header">
-                <h1>Why Early-Stage Startup Founders Should Register for the World Startup Sprint ?</h1>
+                <h1>Why Early-Stage Startup Founders Should Register for the World Startup Sprint?</h1>
                 <p>
                     Equip your founding team with pragmatic valuation tools, real-time interactive calculators, and tactical negotiation insights—so you can secure the funding you deserve and accelerate from idea to unicorn while defending your position against investor skepticism.
                 </p>

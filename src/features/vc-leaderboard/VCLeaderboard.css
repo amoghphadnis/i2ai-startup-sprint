@@ -157,10 +157,10 @@
   grid-template-columns: auto 1fr auto auto;
   gap: 1.5rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: url('../../assets/Banner/Bg6.svg');
+  backdrop-filter: blur(25px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -242,6 +242,10 @@
 
 .vc-details {
   flex: 1;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
 }
 
 .vc-name {
@@ -301,7 +305,8 @@
   align-items: center;
   text-align: center;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  /* background: rgba(255, 255, 255, 0.05); */
+  backdrop-filter: blur(15px);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }

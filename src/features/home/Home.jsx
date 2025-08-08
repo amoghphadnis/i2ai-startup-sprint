@@ -1,6 +1,6 @@
 // src/components/HomePage/Home.jsx
 import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import Carousel from "react-slick";
 import rocketAnimation from "../../assets/rocket.json";
@@ -16,11 +16,11 @@ import Story3 from "../../assets/Images/unnamed.png";
 import Banner from "../../assets/Banner/Banner.webm";
 import Banner_image from "../../assets/Banner/Banner.webp";
 import Bg from "../../assets/Banner/Bg.svg";
+import Bg3 from "../../assets/Banner/Bg3.svg";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 // import Marquee from "react-fast-marquee";
 import Marquee from "./marquee_animation";
-
 
 import { FiUsers, FiTarget, FiAward } from "react-icons/fi";
 
@@ -56,11 +56,14 @@ const carouselSettings = {
   autoplaySpeed: 4000,
   responsive: [
     {
-      breakpoint: 600,
+      breakpoint: 1024,
       settings: {
-        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1,
       },
-      breakpoint: 480,
+    },
+    {
+      breakpoint: 768,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -155,8 +158,6 @@ const vcRows = [
     "successRate": 96,
   },
 ]
-// The above rows are commented out as we are using valueRows instead
-// to keep the code cleaner and more organized.
 
 const valueRows = [
   {
@@ -190,12 +191,28 @@ const totalTraditional = "$120,000 – $225,000";
 const totalOur = "$99";
 
 export default function HomePage() {
-  // On mount, initialize AOS
+  const [isMobile, setIsMobile] = useState(false);
+
+  // On mount, initialize AOS and check screen size
   useEffect(() => {
     AOS.init({
       duration: 1500, // animation duration in ms
       once: true, // whether animation should happen only once
     });
+
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const animations = [
@@ -211,29 +228,30 @@ export default function HomePage() {
     <div className="homepage">
       {/* Hero Section */}
       <section className="heroSection">
-        {/* Video Background */}
-        <video
-          className="heroBgVideo"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={Banner}
-          aria-hidden="true"
-          preload="auto"
-          aria-label="i2u.ai Banner Video"
-          src={Banner}
-        />
+        {/* Video Background - Only show on desktop */}
+        {!isMobile && (
+          <video
+            className="heroBgVideo"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={Banner_image}
+            aria-hidden="true"
+            preload="auto"
+            aria-label="i2u.ai Banner Video"
+            src={Banner}
+          />
+        )}
         <div
           data-aos="fade-right"
           data-aos-delay="150"
           data-aos-duration="1500"
-          // data-aos-easing="ease-in-out"
           className="heroContent"
         >
           <div className="heroText">
             <h1 className="heroHeadline">
-              Transform Your Startup’s Future @ HyperSpeed
+              Transform Your Startup's Future @ HyperSpeed
             </h1>
             <p className="heroSub">
               90% of startups fail—but most failures are preventable.
@@ -246,67 +264,57 @@ export default function HomePage() {
               <Link to="/Register" className="btnLink">
                 <Button text="Get Started Now &#x2192;" />
               </Link>
-              {/* <Link to="/how-it-works" className="btnSecondary">
-                Learn How It Works
-              </Link> */}
             </div>
           </div>
-          {/* <div className="heroLottie">
-            <Lottie animationData={rocketAnimation} loop />
-          </div> */}
         </div>
       </section>
 
       {/* Metrics Grid */}
       <Marquee />
 
-      {/* … somewhere below your hero/banner … */}
-
-      {/* Unicorn Club List */}
+      {/* VC and Unicorn Leaderboard */}
       <section className="leaderboard-list">
-          <section className="VC-Section">
-            <div className="VC-Content">
-              <h2 className="VC-Title">
-                Top VCs of 2025 <br />
-                <span className="VC-Subtitle">
-                  {/* This is a placeholder subtitle, you can change it as needed */}
-                  Discover top venture capital firms across different funding stages
-                </span>
-              </h2>
-              <div className="vc-table-card">
-                <div className="vc-table-header">
-                  <span>ID</span>
-                  <span>Name</span>
-                  <span>Total Funds</span>
-                  <span>Portfolio Companies</span>
-                  <span>Avg Investment</span>
-                  <span>Success Rate</span>
-                </div>
-                {vcRows.map((vc, index) => (
-                  <div key={index} className="vc-table-row">
-                    <span>{vc.id}</span>
-                    <span>{vc.name}</span>
-                    <span>{vc.totalFunds}</span>
-                    <span>{vc.portfolioCompanies}</span>
-                    <span>{vc.avgInvestment}</span>
-                    <span>{vc.successRate}</span>
-                  </div>
-                ))}
-              </div>
-              <span className="unicornMore">
-                <Link to="/VC-Leaderboard" className="btnLink">
-                  <Button text="VC List &#x21e2;" />
-                </Link>
+        <section className="VC-Section">
+          <div className="VC-Content">
+            <h2 className="VC-Title">
+              Top VCs of 2025
+              <span className="VC-Subtitle">
+                Discover top venture capital firms across different funding stages
               </span>
+            </h2>
+            <div className="vc-table-card">
+              <div className="vc-table-header">
+                <span>ID</span>
+                <span>Name</span>
+                <span>Total Funds</span>
+                <span>Portfolio Companies</span>
+                <span>Avg Investment</span>
+                <span>Success Rate</span>
+              </div>
+              {vcRows.map((vc, index) => (
+                <div key={index} className="vc-table-row">
+                  <span>{vc.id}</span>
+                  <span>{vc.name}</span>
+                  <span>{vc.totalFunds}</span>
+                  <span>{vc.portfolioCompanies}</span>
+                  <span>{vc.avgInvestment}</span>
+                  <span>{vc.successRate}%</span>
+                </div>
+              ))}
             </div>
-          </section>
+            <span className="unicornMore">
+              <Link to="/VC-Leaderboard" className="btnLink">
+                <Button text="VC List &#x21e2;" />
+              </Link>
+            </span>
+          </div>
+        </section>
         <section className="UnicornSection">
           <div className="UnicornContent">
             <h2 className="UnicornTitle">
-              Top Unicorns of 2025 <br />
+              Top Unicorns of 2025
               <span className="UnicornSubtitle">
-                {/* This is a placeholder subtitle, you can change it as needed */}
-                Discover the world’s most valuable startups
+                Discover the world's most valuable startups
               </span>
             </h2>
             <div className="unicorn-table-card">
@@ -316,7 +324,6 @@ export default function HomePage() {
                 <span>Country</span>
                 <span>Industry</span>
                 <span>Valuation ($B)</span>
-                {/* <span>Revenue</span> */}
               </div>
               {Unicornrows.map((Unicorn, index) => (
                 <div key={index} className="unicorn-table-row">
@@ -325,7 +332,6 @@ export default function HomePage() {
                   <span>{Unicorn.Country}</span>
                   <span>{Unicorn.Industry}</span>
                   <span>{Unicorn.Valuation}</span>
-                  {/* <span>{Unicorn.Revenue}</span> */}
                 </div>
               ))}
             </div>
@@ -341,20 +347,6 @@ export default function HomePage() {
       <section className="trustSection">
         <div className="trustContent">
           <h3>Why Trust Us?</h3>
-          {/* <p className="trustSubtitle">
-                  We, in collaboration with our board advisor <a
-                    href="https://www.linkedin.com/in/ravikikan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Mr. Ravi Kikan
-                  </a>, run the
-                  largest community of startups globally, with over 1.2 Million
-                  members— founders, investors, mentors, coaches, hustlers, and
-                  aspiring entrepreneurs.
-                </p> */}
-
-          {/* NEW unified highlight cards */}
           <div
             data-aos="zoom-in-up"
             data-aos-easing="ease-out-cubic"
@@ -387,7 +379,7 @@ export default function HomePage() {
       <div className="value-page">
         <h3>Comprehensive Value Justification</h3>
         <p>
-          We’ve bundled five premium services—normally totaling{" "}
+          We've bundled five premium services—normally totaling{" "}
           {totalTraditional}—all for just {totalOur}.
         </p>
       </div>
@@ -401,7 +393,7 @@ export default function HomePage() {
             data-aos={animations[i % animations.length]}
             data-aos-delay={i * 100} // stagger each card by 100ms
           >
-            {/* Front = the “cover” */}
+            {/* Front = the "cover" */}
             <div className="value-card-front cover">
               <h4>{service}</h4>
               <p className="traditional">{traditional}</p>
@@ -416,7 +408,7 @@ export default function HomePage() {
                   {traditional}.
                 </li>
                 <li>
-                  With us, it’s <strong>{our}</strong>—no extra fee.
+                  With us, it's <strong>{our}</strong>—no extra fee.
                 </li>
               </ul>
             </div>
@@ -513,7 +505,7 @@ export default function HomePage() {
             {
               img: Story2,
               title:
-                "TBeyond the Known: Humanity’s Quest for Holistic Intelligence",
+                "TBeyond the Known: Humanity's Quest for Holistic Intelligence",
               excerpt: " The Evolution of Knowledge Capture: A Historical Lens",
             },
             {
