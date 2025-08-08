@@ -43,15 +43,15 @@ const InvestorCommunication = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <h1 className="about-hero-title">
+      <section className="inc-about-hero">
+        <div className="inc-about-hero-content">
+          <h1 className="inc-about-hero-title">
             The RenAIssance is Here
           </h1>
-          <p className="about-hero-subtitle">
+          <p className="inc-about-hero-subtitle">
             Why i2u.ai Inc. is Your Next Unicorn Investment
           </p>
-          <div className="about-hero-description">
+          <div className="inc-about-hero-description">
             <p>
               In a world awash with AI hype, where every startup claims to be the next big thing, 
               it's easy to get lost in the noise. But what if I told you there's a quiet revolution 
@@ -63,15 +63,15 @@ const InvestorCommunication = () => {
       </section>
 
       {/* Main Content */}
-      <section className="about-main">
-        <div className="about-container">
+      <section className="inc-about-main">
+        <div className="inc-about-container">
           
           {/* Why i2u.ai Section */}
-          <div className="about-section">
-            <h2 className="about-section-title">
+          <div className="inc-about-section">
+            <h2 className="inc-about-section-title">
               Why i2u.ai Inc. is Not Just Another AI Startup
             </h2>
-            <div className="about-content">
+            <div className="inc-about-content">
               <p>
                 i2u.ai isn't peddling vaporware or another rehashed algorithm. It's a platform designed 
                 to transform the startup ecosystem, taking ideas to unicorns through AI. In an era where 
@@ -89,11 +89,11 @@ const InvestorCommunication = () => {
           </div>
 
           {/* Delaware C Corp Advantage */}
-          <div className="about-section">
-            <h2 className="about-section-title">
+          <div className="inc-about-section">
+            <h2 className="inc-about-section-title">
               The Delaware C Corp Advantage: Speaking the Language of US Investors
             </h2>
-            <div className="about-content">
+            <div className="inc-about-content">
               <p>
                 For our discerning US investors, it's crucial to highlight that i2u.ai Inc. is a Delaware 
                 C Corp (EIN: 36-5143244). Delaware's corporate laws are renowned for their flexibility and 
@@ -106,18 +106,18 @@ const InvestorCommunication = () => {
           </div>
 
           {/* Highlights Grid */}
-          <div className="about-highlights">
-            <h2 className="about-section-title">Key Differentiators</h2>
-            <div className="highlights-grid">
+          <div className="inc-about-highlights">
+            <h2 className="inc-about-section-title">Key Differentiators</h2>
+            <div className="inc-highlights-grid">
               {highlights.map((highlight, index) => {
                 const Icon = highlight.icon;
                 return (
-                  <div key={index} className="highlight-card">
-                    <div className="highlight-icon">
+                  <div key={index} className="inc-highlight-card">
+                    <div className="inc-highlight-icon">
                       <Icon size={24} />
                     </div>
-                    <h3 className="highlight-title">{highlight.title}</h3>
-                    <p className="highlight-description">{highlight.description}</p>
+                    <h3 className="inc-highlight-title">{highlight.title}</h3>
+                    <p className="inc-highlight-description">{highlight.description}</p>
                   </div>
                 );
               })}
@@ -125,11 +125,11 @@ const InvestorCommunication = () => {
           </div>
 
           {/* Perfect Timing Section */}
-          <div className="about-section">
-            <h2 className="about-section-title">
+          <div className="inc-about-section">
+            <h2 className="inc-about-section-title">
               Why Now? The Perfect Timing of the RenAIssance
             </h2>
-            <div className="about-content">
+            <div className="inc-about-content">
               <p>
                 The 'Perfect Timing' as our strongest asset (9/10). We are at the cusp of the AI RenAIssance, 
                 a period where human intelligence is not being replaced, but redefined and expanded through 
@@ -150,11 +150,11 @@ const InvestorCommunication = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="about-cta">
-            <h2 className="about-section-title">
+          <div className="inc-about-cta">
+            <h2 className="inc-about-section-title">
               Connect, Collaborate, Conquer
             </h2>
-            <div className="about-content">
+            <div className="inc-about-content">
               <p>
                 We are actively seeking visionary investors who understand the transformative power of AI 
                 and the immense potential of a globally connected startup ecosystem. If you are an investor 
@@ -166,11 +166,11 @@ const InvestorCommunication = () => {
                 The future of innovation is here, and it's spelled i2u.ai.
               </p>
             </div>
-            <div className="cta-buttons">
-              <Button className="cta-primary">
+            <div className="inc-cta-buttons">
+              <Button className="inc-cta-primary">
                 <Link to="/Register">Connect With Us</Link>
               </Button>
-              <Button variant="outline" className="cta-secondary">
+              <Button variant="outline" className="inc-cta-secondary">
                 <a href="https://www.linkedin.com/company/i2u-ai/" target="_blank" rel="noreferrer">
                   Learn More on LinkedIn
                 </a>

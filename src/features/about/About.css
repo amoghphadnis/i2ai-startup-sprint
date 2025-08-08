@@ -9,6 +9,8 @@
 
 /* Enhanced Hero Section */
 .about-hero {
+  border-radius: 1.5rem;
+  width: 90dvw;
   position: relative;
   min-height: 100vh;
   display: flex;

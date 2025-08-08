@@ -328,4 +328,27 @@ button:active {
     margin: 0 auto;
     padding: 2rem 0;
   }
+
+  .results-table {
+    /* Write responsive design for this section and it should be great at mobile devices*/
+    width: 90dvw;
+    margin: 0 auto;
+    padding: 2rem 0;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    /* Custom scrollbar styles */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--princeton-orange);
+    }
+  }
 }

@@ -222,7 +222,7 @@ const EmployeeBenefits = () => {
   return (
     <div className="employee-benefits-page">
       {/* Hero Section */}
-      <section className="benefits-hero">
+      <section className="emp-benefits-hero">
         <div className="emp-hero-background">
           <div className="emp-hero-gradient"></div>
           <div className="emp-hero-pattern"></div>
