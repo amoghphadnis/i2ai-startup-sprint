@@ -1,40 +1,23 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "@layouts/MainLayout";
+import { routes } from "./routes/routes";
 import "./App.css";
-import Navbar from "./components/header/Navbar";
-import Home from "./components/HomePage/Home";
-import UnicornClub from "./pages/Unicornclub/UnicornClub";
-import Leaderboard from './pages/Unicornclub/Leaderboard';
-import HowItWorks from './pages/How-It-Works/HowItWorks';
-import StartupInAction from './pages/Startup-In-Action/StartupInAction';
-import Pricing from './pages/Pricing/Pricing';
-import Resources from './pages/Resources/Resources';
-import FAQ from './pages/FAQ/Faq';
-import Register from './pages/Register/Register';
-import ValueCalculator from "./pages/ValueCalculator/ValueCalculator";
-import Terms from "./pages/Terms/Terms";
-import TermsAndPrivacy from "./components/WebContentFetcher/TermsAndPrivacy";
-import About from "./pages/About/About";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Unicorns" element={<UnicornClub />} />
-        <Route path="/Leaderboard" element={<Leaderboard />} />
-        <Route path="/How-It-Works" element={<HowItWorks />} />
-        <Route path="/Startup-In-Action" element={<StartupInAction />} />
-        <Route path="/Pricing" element={<Pricing />} />
-        <Route path="/Resources" element={<Resources />} />
-        <Route path="/Faq" element={<FAQ />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/ValueCalculator" element={<ValueCalculator />} />
-        <Route path="/Terms" element={<Terms />} />
-        <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
-        <Route path="/About" element={<About />} />
-      </Routes>
+      <MainLayout>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+            key={route.path}
+            path={route.path}
+            element={route.element}
+            />
+          ))}
+        </Routes>
+      </MainLayout>
     </>
   );
 }

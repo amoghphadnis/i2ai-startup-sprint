@@ -1,0 +1,46 @@
+@import '../design-system/variables.css';
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    line-height: var(--line-height-normal);
+  }
+  
+  /* Reset default styles */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  /* Utility classes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
+  }
+  
+  .section {
+    padding: var(--spacing-12) 0;
+  }
+  
+  .grid {
+    display: grid;
+    gap: var(--spacing-6);
+  }

@@ -2,7 +2,7 @@ import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import App from "./App.jsx";
-import Loader from "./components/Loader/Loader.jsx";
+import Loader from "./components/common/Loader/Loader.jsx";
 import "./index.css";
 
 import "slick-carousel/slick/slick.css";

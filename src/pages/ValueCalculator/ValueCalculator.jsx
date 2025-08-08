@@ -105,13 +105,21 @@ export default function ValueCalculator() {
     setShowAdvanced(false);
   }
 
+  const methodNames = [
+    'Comparable Company Analysis (Comps)',
+    'Discounted Cash Flow (DCF)',
+    'Venture Capital (VC) Method',
+    'Scorecard Valuation Method',
+    'Berkus Method'
+  ];
+
   const methodLabel = valuationMethods === 1
     ? '1 Method'
     : `${valuationMethods} Methods`;
 
   const methodHint = valuationMethods > 1
-    ? `Includes the previous ${valuationMethods - 1} method${valuationMethods - 1 > 1 ? 's' : ''} + this one.`
-    : 'Runs a single valuation method.';
+    ? `Includes: ${methodNames.slice(0, valuationMethods).join(', ')}`
+    : `Includes: ${methodNames[0]}`;
 
   return (
     <div className="value-page container">
