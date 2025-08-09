@@ -261,7 +261,7 @@ export default function HomePage() {
               <strong>₹999</strong> (<strong> ~ $12</strong>)
             </div>
             <div className="ctaGroup">
-              <Link to="/Register" className="btnLink">
+              <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer" className="btnLink">
                 <Button text="Get Started Now &#x2192;" />
               </Link>
             </div>
