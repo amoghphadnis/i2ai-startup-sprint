@@ -63,6 +63,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="nav-links desktop-nav">
           <Link to="/Resources" className="ywss">Why WSS?</Link>
+          <Link to="/Professional-Zone" className="dropdown-link">Professional's Zone</Link>
           <ExternalPageModal 
             url="https://ecosystem.i2u.ai/" 
             title="Ecosystem"
@@ -77,7 +78,6 @@ export default function Navbar() {
           >
             Blog
           </ExternalPageModal>
-          <Link to="https://bit.ly/3H4rK5n" target="_blank" rel="noopener noreferrer" className="nav-link-button">Latest Blog</Link>
           <div
             className="dropdown nav-dropdown"
             ref={dropdownRef}
@@ -101,7 +101,6 @@ export default function Navbar() {
               style={{ display: dropdownOpen ? "block" : "none" }}
             >
               <Link to="/About" className="dropdown-link">About Us</Link>
-              <Link to="/Employee-Benefits" className="dropdown-link">Professionals Kit</Link>
               <Link to="/Investor-Communication" className="dropdown-link">Investor Communication</Link>
             </div>
           </div>
@@ -156,8 +155,8 @@ export default function Navbar() {
                   About Us
                 </Link>
                 <hr className="mobile-dropdown-divider" />
-                <Link to="/Employee-Benefits" className="mobile-dropdown-link" onClick={closeMobileMenu}>
-                  Professionals Kit
+                <Link to="/Professional-Zone" className="mobile-dropdown-link" onClick={closeMobileMenu}>
+                  Professional's Zone
                 </Link>
                 <hr className="mobile-dropdown-divider" />
                 <Link to="/Investor-Communication" className="mobile-dropdown-link" onClick={closeMobileMenu}>

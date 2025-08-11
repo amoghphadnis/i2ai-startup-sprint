@@ -10,6 +10,8 @@ import Rick from '../../assets/Images/Founders/RP.jpg';
 import Girish from '../../assets/Images/Founders/GH.jpg';
 import Satish from '../../assets/Images/Founders/SH.jpg';
 import Shekhar from '../../assets/Images/Founders/SB.jpg';
+import Pratibha from '../../assets/Images/Founders/PB.jpg';
+import Vishwanath from '../../assets/Images/Founders/VS.jpg';
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -58,28 +60,28 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Ranjit (Rick) Paniker",
-      role: "Co-Founder",
-      description: "Growth-oriented Senior Executive with over 20 years of experience. Executive Vice President at Stele Infotech. Founded and successfully exited Aviation Academy International.",
-      experience: "20+ years",
-      keyAchievement: "$100MM+ sales in first year at PC Wonders",
-      image: Rick
-    },
-    {
       name: "Pratibha Bhadranavar",
       role: "Co-Founder",
       description: "Strong background in software engineering and project leadership. Experience at Mahindra Satyam and Novell Soft Pvt. Ltd. Expert in Core Java, XML, and project management.",
       experience: "Software Engineering",
       keyAchievement: "Technical backbone of i2u.ai platform",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+      image: Pratibha
     },
     {
-      name: "Girish Hukkeri",
-      role: "Founder",
-      description: "Over 33 years of experience in enterprise software and leadership roles. Founded embryoFund accelerator and mentored numerous B2B startups. Expert in identifying perfect timing in the market with 78.4% annual growth in AI ventures.",
+      name: "Vishwanath Sangoji",
+      role: "Co-Founder",
+      description: "Over 25 years of experience in management, IT consulting, and business development with strong PLM methodology. Expert in AI/ML platforms, edge computing, and embedded software implementations across Manufacturing, Healthcare, Automotive, and Agriculture industries.",
+      experience: "25+ years",
+      keyAchievement: "Leading i2u.ai operations and business development, Director at Embedded Edge Pvt Ltd",
+      image: Vishwanath
+    },
+    {
+      name: "Shekhar Bhusannavar",
+      role: "Co-Founder",
+      description: "Entrepreneur and strategic advisor with over 33 years of leadership experience. Managing Director of Goodness Health Hub Pharma and Chairman of AadiShek Group.",
       experience: "33+ years",
-      keyAchievement: "78.4% annual growth in AI ventures",
-      image: Girish
+      keyAchievement: "International business development across 3 continents",
+      image: Shekhar
     },
     {
       name: "Satish Hukkeri",
@@ -90,13 +92,21 @@ const About = () => {
       image: Satish
     },
     {
-      name: "Shekhar Bhusannavar",
+      name: "Ranjit (Rick) Paniker",
       role: "Co-Founder",
-      description: "Entrepreneur and strategic advisor with over 33 years of leadership experience. Managing Director of Goodness Health Hub Pharma and Chairman of AadiShek Group.",
+      description: "Growth-oriented Senior Executive with over 20 years of experience. Executive Vice President at Stele Infotech. Founded and successfully exited Aviation Academy International.",
+      experience: "20+ years",
+      keyAchievement: "$100MM+ sales in first year at PC Wonders",
+      image: Rick
+    },
+    {
+      name: "Girish Hukkeri",
+      role: "Founder",
+      description: "Over 33 years of experience in enterprise software and leadership roles. Founded embryoFund accelerator and mentored numerous B2B startups. Expert in identifying perfect timing in the market with 78.4% annual growth in AI ventures.",
       experience: "33+ years",
-      keyAchievement: "International business development across 3 continents",
-      image: Shekhar
-    }
+      keyAchievement: "78.4% annual growth in AI ventures",
+      image: Girish
+    },
   ];
 
   const prospectBase = [
@@ -177,14 +187,18 @@ const About = () => {
               </p>
             </div>
             <div className="hero-cta-group">
-              <Button className="hero-cta-primary">
+              <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer">
+              <Button className="emp-hero-cta-primary">
                 <FaRegPlayCircle style={{ marginRight: '8px' }} />
                 Watch Our Story
               </Button>
-              <Button variant="outline" className="hero-cta-secondary">
+              </Link>
+              <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="emp-hero-cta-secondary">
                 <FiMail style={{ marginRight: '8px' }} />
                 Contact Us
               </Button>
+              </Link>
             </div>
           </div>
           <div className="hero-visual-section">
@@ -282,7 +296,7 @@ const About = () => {
           </div>
 
           {/* Testimonials Carousel */}
-          <div className="testimonials-section">
+          {/* <div className="testimonials-section">
             <h2 className="section-title">What Our Founders Say</h2>
             <div className="testimonials-carousel">
               <button className="carousel-btn prev" onClick={prevSlide}>
@@ -322,7 +336,7 @@ const About = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Development Team Section */}
           <div className="about-section team-intro-section">

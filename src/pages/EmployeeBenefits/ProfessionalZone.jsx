@@ -4,10 +4,10 @@ import { FiUsers, FiTarget, FiAward, FiTrendingUp, FiGlobe, FiZap,
     FiCpu, FiPlay, FiShield, FiBookOpen, FiUserCheck, FiMail, FiArrowRight, FiArrowLeft,
     FiCheckCircle, FiStar, FiBriefcase } from 'react-icons/fi';
 import { FaLinkedinIn, FaRocket, FaRegPlayCircle } from "react-icons/fa";
-import { Button } from '../../components/ui/button';
-import './EmployeeBenefits.css';
+import Button from "../../components/Button";
+import './ProfessionalZone.css';
 
-const EmployeeBenefits = () => {
+const ProfessionalZone = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const benefits = [
@@ -62,26 +62,11 @@ const EmployeeBenefits = () => {
         "🌐 1 Free Networking Event/month",
         "💾 50 MB Cloud Storage"
       ],
+      includedFeatures: [0, 1, 2, 3, 4], // All features included
+      specialOffer: "FREE FOREVER",
       cta: "Get Started Free",
-      popular: false
-    },
-    {
-      name: "Beginner Plan",
-      price: "₹16,000",
-      period: "/ Year",
-      description: "Ignite Your Career",
-      features: [
-        "🤖 AI Career Path Advisor",
-        "🎓 AI Skill Recommendations",
-        "📝 AI Interview Prep (Basic)",
-        "📊 Skill Gap Analysis (Quarterly)",
-        "📄 AI Resume & Portfolio Optimization",
-        "📚 Access to Learning Repository",
-        "🎟️ 1 Participation Credit (Premium Jobs/Gigs)",
-        "💾 100 MB Storage"
-      ],
-      cta: "Choose Beginner Plan",
-      popular: false
+      popular: false,
+      gradient: "green"
     },
     {
       name: "Basic Plan",
@@ -99,8 +84,32 @@ const EmployeeBenefits = () => {
         "📊 Contact Management (50 contacts)",
         "💾 1 GB Storage"
       ],
+      includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8], // All features included
+      specialOffer: "FREE 3 MONTH",
       cta: "Choose Basic Plan",
-      popular: true
+      popular: true,
+      gradient: "pink"
+    },
+    {
+      name: "Beginner Plan",
+      price: "₹16,000",
+      period: "/ Year",
+      description: "Ignite Your Career",
+      features: [
+        "🤖 AI Career Path Advisor",
+        "🎓 AI Skill Recommendations",
+        "📝 AI Interview Prep (Basic)",
+        "📊 Skill Gap Analysis (Quarterly)",
+        "📄 AI Resume & Portfolio Optimization",
+        "📚 Access to Learning Repository",
+        "🎟️ 1 Participation Credit (Premium Jobs/Gigs)",
+        "💾 100 MB Storage"
+      ],
+      includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7], // All features included
+      specialOffer: "FREE 1 MONTH",
+      cta: "Choose Beginner Plan",
+      popular: false,
+      gradient: "blue"
     },
     {
       name: "Advanced Plan",
@@ -117,8 +126,11 @@ const EmployeeBenefits = () => {
         "📧 10 Professional Email IDs",
         "💾 5 GB Storage"
       ],
+      includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7], // All features included
+      specialOffer: "FREE 6 MONTH",
       cta: "Choose Advanced Plan",
-      popular: false
+      popular: false,
+      gradient: "green"
     },
     {
       name: "Professional Plan",
@@ -137,8 +149,11 @@ const EmployeeBenefits = () => {
         "🌍 VIP Networking Events",
         "💾 10 GB Storage"
       ],
+      includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // All features included
+      specialOffer: "FREE 9 MONTH",
       cta: "Choose Professional Plan",
-      popular: false
+      popular: false,
+      gradient: "blue"
     },
     {
       name: "Pro Max Ultra",
@@ -157,8 +172,11 @@ const EmployeeBenefits = () => {
         "🌍 Priority Access to Global Events",
         "💾 50 GB Storage"
       ],
+      includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // All features included
+      specialOffer: "FREE 12 MONTH",
       cta: "Choose Pro Max Ultra",
-      popular: false
+      popular: false,
+      gradient: "pink"
     }
   ];
 
@@ -234,36 +252,55 @@ const EmployeeBenefits = () => {
             </h1>
             <div className="emp-benefits-hero-description">
               <p>
-                We are building the world's most dynamic AI-powered ecosystem for 
-                <strong> jobseekers, professionals, freelancers, entrepreneurs, and individual service providers</strong>—uniting over 
-                <strong> 1.2 million innovators, creators, and career-shapers</strong> from startups to enterprises.
+                We are building the world's most dynamic AI-powered ecosystem
+                for
+                <strong>
+                  {" "}
+                  jobseekers, professionals, freelancers, entrepreneurs, and
+                  individual service providers
+                </strong>
+                —uniting over
+                <strong>
+                  {" "}
+                  1.2 million innovators, creators, and career-shapers
+                </strong>{" "}
+                from startups to enterprises.
               </p>
               <p>
-                Whether you're launching your career, scaling your expertise, or building your personal brand, 
-                <strong> i2u.ai</strong> gives you the AI tools, community, and opportunities to thrive in the future of work.
+                Whether you're launching your career, scaling your expertise, or
+                building your personal brand,
+                <strong> i2u.ai</strong> gives you the AI tools, community, and
+                opportunities to thrive in the future of work.
               </p>
             </div>
             <div className="emp-hero-cta-group">
-              <Button className="emp-hero-cta-primary">
-                <FaRegPlayCircle style={{ marginRight: '8px' }} />
-                Watch Our Story
-              </Button>
-              <Button variant="outline" className="emp-hero-cta-secondary">
-                <FiMail style={{ marginRight: '8px' }} />
-                Contact Us
-              </Button>
+              <Link
+                to="https://payments.cashfree.com/forms/i2uAI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btnLink"
+              >
+                <Button text="Get Started Now &#x2192;" />
+              </Link>
             </div>
             <div className="emp-registration-notice">
               <p>
-                <strong>Registration fee: ₹99</strong> - May increase anytime without notice. 
-                <strong> Act now to secure your spot and maximize your reward.</strong>
+                <strong>Registration fee: ₹99</strong> -{" "}
+                <span style={{ color: "white" }}>
+                  The fees will be increased to <strong> ₹199 </strong> after
+                  the first 1,000 registrations.
+                </span>
+                <strong>
+                  {" "}
+                  Act now to secure your spot and maximize your reward.
+                </strong>
               </p>
             </div>
           </div>
           <div className="emp-hero-visual-section">
             <div className="emp-hero-stats">
               <div className="emp-stat-item">
-                <span className="stat-number">1.2M+</span>
+                <span className="stat-number">Join</span>
                 <span className="stat-label">Professionals</span>
               </div>
               <div className="emp-stat-item">
@@ -282,7 +319,6 @@ const EmployeeBenefits = () => {
       {/* Main Content */}
       <section className="emp-benefits-main">
         <div className="emp-benefits-container">
-          
           {/* Why i2u.ai Section */}
           <div className="emp-benefits-section emp-why-section">
             <div className="emp-section-header">
@@ -293,16 +329,21 @@ const EmployeeBenefits = () => {
             </div>
             <div className="emp-benefits-content">
               <p>
-                At <strong>i2u.ai</strong>, we believe the future belongs to those who prepare for it today. 
-                Our AI-driven platform is designed to help you:
+                At <strong>i2u.ai</strong>, we believe the future belongs to
+                those who prepare for it today. Our AI-driven platform is
+                designed to help you:
               </p>
             </div>
-            
+
             <div className="emp-benefits-grid">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="benefit-card" style={{ '--accent-color': benefit.color }}>
+                  <div
+                    key={index}
+                    className="benefit-card"
+                    style={{ "--accent-color": benefit.color }}
+                  >
                     <div className="benefit-icon">
                       <Icon size={32} />
                     </div>
@@ -312,13 +353,27 @@ const EmployeeBenefits = () => {
                 );
               })}
             </div>
-            
+
             <div className="emp-benefits-summary">
               <p>
-                We combine <strong>cutting-edge AI tools</strong>, <strong>personalized learning</strong>, and 
-                <strong> exclusive global networking</strong> to fast-track your success—no matter where you are in your journey.
+                We combine <strong>cutting-edge AI tools</strong>,{" "}
+                <strong>personalized learning</strong>, and
+                <strong> exclusive global networking</strong> to fast-track your
+                success—no matter where you are in your journey.
               </p>
             </div>
+          </div>
+          
+
+          <div className="emp-hero-cta-group" style={{marginBottom:'5rem'}}>
+            <Link
+              to="https://payments.cashfree.com/forms/i2uAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnLink"
+            >
+              <Button text="Get Started Now &#x2192;" variant="outline" />
+            </Link>
           </div>
 
           {/* Early Access Rewards Section */}
@@ -328,15 +383,17 @@ const EmployeeBenefits = () => {
             </h2>
             <div className="emp-benefits-content">
               <p>
-                We're opening doors to our revolutionary platform—and the <strong>first 10% of registrants</strong> 
+                We're opening doors to our revolutionary platform—and the{" "}
+                <strong>first 10% of registrants</strong>
                 get their <strong>annual subscription FREE</strong>!
               </p>
               <p>
-                The registration fee is at just <strong>₹99</strong>, but may be increased anytime without advance notice. 
-                Act now to secure your spot and maximize your reward.
+                The registration fee is at just <strong>₹99</strong>, but may be
+                increased anytime without advance notice. Act now to secure your
+                spot and maximize your reward.
               </p>
             </div>
-            
+
             <div className="emp-rewards-table">
               <div className="emp-rewards-header">
                 <div className="emp-header-tier">Registration Tier</div>
@@ -349,19 +406,26 @@ const EmployeeBenefits = () => {
                   </div>
                   <div className="emp-reward-details">
                     <div className="emp-reward-value">{reward.reward}</div>
-                    <div className="emp-reward-description">{reward.description}</div>
+                    <div className="emp-reward-description">
+                      {reward.description}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-            
+
             <div className="emp-rewards-notice">
               <p>
-                ✅ <strong>Even if you miss the top tier, you still get at least ₹16,000 worth of value—for just ₹99!</strong>
+                ✅{" "}
+                <strong>
+                  Even if you miss the top tier, you still get at least ₹16,000
+                  worth of value—for just ₹99!
+                </strong>
               </p>
               <p>
-                🚀 <strong>Beat the system</strong>: Pay a little extra to become the highest-paying registrant of the day 
-                and jump the queue for top-tier rewards!
+                🚀 <strong>Beat the system</strong>: Pay a little extra to
+                become the highest-paying registrant of the day and jump the
+                queue for top-tier rewards!
               </p>
             </div>
           </div>
@@ -369,37 +433,70 @@ const EmployeeBenefits = () => {
           {/* Subscription Plans Section */}
           <div className="emp-benefits-section emp-plans-section">
             <h2 className="emp-benefits-section-title">
-              🌟 Subscription Plans at a Glance
+              🌟 Complete Subscription Plans Overview
             </h2>
             <div className="emp-benefits-content">
               <p>
-                Choose the plan that best fits your career goals and budget. All plans include our core AI-powered features 
-                with additional benefits as you upgrade.
+                Choose from our comprehensive range of plans designed to accelerate your career growth. 
+                From free access to premium features, find the perfect plan that matches your goals and budget.
               </p>
             </div>
-            
+
             <div className="emp-plans-grid">
               {subscriptionPlans.map((plan, index) => (
-                <div key={index} className={`emp-plan-card ${plan.popular ? 'popular' : ''}`}>
-                  {plan.popular && <div className="popular-badge">Most Popular</div>}
+                <div
+                  key={index}
+                  className={`emp-plan-card ${plan.popular ? "popular" : ""}`}
+                >
+                  {plan.popular && (
+                    <div className="popular-badge">Most Popular</div>
+                  )}
+                  
+                  {/* Plan Header */}
                   <div className="emp-plan-header">
                     <h3 className="emp-plan-name">{plan.name}</h3>
+                  </div>
+                  
+                  {/* Price Section with Gradient */}
+                  <div className={`emp-plan-price-section emp-price-${plan.gradient}`}>
                     <div className="emp-plan-price">
                       <span className="emp-price-amount">{plan.price}</span>
                       <span className="emp-price-period">{plan.period}</span>
                     </div>
                     <p className="emp-plan-description">{plan.description}</p>
                   </div>
+                  
+                  {/* Features Section */}
                   <div className="emp-plan-features">
                     {plan.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="emp-plan-feature">
-                        <FiCheckCircle className="emp-feature-icon" />
-                        <span>{feature}</span>
+                        <ul className="emp-plan-feature-list">
+                        {plan.includedFeatures.includes(featureIndex) ? (
+                          <FiCheckCircle className="emp-feature-icon included" />
+                        ) : (
+                          <span className="emp-feature-icon excluded">✕</span>
+                        )}
+                        <li>{feature}</li>
+                        </ul>
                       </div>
                     ))}
                   </div>
+                  
+                  {/* Special Offer Section */}
+                  <div className={`emp-plan-offer emp-offer-${plan.gradient}`}>
+                    <span>{plan.specialOffer}</span>
+                  </div>
+                  
+                  {/* Call to Action */}
                   <div className="emp-plan-cta">
-                    <Button className={plan.popular ? 'emp-plan-cta-popular' : 'emp-plan-cta-standard'}>
+                    <Button
+                      className={
+                        plan.popular
+                          ? "emp-plan-cta-popular"
+                          : "emp-plan-cta-standard"
+                      }
+                    >
+                      <FiArrowRight className="emp-cta-icon" />
                       {plan.cta}
                     </Button>
                   </div>
@@ -415,44 +512,63 @@ const EmployeeBenefits = () => {
             </h2>
             <div className="emp-benefits-content">
               <p>
-                We celebrate <strong>every inspiring contributor</strong> in the startup and innovation ecosystem. 
-                Our <strong>Global Leaderboard of Future Leaders</strong> recognizes excellence across all levels, including:
+                We celebrate <strong>every inspiring contributor</strong> in the
+                startup and innovation ecosystem. Our{" "}
+                <strong>Global Leaderboard of Future Leaders</strong> recognizes
+                excellence across all levels, including:
               </p>
             </div>
-            
+
             <div className="emp-leaderboard-categories">
               <div className="emp-category-grid">
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>Founders & Co-Founders</strong></span>
+                  <span>
+                    <strong>Founders & Co-Founders</strong>
+                  </span>
                 </div>
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>CTOs, CPOs & Technical Heads</strong></span>
+                  <span>
+                    <strong>CTOs, CPOs & Technical Heads</strong>
+                  </span>
                 </div>
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>Startup Managers & Department Leads</strong></span>
+                  <span>
+                    <strong>Startup Managers & Department Leads</strong>
+                  </span>
                 </div>
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>High-Impact Employees & Innovators</strong></span>
+                  <span>
+                    <strong>High-Impact Employees & Innovators</strong>
+                  </span>
                 </div>
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>Freelancers & Independent Experts</strong></span>
+                  <span>
+                    <strong>Freelancers & Independent Experts</strong>
+                  </span>
                 </div>
                 <div className="emp-category-item">
                   <FiCheckCircle className="category-icon" />
-                  <span><strong>Interns & Students</strong> driving real change</span>
+                  <span>
+                    <strong>Interns & Students</strong> driving real change
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             <div className="emp-leaderboard-note">
               <p>
-                🌟 <strong>Performance, growth, community contribution, and AI-powered milestones</strong> will determine rankings. 
-                Whether you're leading a team or learning your first skill, your journey matters.
+                🌟{" "}
+                <strong>
+                  Performance, growth, community contribution, and AI-powered
+                  milestones
+                </strong>{" "}
+                will determine rankings. Whether you're leading a team or
+                learning your first skill, your journey matters.
               </p>
             </div>
           </div>
@@ -468,7 +584,9 @@ const EmployeeBenefits = () => {
                   <FiZap />
                 </div>
                 <h3>Faster Skill Growth</h3>
-                <p>AI-driven, personalized learning paths reduce trial and error.</p>
+                <p>
+                  AI-driven, personalized learning paths reduce trial and error.
+                </p>
               </div>
               <div className="emp-feature-item">
                 <div className="emp-feature-icon">
@@ -482,26 +600,32 @@ const EmployeeBenefits = () => {
                   <FiUserCheck />
                 </div>
                 <h3>Take Control</h3>
-                <p>Design your career path with intelligent insights and tools.</p>
+                <p>
+                  Design your career path with intelligent insights and tools.
+                </p>
               </div>
               <div className="emp-feature-item">
                 <div className="emp-feature-icon">
                   <FiGlobe />
                 </div>
                 <h3>Expand Reach</h3>
-                <p>Access global opportunities and build a borderless professional identity.</p>
+                <p>
+                  Access global opportunities and build a borderless
+                  professional identity.
+                </p>
               </div>
             </div>
-            
+
             <div className="emp-features-quote">
               <blockquote>
-                By joining i2u.ai, you're not just upgrading your skills—you're future-proofing your career.
+                By joining i2u.ai, you're not just upgrading your skills—you're
+                future-proofing your career.
               </blockquote>
             </div>
           </div>
 
           {/* Testimonials Section */}
-          <div className="emp-benefits-section emp-testimonials-section">
+          {/* <div className="emp-benefits-section emp-testimonials-section">
             <h2 className="emp-benefits-section-title">
               What Our Members Say
             </h2>
@@ -543,7 +667,7 @@ const EmployeeBenefits = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Registration CTA Section */}
           <div className="emp-benefits-section emp-registration-section">
@@ -552,37 +676,62 @@ const EmployeeBenefits = () => {
             </h2>
             <div className="emp-benefits-content">
               <p>
-                The registration fee is at just <strong>₹99</strong>, but may be increased anytime without advance notice. 
-                Act now to secure your spot and maximize your reward.
+                The registration fee is at just <strong>₹99</strong>, but may be
+                increased anytime without advance notice. Act now to secure your
+                spot and maximize your reward.
               </p>
             </div>
-            
+
             <div className="emp-payment-section">
               <div className="emp-payment-notice">
-                <p>👉 <strong>Scan or Click to Pay ₹99 and Register Instantly</strong></p>
+                <p>
+                  👉{" "}
+                  <strong>
+                    Scan or Click to Pay ₹99 and Register Instantly
+                  </strong>
+                </p>
               </div>
-              
+
               {/* Cashfree Button */}
               <div className="emp-cashfree-button-container">
                 <form>
-                  <a href="https://payments.cashfree.com/forms/i2uAIJ" target="_parent">
-                    <div className="button-container" style={{ background: '#130eb9' }}>
+                  <a
+                    href="https://payments.cashfree.com/forms/i2uAIJ"
+                    target="_parent"
+                  >
+                    <div
+                      className="button-container"
+                      style={{ background: "#130eb9" }}
+                    >
                       <div>
-                        <img 
-                          src="https://cashfree-checkoutcartimages-prod.cashfree.com/i2u18May251028 (1)G8mrvcb66o5g_prod.png" 
-                          alt="logo" 
+                        <img
+                          src="https://cashfree-checkoutcartimages-prod.cashfree.com/i2u18May251028 (1)G8mrvcb66o5g_prod.png"
+                          alt="logo"
                           className="emp-logo-container"
                         />
                       </div>
                       <div className="emp-text-container">
-                        <div style={{ fontFamily: 'Arial', color: '#fff', marginBottom: '5px', fontSize: '14px' }}>
+                        <div
+                          style={{
+                            fontFamily: "Arial",
+                            color: "#fff",
+                            marginBottom: "5px",
+                            fontSize: "14px",
+                          }}
+                        >
                           Pay Now ₹99 Only!
                         </div>
-                        <div style={{ fontFamily: 'Arial', color: '#fff', fontSize: '10px' }}>
+                        <div
+                          style={{
+                            fontFamily: "Arial",
+                            color: "#fff",
+                            fontSize: "10px",
+                          }}
+                        >
                           <span>Powered By Cashfree</span>
-                          <img 
-                            src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" 
-                            alt="logo" 
+                          <img
+                            src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg"
+                            alt="logo"
                             className="emp-seconday-logo-container"
                           />
                         </div>
@@ -606,7 +755,10 @@ const EmployeeBenefits = () => {
                 </div>
                 <div className="emp-step-content">
                   <h3>Confirmation Email</h3>
-                  <p>You'll receive a confirmation email with your reward tier and access details.</p>
+                  <p>
+                    You'll receive a confirmation email with your reward tier
+                    and access details.
+                  </p>
                 </div>
               </div>
               <div className="emp-step-item">
@@ -615,7 +767,9 @@ const EmployeeBenefits = () => {
                 </div>
                 <div className="emp-step-content">
                   <h3>Early Platform Access</h3>
-                  <p>Get early access to the platform as it launches in phases.</p>
+                  <p>
+                    Get early access to the platform as it launches in phases.
+                  </p>
                 </div>
               </div>
               <div className="emp-step-item">
@@ -624,7 +778,10 @@ const EmployeeBenefits = () => {
                 </div>
                 <div className="emp-step-content">
                   <h3>Regular Updates</h3>
-                  <p>Receive updates on AI tools, webinars, networking events, and leaderboard rankings.</p>
+                  <p>
+                    Receive updates on AI tools, webinars, networking events,
+                    and leaderboard rankings.
+                  </p>
                 </div>
               </div>
               <div className="emp-step-item">
@@ -646,11 +803,24 @@ const EmployeeBenefits = () => {
             </h2>
             <div className="emp-terms-content">
               <ul className="emp-terms-list">
-                <li>You must be <strong>18 years or older</strong> to register.</li>
-                <li>Provide <strong>accurate and complete information</strong>.</li>
-                <li>Agree to our <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.</li>
-                <li>Participate in the registration process <strong>fairly and honestly</strong>.</li>
-                <li>i2u.ai reserves the right to <strong>modify or cancel</strong> the program at any time.</li>
+                <li>
+                  You must be <strong>18 years or older</strong> to register.
+                </li>
+                <li>
+                  Provide <strong>accurate and complete information</strong>.
+                </li>
+                <li>
+                  Agree to our <strong>Terms of Service</strong> and{" "}
+                  <strong>Privacy Policy</strong>.
+                </li>
+                <li>
+                  Participate in the registration process{" "}
+                  <strong>fairly and honestly</strong>.
+                </li>
+                <li>
+                  i2u.ai reserves the right to <strong>modify or cancel</strong>{" "}
+                  the program at any time.
+                </li>
               </ul>
             </div>
           </div>
@@ -662,25 +832,32 @@ const EmployeeBenefits = () => {
               <div className="emp-cta-pattern"></div>
             </div>
             <div className="emp-cta-content">
-              <h2 className="emp-final-cta-title">
-                Welcome to i2u.ai
-              </h2>
+              <h2 className="emp-final-cta-title">Welcome to i2u.ai</h2>
               <div className="emp-final-cta-subtitle">
-                <p><strong>Where AI Meets Ambition. Where Talent Meets Opportunity.</strong></p>
+                <p>
+                  <strong>
+                    Where AI Meets Ambition. Where Talent Meets Opportunity.
+                  </strong>
+                </p>
                 <p>Your journey to mastery starts now.</p>
               </div>
               <div className="emp-final-cta-links">
-                <a href="https://www.i2u.ai" target="_blank" rel="noopener noreferrer">🌐 www.i2u.ai</a>
+                <a
+                  href="https://www.i2u.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🌐 www.i2u.ai
+                </a>
                 <a href="mailto:support@i2u.ai">📧 support@i2u.ai</a>
                 <span>📱 Join the Future of Work</span>
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </div>
   );
 };
 
-export default EmployeeBenefits;
+export default ProfessionalZone;

@@ -13,7 +13,7 @@ import InvestorCommunication from '@features/about/Investor-Communication/Invest
 import Leaderboard from '@features/unicorn-club/Leaderboard/Leaderboard';
 import VCLeaderboard from '@features/vc-leaderboard/VCLeaderboard';
 import Pricing from '@pages/Pricing/Pricing';
-import EmployeeBenefits from '@pages/EmployeeBenefits/EmployeeBenefits';
+import ProfessionalZone from '@pages/EmployeeBenefits/ProfessionalZone';
 // ... other imports
 
 export const routes = [
@@ -74,7 +74,7 @@ export const routes = [
     element: <VCLeaderboard />,
   },
   {
-    path: '/Employee-Benefits',
-    element: <EmployeeBenefits />,
+    path: '/Professional-Zone',
+    element: <ProfessionalZone />,
   }
 ];
