@@ -1,0 +1,229 @@
+.plan-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: var(--transition-normal);
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-card.popular {
+  border: 2px solid var(--accent);
+  transform: scale(1.02);
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow);
+}
+
+.plan-card.popular:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  z-index: 10;
+}
+
+.special-offer-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--accent-2);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  z-index: 10;
+}
+
+/* Plan Header */
+.plan-header {
+  background: white;
+  padding: var(--space-lg);
+  text-align: center;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  color: var(--color-dark);
+}
+
+.plan-name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+  color: var(--color-dark);
+}
+
+.plan-price {
+  margin-bottom: var(--space-sm);
+}
+
+.price-amount {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent);
+}
+
+.price-period {
+  font-size: var(--font-size-base);
+  color: var(--muted);
+  margin-left: var(--space-xs);
+}
+
+.plan-description {
+  font-size: var(--font-size-sm);
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Plan Features */
+.plan-features {
+  padding: var(--space-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  padding: var(--space-xs) 0;
+}
+
+.feature-icon {
+  color: var(--success);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.feature-text {
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Plan CTA */
+.plan-cta {
+  padding: 0 var(--space-lg) var(--space-lg);
+  margin-top: auto;
+}
+
+.cta-button {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button.blue {
+  background: var(--color-primary);
+  color: white;
+}
+
+.cta-button.blue:hover {
+  background: #1a7fdb;
+  transform: translateY(-2px);
+}
+
+.cta-button.green {
+  background: var(--success);
+  color: white;
+}
+
+.cta-button.green:hover {
+  background: #1ea34d;
+  transform: translateY(-2px);
+}
+
+.cta-button.pink {
+  background: var(--accent-2);
+  color: white;
+}
+
+.cta-button.pink:hover {
+  background: #e65aa3;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plan-card {
+    max-width: 100%;
+  }
+  
+  .plan-header {
+    padding: var(--space-md);
+  }
+  
+  .plan-features {
+    padding: var(--space-md);
+  }
+  
+  .plan-cta {
+    padding: 0 var(--space-md) var(--space-md);
+  }
+  
+  .plan-name {
+    font-size: var(--font-size-lg);
+  }
+  
+  .price-amount {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .plan-header {
+    padding: var(--space-sm);
+  }
+  
+  .plan-features {
+    padding: var(--space-sm);
+  }
+  
+  .plan-cta {
+    padding: 0 var(--space-sm) var(--space-sm);
+  }
+  
+  .plan-name {
+    font-size: var(--font-size-base);
+  }
+  
+  .price-amount {
+    font-size: var(--font-size-xl);
+  }
+  
+  .feature-text {
+    font-size: var(--font-size-xs);
+  }
+}

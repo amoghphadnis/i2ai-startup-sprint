@@ -1,11 +1,13 @@
 /* Employee Benefits Page Styles */
 .employee-benefits-page {
     margin: 0;
-    padding: 5rem 0;
+    padding: 2rem 0;
     background-color: var(--color-dark);
     color: var(--color-secondary);
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Hero Section */
@@ -16,12 +18,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 8rem;
+    padding: 2rem 1rem; /* Responsive padding */
     overflow: hidden;
     background: url('../../assets/Banner/Emp_Benefits.webp') no-repeat center center;
     background-size: cover;
     background-position: center;
     opacity: 0.6;
+    margin: 0 0.5rem; /* Add margin to prevent edge touching */
 }
 
 .emp-hero-background {
@@ -63,10 +66,10 @@
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 2rem;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 
 .hero-text-section {
@@ -74,14 +77,15 @@
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 25px;
-    padding: 2rem;
+    padding: 1.5rem;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .emp-benefits-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
     background: linear-gradient(135deg, #ffffff 0%, #e3e3e3 100%);
@@ -91,13 +95,15 @@
     margin: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    text-align: center;
 }
 
 .emp-benefits-hero-description {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
+    max-width: 100%;
+    text-align: center;
 }
 
 .emp-benefits-hero-description p {
@@ -156,6 +162,7 @@
     border-radius: 12px;
     padding: 1rem;
     margin-top: 1rem;
+    text-align: center;
 }
 
 .emp-registration-notice p {
@@ -168,6 +175,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    order: -1; /* Move stats above text on mobile */
 }
 
 .emp-hero-stats {
@@ -177,9 +185,10 @@
     border-radius: 25px;
     padding: 1rem;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
     text-align: center;
     width: 100%;
+    max-width: 400px;
 }
 
 .emp-stat-item {
@@ -188,15 +197,24 @@
     gap: 0.5rem;
 }
 
-.stat-number {
-    font-size: 2.5rem;
+.emp-stat-number {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: var(--princeton-orange);
     line-height: 1;
 }
+/* Use different colors for each stat number using nth-child */
+.emp-stat-item:nth-child(1) .emp-stat-number {
+    color: var(--color-primary);
+  }
+  .emp-stat-item:nth-child(2) .emp-stat-number {
+    color: #facc15; /* e.g. yellow/gold */
+  }
+  .emp-stat-item:nth-child(3) .emp-stat-number {
+    color: greenyellow; /* e.g. orange */
+  }
 
-.stat-label {
-    font-size: 0.9rem;
+.emp-stat-label {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -204,23 +222,25 @@
 
 /* Main Content */
 .emp-benefits-main {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .emp-benefits-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem; /* Responsive padding */
+    box-sizing: border-box;
 }
 
 .emp-benefits-section {
-    margin-bottom: 5rem;
-    padding: 2rem 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem 1rem; /* Responsive padding */
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .emp-benefits-section:hover {
@@ -230,7 +250,7 @@
 
 .emp-section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .emp-section-divider {
@@ -242,7 +262,7 @@
 }
 
 .emp-benefits-section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 700;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #ffffff 0%, #e3e3e3 100%);
@@ -250,16 +270,17 @@
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
+    line-height: 1.2;
 }
 
 .emp-benefits-content {
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     text-align: center;
 }
 
 .emp-benefits-content p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
@@ -268,20 +289,21 @@
 /* Benefits Grid */
 .emp-benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .benefit-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .benefit-card::before {
@@ -306,16 +328,16 @@
 }
 
 .benefit-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--accent-color);
-    font-size: 2rem;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
 }
 
@@ -326,7 +348,7 @@
 }
 
 .benefit-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: white;
@@ -335,18 +357,19 @@
 .benefit-description {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
+    font-size: 0.9rem;
 }
 
 .emp-benefits-summary {
     text-align: center;
-    margin-top: 3rem;
-    padding: 2rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
 }
 
 .emp-benefits-summary p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
@@ -356,24 +379,26 @@
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     overflow: hidden;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .emp-rewards-header {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr; /* Mobile first - single column */
     background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
+    padding: 1rem;
     font-weight: 600;
     color: white;
+    gap: 0.5rem;
 }
 
 .emp-reward-row {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding: 1.5rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s ease;
+    gap: 0.5rem;
 }
 
 .emp-reward-row:hover {
@@ -387,17 +412,20 @@
 .emp-reward-tier {
     color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
+    text-align: center;
 }
 
 .emp-reward-value {
     color: #10b981;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .emp-reward-description {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .emp-rewards-notice {
@@ -405,20 +433,21 @@
     border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 12px;
     padding: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .emp-rewards-notice p {
     margin: 0.5rem 0;
     color: #10b981;
+    font-size: 0.9rem;
 }
 
 /* Plans Section */
 .emp-plans-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 2rem;
+    margin-top: 2rem;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
@@ -429,14 +458,17 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 0;
+    width: 100%;
+    height: 100%;
     position: relative;
     transition: all 0.3s ease;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .emp-plan-card.popular {
     border: 2px solid var(--color-primary);
-    transform: scale(1.05);
+    transform: none; /* Remove scale on mobile */
 }
 
 .emp-plan-card:hover {
@@ -445,7 +477,7 @@
 }
 
 .emp-plan-card.popular:hover {
-    transform: scale(1.05) translateY(-8px);
+    transform: translateY(-8px); /* Consistent hover effect */
 }
 
 .popular-badge {
@@ -458,7 +490,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 800;
     z-index: 10;
 }
 
@@ -471,7 +503,7 @@
 }
 
 .emp-plan-name {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--color-dark);
     margin: 0;
@@ -481,7 +513,7 @@
 
 /* Price Section with Gradients */
 .emp-plan-price-section {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     text-align: center;
     color: white;
 }
@@ -504,17 +536,18 @@
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .emp-price-amount {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 800;
     color: white;
 }
 
 .emp-price-period {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .emp-plan-description {
@@ -526,50 +559,56 @@
 
 /* Features Section */
 .emp-plan-features {
-    /* background: rgba(255, 255, 255, 0.05); */
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .emp-plan-feature-list {
     list-style: none;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Stack features vertically on mobile */
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 0;
     margin: 0;
-    gap: 3rem;
+    gap: 0.5rem;
 }
 
 .emp-plan-feature {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 0.75rem;
-    margin-bottom: 0.15rem;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: rgba(255, 255, 255, 0.9);
+    width: 100%;
 }
 
 .emp-feature-icon {
     flex-shrink: 0;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    padding: 0.5rem;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 100%;
     opacity: 0.8;
+    margin-right: 0.5rem;
 }
 
 .emp-feature-icon.included {
+    justify-content: flex-start;
+    align-items: flex-start;
     color: #10b981;
-    font-size: 0.5rem;
+    background: none;
+    font-size: 1rem;
 }
 
 .emp-feature-icon.excluded {
+    justify-content: flex-end;
+    align-items: flex-end;
     color: #ef4444;
     font-weight: normal;
-    font-size: 0.5rem;
+    font-size: 1rem;
     opacity: 0.6;
 }
 
@@ -596,9 +635,12 @@
 
 /* Call to Action */
 .emp-plan-cta {
-    background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .emp-plan-cta button {
@@ -615,6 +657,7 @@
     gap: 0.5rem;
     background: white;
     color: var(--color-dark);
+    min-height: 44px; /* Touch-friendly */
 }
 
 .emp-plan-cta button:hover {
@@ -628,13 +671,13 @@
 
 /* Leaderboard Section */
 .emp-leaderboard-categories {
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 .emp-category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 1rem;
 }
 
 .emp-category-item {
@@ -660,7 +703,7 @@
 
 .emp-leaderboard-note {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1.5rem;
     background: rgba(255, 193, 7, 0.1);
     border-radius: 12px;
@@ -669,19 +712,20 @@
 .emp-leaderboard-note p {
     color: #ffc107;
     margin: 0;
+    font-size: 0.9rem;
 }
 
 /* Features Section */
 .emp-features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
 .emp-feature-item {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     transition: all 0.3s ease;
@@ -693,8 +737,8 @@
 }
 
 .emp-feature-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin: 0 auto 1rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
@@ -702,31 +746,32 @@
     align-items: center;
     justify-content: center;
     color: var(--color-primary);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .emp-feature-item h3 {
     color: white;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .emp-feature-item p {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
+    font-size: 0.9rem;
 }
 
 .emp-features-quote {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .emp-features-quote blockquote {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-style: italic;
     color: #10b981;
     margin: 0;
-    padding: 2rem;
+    padding: 1.5rem;
     background: rgba(16, 185, 129, 0.1);
     border-radius: 12px;
     border-left: 4px solid #10b981;
@@ -922,9 +967,9 @@
 /* Post-Registration Section */
 .emp-post-registration-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .emp-step-item {
@@ -944,7 +989,7 @@
 
 .emp-step-icon {
     color: var(--color-primary);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     flex-shrink: 0;
     margin-top: 0.25rem;
 }
@@ -952,13 +997,14 @@
 .emp-step-content h3 {
     color: white;
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .emp-step-content p {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     line-height: 1.6;
+    font-size: 0.9rem;
 }
 
 /* Terms Section */
@@ -979,6 +1025,7 @@
     border-radius: 8px;
     border-left: 4px solid var(--color-primary);
     color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
 }
 
 /* Final CTA Section */
@@ -1018,25 +1065,26 @@
 .emp-cta-content {
     position: relative;
     z-index: 2;
-    padding: 3rem;
+    padding: 2rem 1rem;
 }
 
 .emp-final-cta-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 800;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #ffffff 0%, #e3e3e3 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    line-height: 1.2;
 }
 
 .emp-final-cta-subtitle {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .emp-final-cta-subtitle p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: rgba(255, 255, 255, 0.9);
     margin: 0.5rem 0;
 }
@@ -1044,7 +1092,7 @@
 .emp-final-cta-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
@@ -1053,6 +1101,7 @@
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .emp-final-cta-links a:hover {
@@ -1061,473 +1110,202 @@
 
 .emp-final-cta-links span {
     color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
 }
 
-/* Responsive Design */
-
-/* Mobile (767px and below) */
-@media (max-width: 767px) {
-    .employee-benefits-page {
-        padding: 3rem 0;
-    }
-
+/* Tablet and Desktop Responsive Design */
+@media (min-width: 768px) {
     .emp-benefits-hero {
-        min-height: 70vh;
-        padding: 2rem 1rem;
-        border-radius: 16px;
-        margin: 0.5rem;
+        padding: 2rem 4rem;
+        margin: 0 1rem;
     }
 
     .emp-benefits-hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 0.5rem;
-    }
-
-    .hero-text-section {
-        padding: 1.5rem;
-        border-radius: 16px;
-        gap: 1.5rem;
-    }
-
-    .emp-benefits-hero-title {
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
-        line-height: 1.2;
-    }
-
-    .emp-benefits-hero-description {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
-        line-height: 1.5;
-    }
-
-    .emp-hero-cta-group {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .emp-hero-cta-primary,
-    .emp-hero-cta-secondary {
-        width: 100%;
-        justify-content: center;
-        padding: 0.9rem 1.5rem;
-        font-size: 0.95rem;
-    }
-
-    .emp-hero-visual-section {
-        order: -1;
-    }
-
-    .emp-hero-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding: 1rem;
-        border-radius: 16px;
-    }
-
-    .stat-number {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-
-    .stat-label {
-        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
-    }
-
-    .emp-benefits-main {
-        padding: 2rem 0;
-    }
-
-    .emp-benefits-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
         padding: 0 1rem;
     }
 
-    .emp-benefits-section {
-        margin-bottom: 3rem;
-        padding: 2rem 1rem;
-        border-radius: 16px;
-    }
-
-    .emp-benefits-section-title {
-        font-size: clamp(1.6rem, 5vw, 2rem);
-        line-height: 1.3;
-    }
-
-    .emp-benefits-content {
+    .hero-text-section {
+        padding: 2rem;
         text-align: left;
     }
 
-    .emp-benefits-content p {
-        font-size: 1rem;
-        line-height: 1.6;
+    .emp-benefits-hero-title {
+        text-align: left;
+    }
+
+    .emp-benefits-hero-description {
+        text-align: left;
+    }
+
+    .emp-hero-visual-section {
+        order: 0;
+    }
+
+    .emp-hero-stats {
+        gap: 2rem;
+        max-width: 500px;
+    }
+
+    .emp-benefits-container {
+        padding: 0 2rem;
+    }
+
+    .emp-benefits-section {
+        padding: 2rem 2rem;
     }
 
     .emp-benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .benefit-card {
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
-
-    .benefit-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-
-    .benefit-title {
-        font-size: 1.1rem;
-        line-height: 1.3;
-    }
-
-    .benefit-description {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    .emp-rewards-table {
-        margin: 1rem 0;
-        border-radius: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
     .emp-rewards-header,
     .emp-reward-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 1rem;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+    }
+
+    .emp-reward-tier {
+        text-align: left;
+    }
+
+    .emp-reward-value,
+    .emp-reward-description {
+        text-align: left;
     }
 
     .emp-plans-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
-    .emp-plan-card {
-        padding: 1.5rem;
-        border-radius: 16px;
-    }
-
-    .emp-plan-card.popular {
-        transform: none;
-    }
-
-    .emp-plan-card.popular:hover {
-        transform: translateY(-8px);
-    }
-
-    .emp-plan-header {
-        border-radius: 16px 16px 0 0;
-    }
-
-    .emp-plan-name {
-        font-size: 1.2rem;
-    }
-
-    .emp-price-amount {
-        font-size: 2rem;
+    .emp-plan-feature-list {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .emp-category-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     .emp-features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .emp-testimonials-carousel {
-        max-width: 100%;
-    }
-
-    .emp-carousel-btn {
-        display: none;
-    }
-
-    .emp-testimonial-content {
-        padding: 2rem 1rem;
-        border-radius: 16px;
-    }
-
-    .emp-testimonial-quote {
-        font-size: 1rem;
-        line-height: 1.5;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
     .emp-post-registration-steps {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
-    .emp-final-cta-links {
-        flex-direction: column;
-        gap: 1rem;
+    .emp-cta-content {
+        padding: 3rem 2rem;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 1024px) {
+    .emp-benefits-hero {
+        padding: 2rem 8rem;
+        margin: 0 2rem;
+    }
+
     .emp-benefits-hero-content {
-        gap: 3rem;
-    }
-
-    .emp-benefits-hero-title {
-        font-size: 3rem;
-    }
-
-    .emp-benefits-hero-description {
-        font-size: 1.2rem;
+        gap: 4rem;
     }
 
     .emp-hero-stats {
-        gap: 1.5rem;
+        gap: 3rem;
+        max-width: 600px;
+    }
+
+    .emp-benefits-container {
+        padding: 0 3rem;
+    }
+
+    .emp-benefits-section {
+        padding: 2rem 3rem;
     }
 
     .emp-benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 
     .emp-plans-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
     }
 
     .emp-category-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 
     .emp-features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
     }
 
     .emp-post-registration-steps {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
     }
 }
 
 @media (min-width: 1200px) {
+    .emp-benefits-hero {
+        padding: 2rem 8rem;
+        margin: 0 4rem;
+    }
+
     .emp-benefits-hero-content {
         gap: 5rem;
     }
 
-    .emp-benefits-hero-title {
-        font-size: 4rem;
-    }
-
-    .emp-benefits-hero-description {
-        font-size: 1.3rem;
-    }
-
     .emp-hero-stats {
         gap: 3rem;
-    }
-
-    .stat-number {
-        font-size: 3rem;
-    }
-
-    .emp-benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .emp-plans-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .emp-category-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .emp-features-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .emp-post-registration-steps {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Small Mobile (480px and below) */
-@media (max-width: 480px) {
-    * {
-        box-sizing: border-box;
-    }
-
-    .employee-benefits-page {
-        font-size: 14px;
-        padding: 2rem 0;
-    }
-
-    .emp-benefits-hero {
-        min-height: 60vh;
-        padding: 1.5rem 0.5rem;
-        margin: 0.25rem;
-        border-radius: 12px;
-        background: url('../../assets/Banner/Bg4.svg') no-repeat center center;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .emp-benefits-hero-content {
-        gap: 1.5rem;
-        padding: 0 0.25rem;
-    }
-
-    .hero-text-section {
-        padding: 1rem;
-        border-radius: 12px;
-        gap: 1rem;
-    }
-
-    .emp-benefits-hero-title {
-        font-size: clamp(1.5rem, 7vw, 2rem);
-        line-height: 1.1;
-    }
-
-    .emp-benefits-hero-description {
-        font-size: clamp(0.8rem, 3.5vw, 1rem);
-        line-height: 1.4;
-    }
-
-    .emp-hero-cta-group {
-        gap: 0.5rem;
-    }
-
-    .emp-hero-cta-primary,
-    .emp-hero-cta-secondary {
-        padding: 0.8rem 1.25rem;
-        font-size: 0.9rem;
-        border-radius: 1.5rem;
-    }
-
-    .emp-hero-stats {
-        gap: 0.75rem;
-        padding: 0.75rem;
-        border-radius: 12px;
-    }
-
-    .stat-number {
-        font-size: clamp(1.2rem, 6vw, 1.5rem);
-    }
-
-    .stat-label {
-        font-size: clamp(0.6rem, 3vw, 0.7rem);
-    }
-
-    .emp-benefits-main {
-        padding: 1rem 0;
+        max-width: 700px;
     }
 
     .emp-benefits-container {
-        padding: 0 0.5rem;
+        padding: 0 4rem;
     }
 
     .emp-benefits-section {
-        margin-bottom: 2rem;
-        padding: 1.5rem 0.5rem;
-        border-radius: 12px;
-    }
-
-    .emp-benefits-section-title {
-        font-size: clamp(1.3rem, 6vw, 1.6rem);
-        line-height: 1.2;
-    }
-
-    .emp-benefits-content {
-        margin-bottom: 2rem;
-    }
-
-    .emp-benefits-content p {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        padding: 2rem 4rem;
     }
 
     .emp-benefits-grid {
-        gap: 1rem;
-    }
-
-    .benefit-card {
-        padding: 1rem;
-        border-radius: 10px;
-    }
-
-    .benefit-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-
-    .benefit-title {
-        font-size: 1rem;
-        line-height: 1.2;
-    }
-
-    .benefit-description {
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-
-    .emp-rewards-table {
-        border-radius: 10px;
-    }
-
-    .emp-rewards-header,
-    .emp-reward-row {
-        padding: 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
     }
 
     .emp-plans-grid {
-        gap: 1rem;
-    }
-
-    .emp-plan-card {
-        padding: 1rem;
-        border-radius: 12px;
-    }
-
-    .emp-plan-name {
-        font-size: 1.2rem;
-    }
-
-    .emp-price-amount {
-        font-size: 1.8rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
     }
 
     .emp-category-grid {
-        gap: 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 
     .emp-features-grid {
-        gap: 1rem;
-    }
-
-    .emp-testimonial-content {
-        padding: 1.5rem 0.5rem;
-        border-radius: 12px;
-    }
-
-    .emp-testimonial-quote {
-        font-size: 0.9rem;
-        line-height: 1.4;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
     }
 
     .emp-post-registration-steps {
-        gap: 1rem;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
     }
 
-    .emp-final-cta-title {
-        font-size: clamp(1.5rem, 8vw, 2rem);
-        line-height: 1.1;
-    }
-
-    .emp-final-cta-subtitle p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    .emp-final-cta-links {
-        gap: 0.75rem;
+    .emp-cta-content {
+        padding: 3rem 4rem;
     }
 }
 
@@ -1562,6 +1340,311 @@
     }
 }
 
+/* Additional mobile fixes */
+@media (max-width: 767px) {
+    .emp-benefits-hero {
+        min-height: 70vh;
+        border-radius: 16px;
+    }
+
+    .emp-benefits-hero-content {
+        gap: 1.5rem;
+    }
+
+    .hero-text-section {
+        border-radius: 16px;
+        gap: 1rem;
+    }
+
+    .emp-benefits-hero-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.2;
+    }
+
+    .emp-benefits-hero-description {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        line-height: 1.5;
+    }
+
+    .emp-hero-cta-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .emp-hero-cta-primary,
+    .emp-hero-cta-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .emp-hero-stats {
+        margin-top: 2rem;
+        border-radius: 16px;
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .stat-number {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .stat-label {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+    }
+
+    .emp-benefits-section {
+        border-radius: 16px;
+        margin-bottom: 2rem;
+    }
+
+    .emp-benefits-section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+        line-height: 1.3;
+    }
+
+    .emp-benefits-content {
+        text-align: left;
+    }
+
+    .emp-benefits-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .benefit-card {
+        border-radius: 12px;
+    }
+
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .benefit-title {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .benefit-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .emp-rewards-table {
+        border-radius: 12px;
+    }
+
+    .emp-plans-grid {
+        padding: 0 0.5rem;
+    }
+
+    .emp-plan-card {
+        border-radius: 16px;
+    }
+
+    .emp-plan-card.popular {
+        transform: none;
+    }
+
+    .emp-plan-card.popular:hover {
+        transform: translateY(-8px);
+    }
+
+    .emp-plan-header {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .emp-plan-name {
+        font-size: 1.2rem;
+    }
+
+    .emp-price-amount {
+        font-size: 2rem;
+    }
+
+    .emp-category-grid {
+        gap: 0.75rem;
+    }
+
+    .emp-features-grid {
+        gap: 1rem;
+    }
+
+    .emp-post-registration-steps {
+        gap: 1rem;
+    }
+
+    .emp-final-cta-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* Small mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .employee-benefits-page {
+        font-size: 14px;
+        padding: 1rem 0;
+    }
+
+    .emp-benefits-hero {
+        min-height: 60vh;
+        padding: 1.5rem 0.5rem;
+        margin: 0.25rem;
+        border-radius: 12px;
+    }
+
+    .emp-benefits-hero-content {
+        gap: 1rem;
+        padding: 0 0.25rem;
+    }
+
+    .hero-text-section {
+        padding: 1rem;
+        border-radius: 12px;
+        gap: 0.75rem;
+    }
+
+    .emp-benefits-hero-title {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        line-height: 1.1;
+    }
+
+    .emp-benefits-hero-description {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+        line-height: 1.4;
+    }
+
+    .emp-hero-cta-group {
+        gap: 0.5rem;
+    }
+
+    .emp-hero-cta-primary,
+    .emp-hero-cta-secondary {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.9rem;
+        border-radius: 1.5rem;
+    }
+
+    .emp-hero-stats {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .stat-number {
+        font-size: clamp(1.2rem, 6vw, 1.5rem);
+    }
+
+    .stat-label {
+        font-size: clamp(0.6rem, 3vw, 0.7rem);
+    }
+
+    .emp-benefits-main {
+        padding: 1rem 0;
+    }
+
+    .emp-benefits-container {
+        padding: 0 0.5rem;
+    }
+
+    .emp-benefits-section {
+        margin-bottom: 1.5rem;
+        padding: 1rem 0.5rem;
+        border-radius: 12px;
+    }
+
+    .emp-benefits-section-title {
+        font-size: clamp(1.3rem, 6vw, 1.6rem);
+        line-height: 1.2;
+    }
+
+    .emp-benefits-content {
+        margin-bottom: 1.5rem;
+    }
+
+    .emp-benefits-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .benefit-card {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .benefit-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .benefit-title {
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .benefit-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .emp-rewards-table {
+        border-radius: 10px;
+    }
+
+    .emp-rewards-header,
+    .emp-reward-row {
+        padding: 0.75rem;
+    }
+
+    .emp-plans-grid {
+        gap: 1rem;
+    }
+
+    .emp-plan-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .emp-plan-name {
+        font-size: 1.1rem;
+    }
+
+    .emp-price-amount {
+        font-size: 1.8rem;
+    }
+
+    .emp-category-grid {
+        gap: 0.75rem;
+    }
+
+    .emp-features-grid {
+        gap: 1rem;
+    }
+
+    .emp-post-registration-steps {
+        gap: 1rem;
+    }
+
+    .emp-final-cta-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        line-height: 1.1;
+    }
+
+    .emp-final-cta-subtitle p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .emp-final-cta-links {
+        gap: 0.75rem;
+    }
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     .benefit-card,
@@ -1572,10 +1655,6 @@
     .emp-hero-cta-primary,
     .emp-hero-cta-secondary {
         transition: none;
-    }
-
-    .emp-testimonial-card {
-        transition: opacity 0.3s ease;
     }
 }
 
@@ -1621,5 +1700,49 @@
     .emp-benefits-section {
         break-inside: avoid;
         margin-bottom: 2rem;
+    }
+}
+
+/* Fix for text rendering issues */
+.employee-benefits-page {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Ensure proper text scaling */
+.emp-benefits-hero-title,
+.emp-benefits-section-title,
+.emp-final-cta-title {
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+}
+
+/* Fix for mobile touch scrolling */
+.employee-benefits-page {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Ensure proper box sizing */
+.employee-benefits-page *,
+.employee-benefits-page *::before,
+.employee-benefits-page *::after {
+    box-sizing: border-box;
+}
+
+/* Fix for mobile viewport issues */
+@media screen and (max-width: 767px) {
+    .employee-benefits-page {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .emp-benefits-hero,
+    .emp-benefits-container {
+        width: 100%;
+        max-width: 100%;
     }
 }

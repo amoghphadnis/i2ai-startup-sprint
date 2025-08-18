@@ -1,0 +1,279 @@
+/* Mentor Subscription Plans Styles */
+.SubscriptionPlans {
+    margin: 3rem 0;
+}
+
+.mentors-plans-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.mentors-section-title {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.mentors-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.mentors-plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mentors-plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.mentors-plan-card.popular {
+    border-color: #667eea;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Plan Header */
+.mentors-plan-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.mentors-plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+/* Price Section */
+.mentors-plan-price-section {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mentors-price-green {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.mentors-price-blue {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+}
+
+.mentors-price-pink {
+    background: linear-gradient(135deg, #ed64a6, #d53f8c);
+}
+
+.mentors-plan-price {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.mentors-price-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+}
+
+.mentors-price-period {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.mentors-plan-description {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Features Section */
+.mentors-plan-features {
+    margin-bottom: 2rem;
+}
+
+.mentors-plan-feature {
+    margin-bottom: 1rem;
+}
+
+.mentors-plan-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mentors-feature-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.mentors-feature-icon.included {
+    background: #48bb78;
+    color: white;
+}
+
+.mentors-feature-icon.excluded {
+    background: #e53e3e;
+    color: white;
+}
+
+.mentors-plan-feature-list li {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Special Offer */
+.mentors-plan-offer {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mentors-offer-green {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.mentors-offer-blue {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+}
+
+.mentors-offer-pink {
+    background: linear-gradient(135deg, #ed64a6, #d53f8c);
+    color: white;
+}
+
+/* Call to Action */
+.mentors-plan-cta {
+    text-align: center;
+}
+
+.btnLink {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mentors-plan-cta button {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+}
+
+.mentors-plan-cta button:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Notice */
+.mentors-plans-notice {
+    text-align: center;
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.mentors-plans-notice p {
+    margin: 0;
+    color: #2f855a;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mentors-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .mentors-plan-card {
+        padding: 1.5rem;
+    }
+    
+    .mentors-price-amount {
+        font-size: 2rem;
+    }
+    
+    .mentors-plan-name {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mentors-plan-card {
+        padding: 1rem;
+    }
+    
+    .mentors-plan-price-section {
+        padding: 1rem;
+    }
+    
+    .mentors-price-amount {
+        font-size: 1.8rem;
+    }
+    
+    .mentors-plan-feature-list {
+        gap: 0.5rem;
+    }
+    
+    .mentors-plan-feature-list li {
+        font-size: 0.9rem;
+    }
+}

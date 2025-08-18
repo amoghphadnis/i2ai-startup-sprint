@@ -1,0 +1,26 @@
+.references-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reference-item {
+  margin-bottom: 2rem;
+}
+
+.reference-content {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reference-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reference-item {
+    margin-bottom: 1rem;
+  }
+}

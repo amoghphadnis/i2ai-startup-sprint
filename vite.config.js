@@ -6,7 +6,15 @@ import path from 'path'; // Add this line
 export default defineConfig({
   plugins: [react( )],
   base: './',
-   resolve: {
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    strictPort: true,
+    hmr: {
+      host: 'localhost'
+    }
+  },
+  resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
       '@design-system': path.resolve(__dirname, './src/design-system'),

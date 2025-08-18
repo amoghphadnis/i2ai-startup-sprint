@@ -1,0 +1,207 @@
+.scrollbar-demo {
+  padding: var(--spacing-8, 32px);
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.scrollbar-demo h2 {
+  color: var(--color-primary, #1e90ff);
+  text-align: center;
+  margin-bottom: var(--spacing-8, 32px);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--spacing-6, 24px);
+  margin-bottom: var(--spacing-8, 32px);
+}
+
+.demo-section {
+  background: var(--color-bg, #f8fafc);
+  border-radius: var(--border-radius, 1.2rem);
+  padding: var(--spacing-6, 24px);
+  border: 1px solid rgba(30, 144, 255, 0.1);
+  box-shadow: var(--shadow, 0 4px 24px 0 rgba(30, 144, 255, 0.08));
+}
+
+.demo-section h3 {
+  color: var(--color-dark, #001220);
+  margin-bottom: var(--spacing-4, 16px);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.demo-container {
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: calc(var(--border-radius, 1.2rem) * 0.8);
+  padding: var(--spacing-4, 16px);
+  background: white;
+}
+
+.demo-item {
+  padding: var(--spacing-4, 16px);
+  margin-bottom: var(--spacing-4, 16px);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.05) 0%, rgba(111, 108, 255, 0.05) 100%);
+  border-radius: calc(var(--border-radius, 1.2rem) * 0.6);
+  border-left: 4px solid var(--color-primary, #1e90ff);
+}
+
+.demo-item:last-child {
+  margin-bottom: 0;
+}
+
+.demo-item h3 {
+  color: var(--color-primary, #1e90ff);
+  margin-bottom: var(--spacing-2, 8px);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.demo-item p {
+  color: var(--color-muted, #6c7a89);
+  margin-bottom: var(--spacing-3, 12px);
+  line-height: 1.6;
+}
+
+.demo-meta {
+  display: flex;
+  gap: var(--spacing-3, 12px);
+  align-items: center;
+}
+
+.demo-tag {
+  background: var(--gradient-accent, linear-gradient(90deg, #1e90ff 0%, #6f6cff 100%));
+  color: white;
+  padding: var(--spacing-1, 4px) var(--spacing-3, 12px);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.demo-date {
+  color: var(--color-muted, #6c7a89);
+  font-size: 0.8rem;
+}
+
+.demo-info {
+  color: var(--color-muted, #6c7a89);
+  font-style: italic;
+  margin-bottom: var(--spacing-4, 16px);
+  text-align: center;
+}
+
+.horizontal-content {
+  display: flex;
+  gap: var(--spacing-4, 16px);
+  min-width: max-content;
+}
+
+.horizontal .demo-item {
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+.custom-style {
+  --scrollbar-track-bg: rgba(251, 152, 36, 0.1);
+  --scrollbar-thumb-bg: linear-gradient(135deg, #fb9824 0%, #2c425c 100%);
+  --scrollbar-thumb-hover-bg: linear-gradient(135deg, #2c425c 0%, #fb9824 100%);
+}
+
+.demo-features {
+  background: var(--color-dark, #001220);
+  color: white;
+  border-radius: var(--border-radius, 1.2rem);
+  padding: var(--spacing-6, 24px);
+  text-align: center;
+}
+
+.demo-features h3 {
+  color: var(--color-primary, #1e90ff);
+  margin-bottom: var(--spacing-4, 16px);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.demo-features ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-3, 12px);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-features li {
+  padding: var(--spacing-2, 8px);
+  background: rgba(30, 144, 255, 0.1);
+  border-radius: calc(var(--border-radius, 1.2rem) * 0.5);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .demo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-5, 20px);
+  }
+  
+  .scrollbar-demo {
+    padding: var(--spacing-6, 24px);
+  }
+  
+  .demo-section {
+    padding: var(--spacing-5, 20px);
+  }
+}
+
+@media (max-width: 767px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-5, 20px);
+  }
+  
+  .scrollbar-demo {
+    padding: var(--spacing-4, 16px);
+  }
+  
+  .demo-section {
+    padding: var(--spacing-4, 16px);
+  }
+  
+  .scrollbar-demo h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-6, 24px);
+  }
+  
+  .demo-features ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollbar-demo {
+    padding: var(--spacing-3, 12px);
+  }
+  
+  .demo-section {
+    padding: var(--spacing-3, 12px);
+  }
+  
+  .demo-container {
+    padding: var(--spacing-3, 12px);
+  }
+  
+  .demo-item {
+    padding: var(--spacing-3, 12px);
+  }
+  
+  .horizontal .demo-item {
+    min-width: 250px;
+  }
+}

@@ -1,11 +1,17 @@
+/* CSS Variables */
+:root {
+  --princeton-orange: #fb9824ff;
+  --indigo-dye: #2c425cff;
+  --platinum: #e3e3e3ff;
+}
+
 /* Navbar Styles */
-.navbar {
+.custom-navbar {
   width: 100%;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   position: fixed;
   top: 0;
   left: 0;
-  /* background-color: rgba(255, 255, 255, 0.1); */
   backdrop-filter: blur(10px);
   z-index: 1000;
   display: flex;
@@ -15,63 +21,148 @@
 }
 
 /* Navbar opacity reduces and adds subtle shadow when scrolled */
-.navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.02);
+.custom-navbar.scrolled {
+  background-color: rgba(44, 66, 92, 0.3);
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
 }
 
-.navbar-content {
+.custom-navbar-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   position: relative;
 }
 
-.logo-container {
+/* Logo Section - Left Aligned */
+.custom-logo-container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+.custom-logo-container:hover {
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: "Ideas to Unicorns, through AI!";
+    position: absolute;
+    top: 150%;
+    left: 20%;
+    width: 150px;
+    transform: translateX(-50%);
+    background-color: #0077B5;
+    color: #F5F8FA;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    z-index: 1001;
+  }
 }
 
-.navbar-logo {
+.custom-navbar-logo {
   height: 50px;
   width: 50px;
   object-fit: contain;
 }
 
-.navbar-title {
-  font-size: 1.2rem;
+.custom-navbar-title {
+  font-size: 1.1rem;
   font-weight: 500;
   color: #facc15;
   display: block;
+  white-space: nowrap;
 }
 
-.nav-links {
+/* Navigation Links - Center Aligned */
+.custom-nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 0;
+  flex: 1;
+  max-width: 800px;
 }
 
-.nav-links a {
+.custom-nav-links a {
   color: inherit;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-links a:hover {
+.custom-nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #facc15, #fb9824);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.custom-nav-links a:hover::before {
+  width: 80%;
+}
+
+.custom-nav-links a:hover {
   color: #facc15;
+  background-color: rgba(250, 204, 21, 0.1);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
 }
 
-.ywss:hover {
+/* Active link styles */
+.custom-nav-links a.active {
+  color: #facc15;
+  background-color: rgba(250, 204, 21, 0.15);
+  font-weight: 600;
+}
+
+.custom-nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, #facc15, #fb9824);
+  border-radius: 1px;
+}
+
+.custom-nav-links a.active::before {
+  display: none;
+}
+
+/* Separator styles */
+.custom-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  margin: 0 0.5rem;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.custom-nav-links:hover .custom-separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Special hover effect for ywss */
+.custom-ywss:hover {
   position: relative;
   &::after {
     content: "Why Early-Stage Startup Founders Should Register for the World Startup Sprint (Click to know more)";
@@ -85,84 +176,230 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 0.8rem;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 }
 
-.dropdown {
+/* Dropdown styles */
+.custom-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-button {
+.custom-dropdown:hover .custom-dropdown-content {
+  /* This ensures the dropdown stays open when hovering over the entire dropdown area */
+  pointer-events: auto;
+}
+
+.custom-dropdown-button {
   background: none;
   border: none;
   cursor: pointer;
   font: inherit;
   color: inherit;
-  padding: 0;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 180px;
-  background-color: #0077B5;
-  color: var(--platinum);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  z-index: 1;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
   overflow: hidden;
 }
 
-.dropdown-link {
-  color: #222;
-  padding: 0.75rem 1.25rem;
+.custom-dropdown-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #facc15, #fb9824);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.custom-dropdown-button:hover::before {
+  width: 80%;
+}
+
+.custom-dropdown-button:hover {
+  color: #facc15;
+  background-color: rgba(250, 204, 21, 0.1);
+  transform: translateY(-2px);
+}
+
+.custom-dropdown-button.active::before {
+  width: 80%;
+}
+
+.custom-dropdown-content {
+  display: block;
+  position: absolute;
+  min-width: 200px;
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateX(-50%) translateY(-10px);
+  pointer-events: none;
+}
+
+.custom-dropdown-content.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.custom-dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #1e3a8a;
+}
+
+.custom-dropdown-link {
+  color: #fff;
+  padding: 0.875rem 1.25rem;
   display: block;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.dropdown-link:hover {
-  color: var(--princeton-orange);
+.custom-dropdown-link:last-child {
+  border-bottom: none;
 }
 
-.dropdown.nav-dropdown:hover .dropdown-content,
-.dropdown.nav-dropdown:focus-within .dropdown-content {
+.custom-dropdown-link::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.custom-dropdown-link:hover::before {
+  left: 100%;
+}
+
+.custom-dropdown-link:hover {
+  color: #facc15;
+  background-color: rgba(250, 204, 21, 0.1);
+  padding-left: 1.5rem;
+  transform: translateX(4px);
+}
+
+.custom-dropdown-link.active {
+  color: #facc15;
+  background-color: rgba(250, 204, 21, 0.15);
+  font-weight: 600;
+}
+
+/* Remove the conflicting hover rules */
+/* .custom-dropdown.custom-nav-dropdown:hover .custom-dropdown-content,
+.custom-dropdown.custom-nav-dropdown:focus-within .custom-dropdown-content {
   display: block;
+  animation: dropdownFadeIn 0.3s ease;
+} */
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* Modal button styles to match nav links */
-.nav-link-button {
+.custom-nav-link-button {
   background: none;
   border: none;
   color: inherit;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem 1rem;
   font-family: inherit;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-link-button:hover {
+.custom-nav-link-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #facc15, #fb9824);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.custom-nav-link-button:hover::before {
+  width: 80%;
+}
+
+.custom-nav-link-button:hover {
   color: #facc15;
+  background-color: rgba(250, 204, 21, 0.1);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
 }
 
-.auth-buttons {
+/* Auth Buttons - Right Aligned */
+.custom-auth-buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 1rem;
+  flex-shrink: 0;
+  min-width: 200px;
 }
 
-.login-button:hover {
+.custom-login-button, .custom-register-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-login-button:hover {
   cursor: not-allowed;
   color: transparent;
 }
 
-.register-button:hover {
+.custom-register-button:hover {
   color: #facc15;
+  background-color: rgba(250, 204, 21, 0.1);
   position: relative;
   &::after {
     content: "Register now to get early bird access";
@@ -176,11 +413,12 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 0.8rem;
+    z-index: 1001;
   }
 }
 
 /* Hamburger Menu Styles */
-.hamburger {
+.custom-hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-around;
@@ -193,7 +431,7 @@
   z-index: 1001;
 }
 
-.hamburger span {
+.custom-hamburger span {
   width: 100%;
   height: 3px;
   background-color: #fff;
@@ -201,20 +439,20 @@
   transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
+.custom-hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger.active span:nth-child(2) {
+.custom-hamburger.active span:nth-child(2) {
   opacity: 0;
 }
 
-.hamburger.active span:nth-child(3) {
+.custom-hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Mobile Menu Styles */
-.mobile-menu {
+.custom-mobile-menu {
   display: none;
   position: fixed;
   top: 60px;
@@ -229,18 +467,18 @@
   overflow-y: auto;
 }
 
-.mobile-menu.active {
+.custom-mobile-menu.active {
   transform: translateX(0);
 }
 
-.mobile-nav-links {
+.custom-mobile-nav-links {
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
   gap: 1rem;
 }
 
-.mobile-nav-link {
+.custom-mobile-nav-link {
   background: none;
   color: #fff;
   text-decoration: none;
@@ -251,15 +489,17 @@
   transition: color 0.3s ease;
 }
 
-.mobile-nav-link:hover {
+.custom-mobile-nav-link:hover,
+.custom-mobile-nav-link.active {
   color: #facc15;
 }
 
-.mobile-dropdown {
+.custom-mobile-dropdown {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
 }
 
-.mobile-dropdown-button {
+.custom-mobile-dropdown-button {
   background: none;
   border: none;
   color: #fff;
@@ -272,28 +512,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: color 0.3s ease;
 }
 
-.mobile-dropdown-button span {
+.custom-mobile-dropdown-button:hover {
+  color: #facc15;
+}
+
+.custom-mobile-dropdown-button span {
   transition: transform 0.3s ease;
 }
 
-.mobile-dropdown.active .mobile-dropdown-button span {
+.custom-mobile-dropdown.active .custom-mobile-dropdown-button span {
   transform: rotate(180deg);
 }
 
-.mobile-dropdown-content {
+.custom-mobile-dropdown-content {
   background: var(--princeton-orange);
   border-radius: 0.5rem;
   display: none;
-  padding-left: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
 }
 
-.mobile-dropdown.active .mobile-dropdown-content {
+.custom-mobile-dropdown.active .custom-mobile-dropdown-content {
   display: block;
 }
 
-.mobile-dropdown-link {
+.custom-mobile-dropdown-link {
   color: #fff;
   text-decoration: none;
   font-weight: 400;
@@ -301,18 +547,24 @@
   padding: 0.75rem 0;
   display: block;
   transition: color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.mobile-dropdown-link:hover {
+.custom-mobile-dropdown-link:last-child {
+  border-bottom: none;
+}
+
+.custom-mobile-dropdown-link:hover,
+.custom-mobile-dropdown-link.active {
   color: #facc15;
 }
 
-.mobile-dropdown-divider {
+.custom-mobile-dropdown-divider {
   border: .7px solid var(--indigo-dye);
-  margin-right: 1rem;
+  margin: 0.5rem 0;
 }
 
-.mobile-auth-buttons {
+.custom-mobile-auth-buttons {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -321,8 +573,8 @@
   margin-top: auto;
 }
 
-.mobile-login-button,
-.mobile-register-button {
+.custom-mobile-login-button,
+.custom-mobile-register-button {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -334,82 +586,127 @@
   transition: all 0.3s ease;
 }
 
-.mobile-login-button:hover,
-.mobile-register-button:hover {
+.custom-mobile-login-button:hover,
+.custom-mobile-register-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: #facc15;
 }
 
 /* Responsive Design */
-/* Desktop (1200px and above) */
-@media (min-width: 1200px) {
-  .navbar-content {
+/* Desktop (1400px and above) */
+@media (min-width: 1400px) {
+  .custom-navbar-content {
+    max-width: 1400px;
+  }
+  
+  .custom-nav-links {
+    gap: 0;
+  }
+}
+
+/* Desktop (1200px to 1399px) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .custom-navbar-content {
     max-width: 1200px;
   }
   
-  .nav-links {
-    gap: 3rem;
+  .custom-nav-links {
+    gap: 0;
   }
 }
 
 /* Tablet (768px to 1199px) */
 @media (max-width: 1199px) and (min-width: 768px) {
-  .navbar-content {
+  .custom-navbar-content {
     max-width: 100%;
     padding: 0 2rem;
+    gap: 1.5rem;
   }
   
-  .nav-links {
-    gap: 2rem;
+  .custom-nav-links {
+    gap: 0;
   }
   
-  .navbar-title {
+  .custom-navbar-title {
     font-size: 1rem;
   }
   
-  .nav-links a {
-    font-size: 0.9rem;
+  .custom-nav-links a {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .custom-logo-container {
+    min-width: 180px;
+  }
+  
+  .custom-auth-buttons {
+    min-width: 180px;
   }
 }
 
 /* Mobile (767px and below) */
 @media (max-width: 767px) {
-  .navbar {
+  .custom-navbar {
     padding: 0.5rem;
   }
   
-  .navbar-content {
+  .custom-navbar-content {
     height: 50px;
     padding: 0 1rem;
+    gap: 1rem;
   }
   
-  .navbar-logo {
+  .custom-navbar-logo {
     height: 40px;
     width: 40px;
   }
   
-  .navbar-title {
+  .custom-navbar-title {
     font-size: 0.9rem;
   }
   
+  .custom-logo-container {
+    min-width: auto;
+  }
+  
+.custom-logo-container:hover {
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: "Ideas to Unicorns, through AI!";
+    position: absolute;
+    top: 150%;
+    left: 200%;
+    width: 150px;
+    transform: translateX(-50%);
+    background-color: #0077B5;
+    color: #F5F8FA;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    z-index: 1001;
+  }
+}
+  
   /* Hide desktop navigation on mobile */
-  .desktop-nav,
-  .desktop-auth {
+  .custom-desktop-nav,
+  .custom-desktop-auth {
     display: none;
   }
   
   /* Show hamburger menu on mobile */
-  .hamburger {
+  .custom-hamburger {
     display: flex;
   }
   
   /* Show mobile menu when active */
-  .mobile-menu {
+  .custom-mobile-menu {
     display: block;
   }
   
   /* Adjust mobile menu height for smaller screens */
-  .mobile-menu {
+  .custom-mobile-menu {
     height: calc(100vh - 50px);
     top: 50px;
   }
@@ -417,24 +714,24 @@
 
 /* Extra small mobile devices (480px and below) */
 @media (max-width: 480px) {
-  .navbar-content {
+  .custom-navbar-content {
     padding: 0 0.5rem;
   }
   
-  .navbar-logo {
+  .custom-navbar-logo {
     height: 35px;
     width: 35px;
   }
   
-  .navbar-title {
+  .custom-navbar-title {
     font-size: 0.8rem;
   }
   
-  .mobile-nav-links {
+  .custom-mobile-nav-links {
     padding: 1.5rem 0.5rem;
   }
   
-  .mobile-auth-buttons {
+  .custom-mobile-auth-buttons {
     padding: 1rem 0.5rem;
   }
 }

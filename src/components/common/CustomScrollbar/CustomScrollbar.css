@@ -1,0 +1,115 @@
+/* Custom Scrollbar CSS Variables */
+:root {
+  /* Desktop/Laptop Scrollbar */
+  --scrollbar-width: 12px;
+  --scrollbar-height: 12px;
+  --scrollbar-track-bg: rgba(30, 144, 255, 0.1);
+  --scrollbar-thumb-bg: linear-gradient(135deg, #1e90ff 0%, #6f6cff 100%);
+  --scrollbar-thumb-hover-bg: linear-gradient(135deg, #6f6cff 0%, #1e90ff 100%);
+  --scrollbar-thumb-border: 2px solid rgba(0, 18, 32, 0.8);
+  --scrollbar-border-radius: 6px;
+  --scrollbar-transition: all 0.3s ease;
+  --scrollbar-thumb-hover-transform: scale(1.05);
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1199px) and (min-width: 768px) {
+  :root {
+    --scrollbar-width: 10px;
+    --scrollbar-height: 10px;
+    --scrollbar-border-radius: 5px;
+    --scrollbar-thumb-border: 1.5px solid rgba(0, 18, 32, 0.8);
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 767px) {
+  :root {
+    --scrollbar-width: 8px;
+    --scrollbar-height: 8px;
+    --scrollbar-border-radius: 4px;
+    --scrollbar-thumb-border: 1px solid rgba(0, 18, 32, 0.8);
+    --scrollbar-track-bg: rgba(30, 144, 255, 0.05);
+  }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+  :root {
+    --scrollbar-width: 6px;
+    --scrollbar-height: 6px;
+    --scrollbar-border-radius: 3px;
+    --scrollbar-thumb-border: 1px solid rgba(0, 18, 32, 0.6);
+  }
+}
+
+/* Custom scrollbar for specific elements */
+.custom-scrollbar {
+  scrollbar-width: var(--scrollbar-width);
+  scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+}
+
+/* Webkit scrollbar styles for specific elements */
+.custom-scrollbar::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-bg);
+  border-radius: var(--scrollbar-border-radius);
+  margin: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-border-radius);
+  border: var(--scrollbar-thumb-border);
+  transition: var(--scrollbar-transition);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-bg);
+  transform: var(--scrollbar-thumb-hover-transform);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track-bg);
+}
+
+/* Horizontal scrollbar specific styles */
+.custom-scrollbar::-webkit-scrollbar:horizontal {
+  height: var(--scrollbar-height);
+}
+
+/* Custom scrollbar for dark theme compatibility */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --scrollbar-track-bg: rgba(30, 144, 255, 0.15);
+    --scrollbar-thumb-border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --scrollbar-track-bg: rgba(30, 144, 255, 0.3);
+    --scrollbar-thumb-border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --scrollbar-transition: none;
+    --scrollbar-thumb-hover-transform: none;
+  }
+}
+
+/* Print styles - hide scrollbars */
+@media print {
+  :root {
+    --scrollbar-width: 0px;
+    --scrollbar-height: 0px;
+  }
+}

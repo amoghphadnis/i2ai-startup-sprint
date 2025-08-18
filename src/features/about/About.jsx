@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { FiUsers, FiTarget, FiAward, FiTrendingUp, FiGlobe, FiZap, 
     FiCpu, FiPlay, FiShield, FiBookOpen, FiUserCheck, FiMail, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
-import { FaLinkedinIn, FaRocket, FaRegPlayCircle } from "react-icons/fa";
+import { FaLinkedinIn, FaRocket } from "react-icons/fa";
 import { Button } from '../../components/ui/button';
 import './About.css';
 
@@ -167,7 +168,67 @@ const About = () => {
   }, []);
 
   return (
-    <div className="about-page">
+    <>
+      <Helmet>
+        <title>About Us — i2u.ai | Igniting Unicorns, Empowering the Future</title>
+        <meta name="description" content="At i2u.ai, we are building the first gamified global Agentic AI Startup Ecosystem Booster. Learn about our vision, team, and mission to democratize startup success." />
+        <meta name="keywords" content="i2u.ai about, startup ecosystem, AI startup platform, unicorn building, startup acceleration, founder team, startup mentorship" />
+        <meta property="og:title" content="About Us — i2u.ai | Igniting Unicorns, Empowering the Future" />
+        <meta property="og:description" content="At i2u.ai, we are building the first gamified global Agentic AI Startup Ecosystem Booster. Learn about our vision, team, and mission." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://i2u.ai/about" />
+        <meta property="og:image" content="https://i2u.ai/assets/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us — i2u.ai | Igniting Unicorns, Empowering the Future" />
+        <meta name="twitter:description" content="At i2u.ai, we are building the first gamified global Agentic AI Startup Ecosystem Booster. Learn about our vision, team, and mission." />
+        <meta name="twitter:image" content="https://i2u.ai/assets/logo.png" />
+        <link rel="canonical" href="https://i2u.ai/about" />
+        
+        {/* JSON-LD Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "About Us — i2u.ai | Igniting Unicorns, Empowering the Future",
+            "description": "At i2u.ai, we are building the first gamified global Agentic AI Startup Ecosystem Booster.",
+            "url": "https://i2u.ai/about",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "i2u.ai",
+              "description": "AI startup platform helping founders transform their startups with AI-powered tools, mentorship, and resources",
+              "founder": [
+                {
+                  "@type": "Person",
+                  "name": "Pratibha Bhadranavar",
+                  "jobTitle": "Co-Founder"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Vishwanath Sangoji",
+                  "jobTitle": "Co-Founder"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Shekhar Bhusannavar",
+                  "jobTitle": "Co-Founder"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Satish Hukkeri",
+                  "jobTitle": "Co-Founder"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Ranjit (Rick) Paniker",
+                  "jobTitle": "Co-Founder"
+                }
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="about-page">
       {/* Enhanced Hero Section */}
       <section className="about-hero">
         <div className="hero-background">
@@ -187,10 +248,17 @@ const About = () => {
               </p>
             </div>
             <div className="hero-cta-group">
-              <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer">
+              <Link
+                  to="/#googlePaySection"
+                  rel="noopener noreferrer"
+                  className="btnLink"
+                  onClick={() => {
+                      // Navigate to home page first, then scroll to section
+                      window.location.href = '#googlePaySection';
+                  }}
+              >
               <Button className="emp-hero-cta-primary">
-                <FaRegPlayCircle style={{ marginRight: '8px' }} />
-                Watch Our Story
+                Get Started Now
               </Button>
               </Link>
               <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer">
@@ -465,6 +533,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

@@ -1,0 +1,281 @@
+/* Facilitator Subscription Plans Styles */
+.SubscriptionPlans {
+    margin: 3rem 0;
+}
+
+.facilitators-plans-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.facilitators-section-title {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.facilitators-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.facilitators-plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.facilitators-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.facilitators-plan-card.popular {
+    border: 3px solid #ec4899;
+    transform: scale(1.02);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Plan Header */
+.facilitators-plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.facilitators-plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+/* Price Section */
+.facilitators-plan-price-section {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.facilitators-price-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.facilitators-price-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.facilitators-price-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+    color: white;
+}
+
+.facilitators-plan-price {
+    margin-bottom: 1rem;
+}
+
+.facilitators-price-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+.facilitators-price-period {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.facilitators-plan-description {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Features Section */
+.facilitators-plan-features {
+    margin-bottom: 2rem;
+}
+
+.facilitators-plan-feature {
+    margin-bottom: 1rem;
+}
+
+.facilitators-plan-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.facilitators-feature-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.facilitators-feature-icon.included {
+    background: #10b981;
+    color: white;
+}
+
+.facilitators-feature-icon.excluded {
+    background: #ef4444;
+    color: white;
+}
+
+.facilitators-plan-feature-list li {
+    margin: 0;
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+/* Special Offer Section */
+.facilitators-plan-offer {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.facilitators-offer-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.facilitators-offer-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.facilitators-offer-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+    color: white;
+}
+
+/* Call to Action */
+.facilitators-plan-cta {
+    text-align: center;
+}
+
+.btnLink {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btnLink button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    background: white;
+    color: #2d3748;
+}
+
+.btnLink button:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+}
+
+/* Plans Notice */
+.facilitators-plans-notice {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
+    margin-top: 2rem;
+}
+
+.facilitators-plans-notice p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .facilitators-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .facilitators-plan-card {
+        padding: 1.5rem;
+    }
+    
+    .facilitators-price-amount {
+        font-size: 2rem;
+    }
+    
+    .facilitators-plan-name {
+        font-size: 1.3rem;
+    }
+    
+    .facilitators-plan-feature-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .facilitators-feature-icon {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .facilitators-plan-card {
+        padding: 1rem;
+    }
+    
+    .facilitators-plan-price-section {
+        padding: 1.5rem;
+    }
+    
+    .facilitators-price-amount {
+        font-size: 1.8rem;
+    }
+    
+    .popular-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

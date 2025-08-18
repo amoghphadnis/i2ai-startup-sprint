@@ -1,0 +1,279 @@
+/* Influencer Subscription Plans Styles */
+.SubscriptionPlans {
+    margin: 3rem 0;
+}
+
+.influencers-plans-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.influencers-section-title {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.influencers-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.influencers-plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.influencers-plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.influencers-plan-card.popular {
+    border-color: #667eea;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Plan Header */
+.influencers-plan-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.influencers-plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+/* Price Section */
+.influencers-plan-price-section {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.influencers-price-green {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.influencers-price-blue {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+}
+
+.influencers-price-pink {
+    background: linear-gradient(135deg, #ed64a6, #d53f8c);
+}
+
+.influencers-plan-price {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.influencers-price-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+}
+
+.influencers-price-period {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.influencers-plan-description {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Features Section */
+.influencers-plan-features {
+    margin-bottom: 2rem;
+}
+
+.influencers-plan-feature {
+    margin-bottom: 1rem;
+}
+
+.influencers-plan-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.influencers-feature-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.influencers-feature-icon.included {
+    background: #48bb78;
+    color: white;
+}
+
+.influencers-feature-icon.excluded {
+    background: #e53e3e;
+    color: white;
+}
+
+.influencers-plan-feature-list li {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Special Offer */
+.influencers-plan-offer {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.influencers-offer-green {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.influencers-offer-blue {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+}
+
+.influencers-offer-pink {
+    background: linear-gradient(135deg, #ed64a6, #d53f8c);
+    color: white;
+}
+
+/* Call to Action */
+.influencers-plan-cta {
+    text-align: center;
+}
+
+.btnLink {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.influencers-plan-cta button {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+}
+
+.influencers-plan-cta button:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Notice */
+.influencers-plans-notice {
+    text-align: center;
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.influencers-plans-notice p {
+    margin: 0;
+    color: #2f855a;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .influencers-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .influencers-plan-card {
+        padding: 1.5rem;
+    }
+    
+    .influencers-price-amount {
+        font-size: 2rem;
+    }
+    
+    .influencers-plan-name {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .influencers-plan-card {
+        padding: 1rem;
+    }
+    
+    .influencers-plan-price-section {
+        padding: 1rem;
+    }
+    
+    .influencers-price-amount {
+        font-size: 1.8rem;
+    }
+    
+    .influencers-plan-feature-list {
+        gap: 0.5rem;
+    }
+    
+    .influencers-plan-feature-list li {
+        font-size: 0.9rem;
+    }
+}

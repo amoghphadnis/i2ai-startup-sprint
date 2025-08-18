@@ -1,0 +1,30 @@
+.page-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--font-family);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .page-container {
+    max-width: 100%;
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: var(--space-xs);
+  }
+}

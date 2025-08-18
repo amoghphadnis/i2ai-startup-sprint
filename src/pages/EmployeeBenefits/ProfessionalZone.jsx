@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiUsers, FiTarget, FiAward, FiTrendingUp, FiGlobe, FiZap, 
-    FiCpu, FiPlay, FiShield, FiBookOpen, FiUserCheck, FiMail, FiArrowRight, FiArrowLeft,
-    FiCheckCircle, FiStar, FiBriefcase } from 'react-icons/fi';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FiUsers,
+  FiTarget,
+  FiAward,
+  FiTrendingUp,
+  FiGlobe,
+  FiZap,
+  FiCpu,
+  FiPlay,
+  FiShield,
+  FiBookOpen,
+  FiUserCheck,
+  FiMail,
+  FiArrowRight,
+  FiArrowLeft,
+  FiCheckCircle,
+  FiStar,
+  FiBriefcase,
+} from "react-icons/fi";
 import { FaLinkedinIn, FaRocket, FaRegPlayCircle } from "react-icons/fa";
 import Button from "../../components/Button";
-import './ProfessionalZone.css';
+import GooglePayPayment from "../../components/GooglePayPayment/GooglePayPayment";
+import "./ProfessionalZone.css";
 
 const ProfessionalZone = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -14,39 +31,40 @@ const ProfessionalZone = () => {
     {
       icon: FiCpu,
       title: "AI-Powered Career Guidance",
-      description: "Discover your ideal career path with personalized AI insights",
-      color: "var(--color-primary)"
+      description:
+        "Discover your ideal career path with personalized AI insights",
+      color: "var(--color-primary)",
     },
     {
       icon: FiTrendingUp,
       title: "Skill Gap Analysis",
       description: "Bridge skill gaps before the market demands them",
-      color: "#8b5cf6"
+      color: "#8b5cf6",
     },
     {
       icon: FiBriefcase,
       title: "Premium Job Opportunities",
       description: "Access exclusive startup and enterprise job openings",
-      color: "#10b981"
+      color: "#10b981",
     },
     {
       icon: FiGlobe,
       title: "Professional Networking",
       description: "Build powerful connections with industry leaders",
-      color: "#f59e0b"
+      color: "#f59e0b",
     },
     {
       icon: FaRocket,
       title: "Future-Proof Your Career",
       description: "Stay ahead in an AI-transformed economy",
-      color: "#ef4444"
+      color: "#ef4444",
     },
     {
       icon: FiStar,
       title: "Personal Brand Building",
       description: "Create a compelling professional identity",
-      color: "#06b6d4"
-    }
+      color: "#06b6d4",
+    },
   ];
 
   const subscriptionPlans = [
@@ -60,13 +78,13 @@ const ProfessionalZone = () => {
         "🤖 AI Resume Review (1/month)",
         "📚 Free Training Resources (Webinars, E-books)",
         "🌐 1 Free Networking Event/month",
-        "💾 50 MB Cloud Storage"
+        "💾 50 MB Cloud Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4], // All features included
       specialOffer: "FREE FOREVER",
       cta: "Get Started Free",
       popular: false,
-      gradient: "green"
+      gradient: "green",
     },
     {
       name: "Basic Plan",
@@ -82,13 +100,13 @@ const ProfessionalZone = () => {
         "🎟️ 5 Participation Credits",
         "🌐 Custom Portfolio Website",
         "📊 Contact Management (50 contacts)",
-        "💾 1 GB Storage"
+        "💾 1 GB Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8], // All features included
       specialOffer: "FREE 3 MONTH",
       cta: "Choose Basic Plan",
       popular: true,
-      gradient: "pink"
+      gradient: "pink",
     },
     {
       name: "Beginner Plan",
@@ -103,13 +121,13 @@ const ProfessionalZone = () => {
         "📄 AI Resume & Portfolio Optimization",
         "📚 Access to Learning Repository",
         "🎟️ 1 Participation Credit (Premium Jobs/Gigs)",
-        "💾 100 MB Storage"
+        "💾 100 MB Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7], // All features included
       specialOffer: "FREE 1 MONTH",
       cta: "Choose Beginner Plan",
       popular: false,
-      gradient: "blue"
+      gradient: "blue",
     },
     {
       name: "Advanced Plan",
@@ -124,13 +142,13 @@ const ProfessionalZone = () => {
         "📈 Marketing Automation Tools (Gig Promotion)",
         "🌐 Advanced Portfolio Website",
         "📧 10 Professional Email IDs",
-        "💾 5 GB Storage"
+        "💾 5 GB Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7], // All features included
       specialOffer: "FREE 6 MONTH",
       cta: "Choose Advanced Plan",
       popular: false,
-      gradient: "green"
+      gradient: "green",
     },
     {
       name: "Professional Plan",
@@ -147,13 +165,13 @@ const ProfessionalZone = () => {
         "📊 Sales & Financial Forecasting",
         "📈 Maximized Marketing Automation",
         "🌍 VIP Networking Events",
-        "💾 10 GB Storage"
+        "💾 10 GB Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // All features included
       specialOffer: "FREE 9 MONTH",
       cta: "Choose Professional Plan",
       popular: false,
-      gradient: "blue"
+      gradient: "blue",
     },
     {
       name: "Pro Max Ultra",
@@ -170,63 +188,69 @@ const ProfessionalZone = () => {
         "🏢 Virtual Reality Office",
         "🌐 Enhanced Personal Brand Network",
         "🌍 Priority Access to Global Events",
-        "💾 50 GB Storage"
+        "💾 50 GB Storage",
       ],
       includedFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // All features included
       specialOffer: "FREE 12 MONTH",
       cta: "Choose Pro Max Ultra",
       popular: false,
-      gradient: "pink"
-    }
+      gradient: "pink",
+    },
   ];
 
   const earlyAccessRewards = [
     {
       tier: "Top 1%",
       reward: "Pro Max Ultra Plan (Worth ₹1,00,000/Year) – FREE for 1 Year",
-      description: "Ultimate career domination package"
+      description: "Ultimate career domination package",
     },
     {
       tier: "Next 2%",
       reward: "Professional Plan (Worth ₹60,000/Year) – FREE for 1 Year",
-      description: "Complete brand building solution"
+      description: "Complete brand building solution",
     },
     {
       tier: "Next 3%",
       reward: "Advanced Plan (Worth ₹36,000/Year) – FREE for 1 Year",
-      description: "Expert-level skill development"
+      description: "Expert-level skill development",
     },
     {
       tier: "Next 4%",
       reward: "Basic Plan (Worth ₹24,000/Year) – FREE for 1 Year",
-      description: "Professional identity building"
+      description: "Professional identity building",
     },
     {
       tier: "Next 90%",
       reward: "Beginner Plan (Worth ₹16,000/Year) – FREE for 1 Year",
-      description: "Career acceleration starter"
-    }
+      description: "Career acceleration starter",
+    },
   ];
 
   const testimonials = [
     {
       name: "Sarah Chen",
       role: "Software Engineer, TechFlow",
-      quote: "i2u.ai helped me transition from a junior developer to a senior role in just 8 months. The AI skill recommendations were spot-on!",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      quote:
+        "i2u.ai helped me transition from a junior developer to a senior role in just 8 months. The AI skill recommendations were spot-on!",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     },
     {
       name: "Marcus Rodriguez",
       role: "Marketing Manager, DataVault",
-      quote: "The networking opportunities alone are worth the investment. I've connected with startup founders and landed my dream job.",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+      quote:
+        "The networking opportunities alone are worth the investment. I've connected with startup founders and landed my dream job.",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     },
     {
       name: "Priya Sharma",
       role: "Product Manager, GreenTech",
-      quote: "From employee to entrepreneur! The platform gave me the skills and confidence to start my own company.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-    }
+      quote:
+        "From employee to entrepreneur! The platform gave me the skills and confidence to start my own company.",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    },
   ];
 
   const nextSlide = () => {
@@ -234,7 +258,9 @@ const ProfessionalZone = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   return (
@@ -275,8 +301,11 @@ const ProfessionalZone = () => {
             </div>
             <div className="emp-hero-cta-group">
               <Link
-                to="https://payments.cashfree.com/forms/i2uAI"
-                target="_blank"
+                to="#Pz-googlePaySection"
+                onClick={() => {
+                  // Navigate to home page first, then scroll to section
+                  window.location.href = '#Pz-googlePaySection';
+              }}
                 rel="noopener noreferrer"
                 className="btnLink"
               >
@@ -300,16 +329,16 @@ const ProfessionalZone = () => {
           <div className="emp-hero-visual-section">
             <div className="emp-hero-stats">
               <div className="emp-stat-item">
-                <span className="stat-number">Join</span>
-                <span className="stat-label">Professionals</span>
+                <span className="emp-stat-number">Join</span>
+                <span className="emp-stat-label">Professionals</span>
               </div>
               <div className="emp-stat-item">
-                <span className="stat-number">₹16K+</span>
-                <span className="stat-label">Value</span>
+                <span className="emp-stat-number">₹16K+</span>
+                <span className="emp-stat-label">Value</span>
               </div>
               <div className="emp-stat-item">
-                <span className="stat-number">9x</span>
-                <span className="stat-label">Faster Growth</span>
+                <span className="emp-stat-number">9x</span>
+                <span className="emp-stat-label">Faster Growth</span>
               </div>
             </div>
           </div>
@@ -363,12 +392,14 @@ const ProfessionalZone = () => {
               </p>
             </div>
           </div>
-          
 
-          <div className="emp-hero-cta-group" style={{marginBottom:'5rem'}}>
+          <div className="emp-hero-cta-group" style={{ marginBottom: "5rem" }}>
             <Link
-              to="https://payments.cashfree.com/forms/i2uAI"
-              target="_blank"
+              to="#Pz-googlePaySection"
+              onClick={() => {
+                // Navigate to home page first, then scroll to section
+                window.location.href = '#Pz-googlePaySection';
+            }}
               rel="noopener noreferrer"
               className="btnLink"
             >
@@ -437,8 +468,10 @@ const ProfessionalZone = () => {
             </h2>
             <div className="emp-benefits-content">
               <p>
-                Choose from our comprehensive range of plans designed to accelerate your career growth. 
-                From free access to premium features, find the perfect plan that matches your goals and budget.
+                Choose from our comprehensive range of plans designed to
+                accelerate your career growth. From free access to premium
+                features, find the perfect plan that matches your goals and
+                budget.
               </p>
             </div>
 
@@ -451,54 +484,56 @@ const ProfessionalZone = () => {
                   {plan.popular && (
                     <div className="popular-badge">Most Popular</div>
                   )}
-                  
+
                   {/* Plan Header */}
                   <div className="emp-plan-header">
                     <h3 className="emp-plan-name">{plan.name}</h3>
                   </div>
-                  
+
                   {/* Price Section with Gradient */}
-                  <div className={`emp-plan-price-section emp-price-${plan.gradient}`}>
+                  <div
+                    className={`emp-plan-price-section emp-price-${plan.gradient}`}
+                  >
                     <div className="emp-plan-price">
                       <span className="emp-price-amount">{plan.price}</span>
                       <span className="emp-price-period">{plan.period}</span>
                     </div>
                     <p className="emp-plan-description">{plan.description}</p>
                   </div>
-                  
+
                   {/* Features Section */}
                   <div className="emp-plan-features">
                     {plan.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="emp-plan-feature">
                         <ul className="emp-plan-feature-list">
-                        {plan.includedFeatures.includes(featureIndex) ? (
-                          <FiCheckCircle className="emp-feature-icon included" />
-                        ) : (
-                          <span className="emp-feature-icon excluded">✕</span>
-                        )}
-                        <li>{feature}</li>
+                          {plan.includedFeatures.includes(featureIndex) ? (
+                            <span className="emp-feature-icon included">✓</span>
+                          ) : (
+                            <span className="emp-feature-icon excluded">✗</span>
+                          )}
+                          <li>{feature}</li>
                         </ul>
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Special Offer Section */}
                   <div className={`emp-plan-offer emp-offer-${plan.gradient}`}>
                     <span>{plan.specialOffer}</span>
                   </div>
-                  
+
                   {/* Call to Action */}
-                  <div className="emp-plan-cta">
-                    <Button
-                      className={
-                        plan.popular
-                          ? "emp-plan-cta-popular"
-                          : "emp-plan-cta-standard"
-                      }
+                  <div className="emp-plan-cta" style={{justifyContent: 'center'}}>
+                    <Link
+                      to="#Pz-googlePaySection"
+                      onClick={() => {
+                        // Navigate to home page first, then scroll to section
+                        window.location.href = '#Pz-googlePaySection';
+                    }}
+                      className="btnLink"
                     >
-                      <FiArrowRight className="emp-cta-icon" />
-                      {plan.cta}
-                    </Button>
+                      <Button text={plan.cta} variant="outline" />
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -670,77 +705,14 @@ const ProfessionalZone = () => {
           </div> */}
 
           {/* Registration CTA Section */}
-          <div className="emp-benefits-section emp-registration-section">
-            <h2 className="emp-benefits-section-title">
-              🚀 Register Now – ₹99 Today, Value for a Lifetime
-            </h2>
-            <div className="emp-benefits-content">
-              <p>
-                The registration fee is at just <strong>₹99</strong>, but may be
-                increased anytime without advance notice. Act now to secure your
-                spot and maximize your reward.
-              </p>
-            </div>
-
-            <div className="emp-payment-section">
-              <div className="emp-payment-notice">
-                <p>
-                  👉{" "}
-                  <strong>
-                    Scan or Click to Pay ₹99 and Register Instantly
-                  </strong>
-                </p>
-              </div>
-
-              {/* Cashfree Button */}
-              <div className="emp-cashfree-button-container">
-                <form>
-                  <a
-                    href="https://payments.cashfree.com/forms/i2uAIJ"
-                    target="_parent"
-                  >
-                    <div
-                      className="button-container"
-                      style={{ background: "#130eb9" }}
-                    >
-                      <div>
-                        <img
-                          src="https://cashfree-checkoutcartimages-prod.cashfree.com/i2u18May251028 (1)G8mrvcb66o5g_prod.png"
-                          alt="logo"
-                          className="emp-logo-container"
-                        />
-                      </div>
-                      <div className="emp-text-container">
-                        <div
-                          style={{
-                            fontFamily: "Arial",
-                            color: "#fff",
-                            marginBottom: "5px",
-                            fontSize: "14px",
-                          }}
-                        >
-                          Pay Now ₹99 Only!
-                        </div>
-                        <div
-                          style={{
-                            fontFamily: "Arial",
-                            color: "#fff",
-                            fontSize: "10px",
-                          }}
-                        >
-                          <span>Powered By Cashfree</span>
-                          <img
-                            src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg"
-                            alt="logo"
-                            className="emp-seconday-logo-container"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </form>
-              </div>
-            </div>
+          <div id="Pz-googlePaySection" className="emp-benefits-section emp-registration-section">
+            <GooglePayPayment 
+              amount={99} 
+              displayText={{
+                heading: "🚀 Register for Professional Zone – ₹99 Only",
+                subheading: "Limited time offer for professional members. Secure your spot in the Professional Zone with this exclusive pricing."
+              }} 
+            />
           </div>
 
           {/* Post-Registration Section */}

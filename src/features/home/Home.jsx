@@ -1,13 +1,14 @@
 // src/components/HomePage/Home.jsx
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import Carousel from "react-slick";
 import rocketAnimation from "../../assets/rocket.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
-import PaymentButton from "../../components/common/PaymentButton/PaymentButton";
+import GooglePayPayment from "../../components/GooglePayPayment/GooglePayPayment";
 import Button from "../../components/Button";
 import "./Home.css";
 import Story1 from "../../assets/Images/MultV1.png";
@@ -21,6 +22,8 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 // import Marquee from "react-fast-marquee";
 import Marquee from "./marquee_animation";
+import ExternalPageModal from "../../components/ExternalPageModal";
+import Subscription from "../Resources/Startups/SubscriptionPlans/Subscription";
 
 import { FiUsers, FiTarget, FiAward } from "react-icons/fi";
 
@@ -187,6 +190,7 @@ const valueRows = [
   },
 ];
 
+
 const totalTraditional = "$120,000 – $225,000";
 const totalOur = "$99";
 
@@ -225,7 +229,40 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="homepage">
+    <>
+      <Helmet>
+        <title>i2u.ai | Transform Your Startup's Future @ HyperSpeed</title>
+        <meta name="description" content="90% of startups fail—but most failures are preventable. Join i2u.ai for just ₹999 and unlock up to $225,000 worth of benefits, AI-powered tools, and global startup network." />
+        <meta name="keywords" content="AI startups, startup acceleration, startup funding, startup mentorship, AI tools, startup resources, startup success, startup valuation" />
+        <meta property="og:title" content="i2u.ai | Transform Your Startup's Future @ HyperSpeed" />
+        <meta property="og:description" content="90% of startups fail—but most failures are preventable. Join i2u.ai for just ₹999 and unlock up to $225,000 worth of benefits." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://i2u.ai" />
+        <meta property="og:image" content="https://i2u.ai/assets/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="i2u.ai | Transform Your Startup's Future @ HyperSpeed" />
+        <meta name="twitter:description" content="90% of startups fail—but most failures are preventable. Join i2u.ai for just ₹999 and unlock up to $225,000 worth of benefits." />
+        <meta name="twitter:image" content="https://i2u.ai/assets/logo.png" />
+        <link rel="canonical" href="https://i2u.ai" />
+        
+        {/* JSON-LD Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "i2u.ai",
+            "description": "AI startup platform helping founders transform their startups with AI-powered tools, mentorship, and resources",
+            "url": "https://i2u.ai",
+            "potentialAction": {
+              "@type": "JoinAction",
+              "target": "https://i2u.ai",
+              "description": "Join i2u.ai for just ₹999 and unlock premium benefits"
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="homepage">
       {/* Hero Section */}
       <section className="heroSection">
         {/* Video Background - Only show on desktop */}
@@ -261,7 +298,10 @@ export default function HomePage() {
               <strong>₹999</strong> (<strong> ~ $12</strong>)
             </div>
             <div className="ctaGroup">
-              <Link to="https://payments.cashfree.com/forms/i2uAI" target="_blank" rel="noopener noreferrer" className="btnLink">
+              <Link to="#googlePaySection" onClick={() => {
+                  // Navigate to home page first, then scroll to section
+                  window.location.href = '#googlePaySection';
+              }} className="btnLink">
                 <Button text="Get Started Now &#x2192;" />
               </Link>
             </div>
@@ -279,7 +319,8 @@ export default function HomePage() {
             <h2 className="VC-Title">
               Top VCs of 2025
               <span className="VC-Subtitle">
-                Discover top venture capital firms across different funding stages
+                Discover top venture capital firms across different funding
+                stages
               </span>
             </h2>
             <div className="vc-table-card">
@@ -366,8 +407,11 @@ export default function HomePage() {
       </section>
       <div className="ctaGroup2">
         <Link
-          to="https://payments.cashfree.com/forms/i2uAI"
-          target="_blank"
+          to="/#googlePaySection"
+          onClick={() => {
+            // Navigate to home page first, then scroll to section
+            window.location.href = '#googlePaySection';
+        }}
           rel="noopener noreferrer"
           className="btnLink"
         >
@@ -437,10 +481,13 @@ export default function HomePage() {
       </div>
       <div className="ctaGroup2">
         <Link
-          to="https://payments.cashfree.com/forms/i2uAI"
-          target="_blank"
+          to="/#googlePaySection"
           rel="noopener noreferrer"
           className="btnLink"
+          onClick={() => {
+            // Navigate to home page first, then scroll to section
+            window.location.href = '#googlePaySection';
+        }}
         >
           <Button text="Register Now @ ₹999 only &#x2192;" />
         </Link>
@@ -470,7 +517,6 @@ export default function HomePage() {
       </section>
 
       <ValueCalculator />
-      <PaymentButton />
 
       {/* Features Showcase */}
       <section className="featuresSection">
@@ -491,6 +537,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Subscription Plans Section */}
+      <Subscription />
+      
       {/* Startup in Action Preview */}
       <section className="newsSection">
         <h2 className="newsTitle">Startup in Action</h2>
@@ -539,6 +588,17 @@ export default function HomePage() {
           See All News &rarr;
         </Link>
       </section>
+      
+      {/* Google Pay Payment */}
+      <section id="googlePaySection" className="googlePaySection">
+        <GooglePayPayment 
+          amount={999} 
+          displayText={{
+            heading: "🚀 Join i2u.ai – ₹999 Today, Unlock Premium Benefits",
+            subheading: "Your one-time fee of ₹999 gives you lifetime access to our premium resources, AI-powered tools, and global startup network. The registration fee will increase to ₹1999 after the first 100 registrations. Act now to secure your spot and maximize your reward."
+          }} 
+        />
+      </section>
 
       {/* Enhanced Bottom CTA Banner */}
       <section className="enhancedCta">
@@ -555,7 +615,11 @@ export default function HomePage() {
           </div>
           <div className="ctaButtonGroup">
             <Link
-              to="https://payments.cashfree.com/forms/i2uAI"
+              to="/#googlePaySection"
+                onClick={() => {
+                  // Navigate to home page first, then scroll to section
+                  window.location.href = '#googlePaySection';
+              }}
               className="btnPrimaryCta"
             >
               Register Now
@@ -567,5 +631,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
