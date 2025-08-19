@@ -24,10 +24,3 @@ dist-ssr
 *.sln
 *.sw?
 
-*.env*
-*.env.local*
-*.env.production*
-*.env.production.template*
-*.env.template*
-.env
-.env.production
