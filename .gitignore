@@ -24,6 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 
-.env.backup
+.env
 .env.local
-.env.production.backup
+.env.production
