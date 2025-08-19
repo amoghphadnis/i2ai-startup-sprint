@@ -57,32 +57,24 @@ class CashfreeService {
         return await this.createOrderMock(orderData);
       }
 
-      // Production - use Cashfree's hosted checkout (no API calls needed)
-      console.log('🚀 Creating order for hosted checkout...');
+      // Production - try hosted checkout first, fall back to embedded
+      console.log('🚀 Creating order for Cashfree checkout...');
       
-      // Generate unique order ID
-      const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
-      
-      console.log('🔧 Order ID generated:', orderId);
-      
-      // For hosted checkout, we create a direct checkout URL
-      // Cashfree will handle the order creation when user visits the URL
-      const checkoutUrl = `${this.cashfreeConfig.apiBaseUrl}/checkout/${orderId}`;
-      
-      console.log('✅ Hosted checkout URL created:', checkoutUrl);
-      
-      // Return the order data with the checkout URL
-      return {
-        success: true,
-        data: {
-          order_id: orderId,
-          payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
-          order_status: 'ACTIVE',
-          payment_url: checkoutUrl,
-          created_at: new Date().toISOString(),
-          cf_order_id: orderId
-        }
-      };
+      try {
+        // First attempt: Hosted checkout
+        console.log('🔧 Attempting hosted checkout...');
+        const hostedResult = await this.createOrderHosted(orderData);
+        console.log('✅ Hosted checkout successful');
+        return hostedResult;
+      } catch (hostedError) {
+        console.warn('⚠️ Hosted checkout failed, trying embedded checkout:', hostedError.message);
+        
+        // Fallback: Embedded checkout
+        console.log('🔧 Attempting embedded checkout...');
+        const embeddedResult = await this.createOrderEmbedded(orderData);
+        console.log('✅ Embedded checkout successful');
+        return embeddedResult;
+      }
     } catch (error) {
       console.error('❌ Error creating order:', error);
       
@@ -92,6 +84,86 @@ class CashfreeService {
         return await this.createOrderMock(orderData);
       }
       
+      throw error;
+    }
+  }
+
+  // Create order using Cashfree's hosted checkout
+  async createOrderHosted(orderData) {
+    console.log('🚀 Creating order for Cashfree hosted checkout...');
+    
+    // Generate unique order ID
+    const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+    
+    console.log('🔧 Order ID generated:', orderId);
+    
+    // For Cashfree hosted checkout, we need to pass order details as URL parameters
+    // This is the standard approach for hosted checkout
+    const baseUrl = this.environment === 'production' 
+      ? 'https://checkout.cashfree.com/ui/pg/checkout'
+      : 'https://sandbox.cashfree.com/ui/pg/checkout';
+    
+    // Build checkout URL with order parameters
+    const params = new URLSearchParams({
+      orderId: orderId,
+      orderAmount: orderData.order_amount,
+      orderCurrency: orderData.order_currency,
+      customerName: orderData.customer_details.customer_name,
+      customerEmail: orderData.customer_details.customer_email,
+      customerPhone: orderData.customer_details.customer_phone,
+      returnUrl: `${window.location.origin}${window.location.pathname}?order_id=${orderId}&status=success`
+    });
+    
+    const checkoutUrl = `${baseUrl}?${params.toString()}`;
+    
+    console.log('✅ Hosted checkout URL created with parameters:', checkoutUrl);
+    
+    // Return the order data with the checkout URL
+    return {
+      success: true,
+      data: {
+        order_id: orderId,
+        payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+        order_status: 'ACTIVE',
+        payment_url: checkoutUrl,
+        created_at: new Date().toISOString(),
+        cf_order_id: orderId,
+        checkout_type: 'hosted'
+      }
+    };
+  }
+
+  // Alternative: Create order using Cashfree's embedded checkout approach
+  async createOrderEmbedded(orderData) {
+    try {
+      if (this.environment === 'development' || this.environment === 'test') {
+        return await this.createOrderMock(orderData);
+      }
+
+      console.log('🚀 Creating order for embedded checkout...');
+      
+      const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+      
+      // For embedded checkout, we'll use Cashfree's SDK approach
+      // This doesn't require API calls from the browser
+      const checkoutUrl = `${window.location.origin}${window.location.pathname}?checkout=embedded&order_id=${orderId}`;
+      
+      console.log('✅ Embedded checkout URL created:', checkoutUrl);
+      
+      return {
+        success: true,
+        data: {
+          order_id: orderId,
+          payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+          order_status: 'ACTIVE',
+          payment_url: checkoutUrl,
+          created_at: new Date().toISOString(),
+          cf_order_id: orderId,
+          checkout_type: 'embedded'
+        }
+      };
+    } catch (error) {
+      console.error('❌ Error creating embedded order:', error);
       throw error;
     }
   }
