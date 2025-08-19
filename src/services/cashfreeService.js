@@ -17,36 +17,36 @@ class CashfreeService {
   }
 
   // Mock order creation for testing (remove this in production)
-  async createOrderMock(orderData) {
-    console.log('🔧 Mock order creation:', orderData);
+  // async createOrderMock(orderData) {
+  //   console.log('🔧 Mock order creation:', orderData);
     
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  //   // Simulate API delay
+  //   await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Generate more realistic mock order data
-    const timestamp = Date.now();
-    const randomId = Math.random().toString(36).substr(2, 9).toUpperCase();
+  //   // Generate more realistic mock order data
+  //   const timestamp = Date.now();
+  //   const randomId = Math.random().toString(36).substr(2, 9).toUpperCase();
     
-    const mockOrder = {
-      order_id: `ORDER_${timestamp}_${randomId}`,
-      payment_session_id: `CF_SESSION_${timestamp}_${randomId}`,
-      order_status: 'ACTIVE',
-      payment_url: 'https://sandbox.cashfree.com/pg/checkout/mock-payment',
-      created_at: new Date().toISOString(),
-      // Add more realistic fields that Cashfree expects
-      cf_order_id: `CF_ORDER_${timestamp}_${randomId}`,
-      order_amount: orderData.order_amount,
-      order_currency: orderData.order_currency,
-      customer_details: orderData.customer_details
-    };
+  //   const mockOrder = {
+  //     order_id: `ORDER_${timestamp}_${randomId}`,
+  //     payment_session_id: `CF_SESSION_${timestamp}_${randomId}`,
+  //     order_status: 'ACTIVE',
+  //     payment_url: 'https://sandbox.cashfree.com/pg/checkout/mock-payment',
+  //     created_at: new Date().toISOString(),
+  //     // Add more realistic fields that Cashfree expects
+  //     cf_order_id: `CF_ORDER_${timestamp}_${randomId}`,
+  //     order_amount: orderData.order_amount,
+  //     order_currency: orderData.order_currency,
+  //     customer_details: orderData.customer_details
+  //   };
     
-    console.log('✅ Mock order created:', mockOrder);
+  //   console.log('✅ Mock order created:', mockOrder);
     
-    return {
-      success: true,
-      data: mockOrder
-    };
-  }
+  //   return {
+  //     success: true,
+  //     data: mockOrder
+  //   };
+  // }
 
   // Real order creation - using Cashfree's hosted checkout
   async createOrder(orderData) {
@@ -57,53 +57,33 @@ class CashfreeService {
         return await this.createOrderMock(orderData);
       }
 
-      // Production - use Cashfree's hosted checkout (no CORS issues)
-      console.log('🚀 Creating order via Cashfree hosted checkout...');
+      // Production - create payment session for hosted checkout
+      console.log('🚀 Creating payment session for hosted checkout...');
       
       // Generate unique order ID
       const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
       
-      // Create order data for hosted checkout
-      const orderDataForCheckout = {
-        order_id: orderId,
-        order_amount: orderData.order_amount,
-        order_currency: orderData.order_currency,
-        customer_details: orderData.customer_details,
-        order_meta: {
-          ...orderData.order_meta,
-          return_url: `${window.location.origin}${window.location.pathname}?order_id=${orderId}&status=success`,
-          notify_url: `${window.location.origin}/api/webhooks/cashfree`
-        },
-        order_note: orderData.order_note,
-        order_tags: orderData.order_tags
-      };
+      console.log('🔧 Creating payment session for order:', orderId);
       
-      console.log('🔧 Order data for checkout:', orderDataForCheckout);
+      // Create payment session via Cashfree API
+      const sessionResult = await this.createPaymentSession(orderId, orderData);
       
-      // Create the actual hosted checkout URL based on environment
-      const baseUrl = this.environment === 'production' 
-        ? 'https://api.cashfree.com/pg/checkout'
-        : 'https://sandbox.cashfree.com/pg/checkout';
+      if (!sessionResult.success) {
+        throw new Error('Failed to create payment session');
+      }
       
-      const checkoutUrl = `${baseUrl}/${orderId}`;
+      console.log('✅ Payment session created successfully:', sessionResult.data);
       
-      console.log('✅ Order created for hosted checkout:', {
-        order_id: orderId,
-        payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
-        order_status: 'ACTIVE',
-        payment_url: checkoutUrl,
-        created_at: new Date().toISOString()
-      });
-      
-      // Return the order data with the actual checkout URL
+      // Return the order data with the checkout URL
       return {
         success: true,
         data: {
           order_id: orderId,
-          payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+          payment_session_id: sessionResult.data.payment_session_id,
           order_status: 'ACTIVE',
-          payment_url: checkoutUrl,
-          created_at: new Date().toISOString()
+          payment_url: sessionResult.data.payment_url,
+          created_at: new Date().toISOString(),
+          cf_order_id: orderId
         }
       };
     } catch (error) {
@@ -128,25 +108,45 @@ class CashfreeService {
         return await this.checkOrderStatusMock(orderId);
       }
 
-      // Production - use hosted checkout approach (no direct API calls)
-      console.log('🔍 Using hosted checkout - no direct API status check needed');
+      // Production - check order status via Cashfree API
+      console.log('🔍 Checking order status via Cashfree API...');
       
-      // In hosted checkout, Cashfree handles the payment status
-      // We need to check the actual payment status via Cashfree's API
-      // For now, we'll need to implement proper API call to Cashfree
-      // This is a placeholder - you'll need to implement the actual API call
+      const apiUrl = `${this.cashfreeConfig.apiBaseUrl}/orders/${orderId}`;
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'x-client-id': this.cashfreeConfig.clientId,
+          'x-client-secret': this.cashfreeConfig.clientSecret,
+          'x-api-version': '2023-08-01'
+        }
+      });
       
-      console.warn('⚠️ Production mode: Need to implement actual Cashfree API call for order status');
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('❌ Cashfree API error checking order status:', errorData);
+        throw new Error(`Cashfree API error: ${errorData.message || response.statusText}`);
+      }
       
-      // Return a pending status to indicate we need to check via webhook or redirect
+      const orderStatus = await response.json();
+      console.log('✅ Order status retrieved from Cashfree:', orderStatus);
+      
+      // Map Cashfree status to our format
+      const mappedStatus = {
+        order_id: orderStatus.order_id || orderId,
+        order_status: orderStatus.order_status || 'PENDING',
+        payment_status: orderStatus.payment_status || 'PENDING',
+        transaction_id: orderStatus.transaction_id || null,
+        upi_id: orderStatus.upi_id || null,
+        payment_method: orderStatus.payment_method || 'cashfree',
+        amount: orderStatus.order_amount || 0,
+        currency: orderStatus.order_currency || 'INR',
+        created_at: orderStatus.created_at || new Date().toISOString(),
+        updated_at: orderStatus.updated_at || new Date().toISOString()
+      };
+      
       return {
         success: true,
-        data: {
-          order_id: orderId,
-          order_status: 'PENDING',
-          payment_status: 'PENDING',
-          message: 'Payment status will be updated via webhook or redirect return'
-        }
+        data: mappedStatus
       };
     } catch (error) {
       console.error('❌ Error checking order status:', error);
@@ -189,6 +189,74 @@ class CashfreeService {
       success: true,
       data: mockStatus
     };
+  }
+
+  // Create payment session for hosted checkout
+  async createPaymentSession(orderId, orderData) {
+    try {
+      if (this.environment === 'development' || this.environment === 'test') {
+        console.log('🔄 Using mock payment session for development/testing');
+        return {
+          success: true,
+          data: {
+            payment_session_id: `CF_SESSION_${Date.now()}_${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+            payment_url: 'https://sandbox.cashfree.com/pg/checkout/mock-payment'
+          }
+        };
+      }
+
+      // Production - create payment session via Cashfree API
+      console.log('🚀 Creating payment session via Cashfree API...');
+      
+      const sessionData = {
+        order_id: orderId,
+        order_amount: orderData.order_amount,
+        order_currency: orderData.order_currency,
+        customer_details: orderData.customer_details,
+        order_meta: {
+          ...orderData.order_meta,
+          return_url: `${window.location.origin}${window.location.pathname}?order_id=${orderId}&status=success`,
+          notify_url: `${window.location.origin}/api/webhooks/cashfree`
+        },
+        order_note: orderData.order_note,
+        order_tags: orderData.order_tags
+      };
+      
+      const apiUrl = `${this.cashfreeConfig.apiBaseUrl}/sessions`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-client-id': this.cashfreeConfig.clientId,
+          'x-client-secret': this.cashfreeConfig.clientSecret,
+          'x-api-version': '2023-08-01'
+        },
+        body: JSON.stringify(sessionData)
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('❌ Cashfree API error creating session:', errorData);
+        throw new Error(`Cashfree API error: ${errorData.message || response.statusText}`);
+      }
+      
+      const sessionResponse = await response.json();
+      console.log('✅ Payment session created:', sessionResponse);
+      
+      // Build the checkout URL
+      const checkoutUrl = `${this.cashfreeConfig.apiBaseUrl}/sessions/${sessionResponse.payment_session_id}`;
+      
+      return {
+        success: true,
+        data: {
+          payment_session_id: sessionResponse.payment_session_id,
+          payment_url: checkoutUrl
+        }
+      };
+    } catch (error) {
+      console.error('❌ Error creating payment session:', error);
+      throw error;
+    }
   }
 
   // Verify webhook signature (client-side verification)
