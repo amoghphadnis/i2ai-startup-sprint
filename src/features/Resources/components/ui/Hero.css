@@ -3,15 +3,17 @@
   margin-top: var(--spacing-20);
   margin-bottom: var(--space-2xl);
   padding: var(--space-xl) var(--space-md);
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: url('../../../../assets/Banner/Startup-Leaders-Banner.webp') no-repeat fixed center center;
+  background-size: cover;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
 }
 
 .hero-title {
@@ -82,11 +84,12 @@
 }
 
 .hero-cta {
-  min-width: 160px;
-  padding: var(--space-sm) var(--space-lg);
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-md);
-  transition: var(--transition-normal);
+  /* Remove conflicting styles that override Button component */
+  /* min-width: 160px; */
+  /* padding: var(--space-sm) var(--space-lg); */
+  /* font-weight: var(--font-weight-semibold); */
+  /* border-radius: var(--radius-md); */
+  /* transition: var(--transition-normal); */
 }
 
 /* Responsive Design */

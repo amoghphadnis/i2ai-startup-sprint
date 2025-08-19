@@ -8,7 +8,8 @@ import rocketAnimation from "../../assets/rocket.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ValueCalculator from "../../pages/ValueCalculator/ValueCalculator";
-import GooglePayPayment from "../../components/GooglePayPayment/GooglePayPayment";
+// import GooglePayPayment from "../../components/GooglePayPayment/GooglePayPayment";
+import CashfreePayment from "../../components/CashfreePayment/CashfreePayment";
 import Button from "../../components/Button";
 import "./Home.css";
 import Story1 from "../../assets/Images/MultV1.png";
@@ -591,8 +592,10 @@ export default function HomePage() {
       
       {/* Google Pay Payment */}
       <section id="googlePaySection" className="googlePaySection">
-        <GooglePayPayment 
+        <CashfreePayment 
           amount={999} 
+          checkoutMode="popup"
+          inlineContainerId="payment-container"
           displayText={{
             heading: "🚀 Join i2u.ai – ₹999 Today, Unlock Premium Benefits",
             subheading: "Your one-time fee of ₹999 gives you lifetime access to our premium resources, AI-powered tools, and global startup network. The registration fee will increase to ₹1999 after the first 100 registrations. Act now to secure your spot and maximize your reward."

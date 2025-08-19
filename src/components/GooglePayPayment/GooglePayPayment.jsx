@@ -358,7 +358,7 @@ const GooglePayPayment = ({ amount = 99, displayText = {} }) => {
     const googlePayUrl = generateGooglePayLink();
     window.open(googlePayUrl, '_blank');
     
-    alert('Please complete the payment and copy the Transaction ID from your Google Pay app. Then return here to complete registration.');
+    alert('Please complete the payment and copy the Transaction ID from your UPI app. Then return here to complete registration.');
   };
 
   // Handle UPI ID copy
@@ -407,8 +407,8 @@ const GooglePayPayment = ({ amount = 99, displayText = {} }) => {
                 ) : (
                   <div className="google-pay-logo">G</div>
                 )}
-                <p>Google Pay QR Code</p>
-                <small>Scan with Google Pay app</small>
+                <p>UPI QR Code</p>
+                <small>Scan with your UPI app</small>
                 <div className="qr-actions">
                   <button 
                     className="download-qr-btn"
@@ -460,8 +460,7 @@ const GooglePayPayment = ({ amount = 99, displayText = {} }) => {
               <div className="payment-instructions">
                 <h4>📱 How to Pay:</h4>
                 <ol>
-                  <li>Click "Pay with Google Pay" button</li>
-                  <li>Complete payment in Google Pay app</li>
+                  <li>Complete payment in UPI Pay app</li>
                   <li>Copy the Transaction ID</li>
                   <li>Fill the form on the right and submit</li>
                 </ol>
@@ -616,11 +615,11 @@ const GooglePayPayment = ({ amount = 99, displayText = {} }) => {
                   name="transactionId"
                   value={formData.transactionId}
                   onChange={handleInputChange}
-                  placeholder="Enter transaction ID from Google Pay"
+                  placeholder="Enter transaction ID from UPI app"
                   required
                 />
                 <small className="help-text">
-                  Find this in your Google Pay app after payment completion
+                  Find this in your UPI app after payment completion
                 </small>
               </div>
 

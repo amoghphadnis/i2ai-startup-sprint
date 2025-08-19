@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import Button  from '../../../../components/Button';
 import './Hero.css';
 
 const Hero = ({ title, subtitle, ctas = [], badges = [], className = '' }) => {
@@ -26,6 +26,7 @@ const Hero = ({ title, subtitle, ctas = [], badges = [], className = '' }) => {
               <Button
                 key={index}
                 variant={cta.variant || 'default'}
+                size={cta.size || 'default'}
                 onClick={cta.onClick}
                 href={cta.href}
                 className={`hero-cta ${cta.className || ''}`}

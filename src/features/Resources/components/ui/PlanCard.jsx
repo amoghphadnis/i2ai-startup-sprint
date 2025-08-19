@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import Button from '../../../../components/Button';
 import './PlanCard.css';
 
 const PlanCard = ({ plan, onChoose, className = '' }) => {
@@ -31,8 +31,13 @@ const PlanCard = ({ plan, onChoose, className = '' }) => {
         <div className="special-offer-badge">{specialOffer}</div>
       )}
       
+      {/* Plan Header - Plan Name Only */}
       <div className="plan-header">
         <h3 className="plan-name">{name}</h3>
+      </div>
+      
+      {/* Price Section with Gradient Background */}
+      <div className={`plan-price-section plan-price-${gradient}`}>
         <div className="plan-price">
           <span className="price-amount">{price}</span>
           <span className="price-period">{period}</span>
@@ -40,6 +45,7 @@ const PlanCard = ({ plan, onChoose, className = '' }) => {
         <p className="plan-description">{description}</p>
       </div>
       
+      {/* Features Section */}
       <div className="plan-features">
         <ul className="features-list">
           {features.map((feature, index) => (
@@ -51,11 +57,19 @@ const PlanCard = ({ plan, onChoose, className = '' }) => {
         </ul>
       </div>
       
+      {/* Special Offer Section */}
+      {specialOffer && (
+        <div className={`plan-offer plan-offer-${gradient}`}>
+          <span>{specialOffer}</span>
+        </div>
+      )}
+      
+      {/* Call to Action */}
       <div className="plan-cta">
         <Button
           onClick={handleChoose}
-          className={`cta-button ${gradient}`}
-          variant="default"
+          className="cta-button"
+          variant="outline"
         >
           {cta}
         </Button>

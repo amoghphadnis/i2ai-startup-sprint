@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ContentPage from '@/components/layout/ContentPage';
 import { startupsPlans } from './startupsPlans';
 import { startupsFAQ } from './startupsFAQ';
 import './Startups.css';
 
 export default function Startups() {
+
+  // Optimized scroll handler with useCallback
+  const handleScrollToPayment = useCallback(() => {
+    const paymentSection = document.getElementById('googlePaySection');
+    if (paymentSection) {
+      // Use more performant scroll method
+      paymentSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  }, []);
 
   const hero = {
     title: "Why Early-Stage Startup Leaders Should Register for the World Startup Sprint?",
@@ -17,12 +30,7 @@ export default function Startups() {
     ctas: [
       {
         label: "Join the Startup Waitlist — ₹999",
-        onClick: () => {
-          const paymentSection = document.getElementById('googlePaySection');
-          if (paymentSection) {
-            paymentSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        },
+        onClick: handleScrollToPayment,
         variant: "default"
       }
     ]

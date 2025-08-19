@@ -14,6 +14,9 @@
   --color-dark: #001220;
   --princeton-orange: #fb9824ff;
   --secondary-color: #fbbf24;
+  --color-secondary: #fbbf24; /* Adding this for Button component compatibility */
+  --platinum: #e6eef8; /* Adding this for Button component compatibility */
+  --dark: #001220; /* Adding this for Button component compatibility */
   --indigo-dye: #1e3a8a;
   
   /* Spacing */
@@ -23,6 +26,11 @@
   --space-lg: 32px;
   --space-xl: 48px;
   --space-2xl: 64px;
+  
+  /* Additional spacing variables for Hero component */
+  --spacing-4: 1rem;
+  --spacing-12: 3rem;
+  --spacing-20: 5rem;
   
   /* Border Radius */
   --radius-sm: 8px;

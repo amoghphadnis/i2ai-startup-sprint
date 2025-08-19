@@ -807,11 +807,6 @@
   transition: color 0.18s;
 }
 
-.btnLink:hover {
-  color: #0b5ed7;
-  text-decoration: underline;
-}
-
 /* Enhanced Bottom CTA Banner */
 .enhancedCta {
   position: relative;

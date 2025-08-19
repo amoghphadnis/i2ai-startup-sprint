@@ -12,12 +12,13 @@
   --gradient-accent: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
   --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   
-  /* Enhanced shadows */
-  --glow-primary: 0 0 20px rgba(102, 126, 234, 0.3);
-  --glow-secondary: 0 0 20px rgba(251, 191, 36, 0.3);
-  --glow-accent: 0 0 20px rgba(240, 147, 251, 0.3);
+  /* Enhanced shadows - reduced for performance */
+  --glow-primary: 0 0 10px rgba(102, 126, 234, 0.2);
+  --glow-secondary: 0 0 10px rgba(251, 191, 36, 0.2);
+  --glow-accent: 0 0 10px rgba(240, 147, 251, 0.2);
 }
 
+/* Performance optimizations for smooth scrolling */
 .startups {
   max-width: 100%;
   width: 100%;
@@ -29,22 +30,48 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
-  background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+  background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.03) 0%, transparent 50%);
+  /* Performance optimizations */
+  will-change: scroll-position;
+  transform: translateZ(0); /* Force hardware acceleration */
+  /* Scroll optimizations */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
 }
 
-/* Enhanced Hero Section */
+/* Optimize all interactive elements for better performance */
+.startup-badge,
+.content-section,
+.benefits-list li,
+.market-section,
+.market-examples li,
+.historical-precedent,
+.current-dynamics,
+.current-dynamics li,
+.framework-item,
+.reward-tier,
+.source-category,
+.source-category li {
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
+  perspective: 1000px; /* 3D acceleration */
+}
+
+/* Enhanced Hero Section - optimized for performance */
 .startups-header {
   text-align: center;
   margin-bottom: 4rem;
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 100%;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(20px);
+  /* Removed backdrop-filter for better performance */
   box-shadow: var(--glow-primary);
 }
 
@@ -55,8 +82,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -101,16 +128,17 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(15px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Removed backdrop-filter for better performance */
+  transition: all 0.3s ease; /* Simplified transition */
   max-width: 100%;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--glow-secondary);
 }
 
 .startup-badge::before {
@@ -121,7 +149,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.6s ease;
+  transition: left 0.4s ease; /* Simplified transition */
 }
 
 .startup-badge:hover::before {
@@ -129,10 +157,9 @@
 }
 
 .startup-badge:hover {
-  transform: translateY(-4px) scale(1.05);
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* Simplified transform */
+  box-shadow: var(--glow-secondary);
+  filter: drop-shadow(0 2px 4px rgba(251, 191, 36, 0.2)); /* Reduced filter */
 }
 
 .badge-icon {
@@ -161,11 +188,11 @@
 /* Enhanced Section Styling */
 .content-section {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(20px);
+  /* Removed backdrop-filter for better performance */
   border-radius: 24px;
   padding: 2.5rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease; /* Simplified transition */
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
@@ -189,7 +216,7 @@
 
 .content-section:hover {
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Reduced shadow */
   transform: translateY(-2px);
 }
 
@@ -252,25 +279,31 @@
   padding: 1.5rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Simplified transition */
   position: relative;
   overflow: hidden;
 }
 
 .benefits-list li::before {
-  content: '✨';
+  content: '';
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.25rem;
-  opacity: 0.6;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.4s ease; /* Simplified transition */
+}
+
+.benefits-list li:hover::before {
+  left: 100%;
 }
 
 .benefits-list li:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(8px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateX(4px); /* Simplified transform */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .benefits-list li strong {
@@ -303,12 +336,15 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .market-section:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Simplified transform */
 }
 
 .market-section h4 {
@@ -355,12 +391,15 @@
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .market-examples li:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
+  transform: translateX(4px); /* Simplified transform */
 }
 
 .market-examples li strong {
@@ -391,13 +430,16 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .historical-precedent:hover,
 .current-dynamics:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Simplified transform */
 }
 
 .historical-precedent h4,
@@ -433,12 +475,15 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: center;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .current-dynamics li:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
+  transform: translateX(4px); /* Simplified transform */
 }
 
 /* Enhanced Support Framework */
@@ -456,13 +501,16 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: center;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .framework-item:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Simplified transform */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .framework-item h4 {
@@ -610,9 +658,12 @@
   padding: 2rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease; /* Simplified transition */
   position: relative;
   overflow: hidden;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .reward-tier::before {
@@ -634,8 +685,8 @@
 .reward-tier:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
   border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* Simplified transform */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .tier-header {
@@ -703,13 +754,16 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .source-category:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Simplified transform */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .source-category h4 {
@@ -737,12 +791,15 @@
   font-size: 0.95rem;
   line-height: 1.5;
   color: #e6eef8;
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .source-category li:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
+  transform: translateX(4px); /* Simplified transform */
 }
 
 /* Responsive Design */
